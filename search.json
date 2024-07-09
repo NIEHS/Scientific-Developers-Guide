@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "NIEHS Scientific Developers Guide",
+    "section": "",
+    "text": "Welcome to the NIEHS Scientific Developers Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "NIEHS Scientific Developers Guide",
+    "section": "",
+    "text": "Welcome to the NIEHS Scientific Developers Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
+  },
+  {
+    "objectID": "index.html#what-is-a-scientific-developer",
+    "href": "index.html#what-is-a-scientific-developer",
+    "title": "NIEHS Scientific Developers Guide",
+    "section": "What is a “Scientific Developer”?",
+    "text": "What is a “Scientific Developer”?\nWhat constitutes a “scientific developer”? These are people who typically:\n\nuse R or Python (or Julia, MATLAB, SAS, etc…) to process scientific data\nutilize scientific notebooks and publishing tools such as Jupyter, RMarkdown, Quarto, LaTeX, etc., to analyze data and create publications\nuse high-performance computing (HPC) to enable large analytical pipelines\nstore and interact with large amounts of data, including GB or TB (or even larger!) datasets\ncreate plots of all kinds and share their results in interactive ways (hello Shiny!)\n\nThis page is meant to support these developers, as well as the people who work closely with them (shoutout to the Office of Scientific Computing and the Office of Data Science)."
+  },
+  {
+    "objectID": "ai.html",
+    "href": "ai.html",
+    "title": "AI and LLMs",
+    "section": "",
+    "text": "Introduction goes here."
+  },
+  {
+    "objectID": "ai.html#introduction",
+    "href": "ai.html#introduction",
+    "title": "AI and LLMs",
+    "section": "",
+    "text": "Introduction goes here."
+  },
+  {
+    "objectID": "ai.html#accessing-llms-through-litellm-proxy",
+    "href": "ai.html#accessing-llms-through-litellm-proxy",
+    "title": "AI and LLMs",
+    "section": "Accessing LLMs through LiteLLM Proxy",
+    "text": "Accessing LLMs through LiteLLM Proxy\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the LiteLLM Proxy.\n\nMaking Requests\nThere are a few different methods for making requests to the LiteLLM Proxy.\n\nOpenAI Python Library\n\nimport openai\nclient = openai.OpenAI(\n    api_key=\"sk-1234\", # Format should be 'sk-&lt;your_key&gt;'\n    base_url=\"http://litellm.toxpipe.niehs.nih.gov\" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys\n)\n\nresponse = client.chat.completions.create(\n    model=\"azure-gpt-4o\", # model to send to the proxy\n    messages = [\n        {\n            \"role\": \"user\",\n            \"content\": \"this is a test request, write a short poem\"\n        }\n    ]\n)\n\nprint(response)\n\n\nLlamaIndex\nimport os, dotenv\n\nfrom llama_index.llms import AzureOpenAI\nfrom llama_index.embeddings import AzureOpenAIEmbedding\nfrom llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext\n\nllm = AzureOpenAI(\n    engine=\"azure-gpt-4o\", # model_name on litellm proxy\n    temperature=0.0,\n    azure_endpoint=\"https://litellm.toxpipe.niehs.nih.gov\", # litellm proxy endpoint\n    api_key=\"sk-1234\", # litellm proxy API Key\n    api_version=\"2024-02-01\",\n)\n\nembed_model = AzureOpenAIEmbedding(\n    deployment_name=\"text-embedding-ada-002\",\n    azure_endpoint=\"http://litellm.toxpipe.niehs.nih.gov\",\n    api_key=\"sk-1234\",\n    api_version=\"2024-02-01\",\n)\n\ndocuments = SimpleDirectoryReader(\"llama_index_data\").load_data()\nservice_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)\nindex = VectorStoreIndex.from_documents(documents, service_context=service_context)\n\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What did the author do growing up?\")\nprint(response)\n\n\nLangchain.py\nLangchain expects you to set the API key in the environment variable OPENAI_API_KEY. You can find more information about using this library here: https://python.langchain.com/v0.2/docs/tutorials/llm_chain/\nimport getpass\nimport os\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.output_parsers import StrOutputParser\n\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nmodel = ChatOpenAI(model=\"gpt-4\", base_url=\"https://litellm.toxpipe.niehs.nih.gov\")\n\nmessages = [\n    SystemMessage(content=\"Translate the following from English into Italian\"),\n    HumanMessage(content=\"hi!\"),\n]\n\nparser = StrOutputParser()\nresult = model.invoke(messages)\nparser.invoke(result)\n\n\n\nModels Available\nThe following models are available on the LiteLLM Proxy:\n\nOpenAI Models\n\nazure-gpt-4o\nazure-gpt-4-turbo-20240409\nazure-gpt-4-turbo-preview\nazure-gpt-4\ntext-embedding-ada-002\n\n\n\nAnthropic Claude Models\n\nclaude-3-5-sonnet\nclaude-3-haiku\nclaude-3-sonnet\nclaude-3-opus"
+  }
+]

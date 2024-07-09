@@ -1,0 +1,118 @@
+---
+title: "AI and LLMs"
+date-modified: "2024-06-25"
+execute: 
+  eval: false
+---
+
+## Introduction
+
+Introduction goes here.
+
+## Accessing LLMs through LiteLLM Proxy
+
+Contact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the LiteLLM Proxy.
+
+### Making Requests
+
+There are a few different methods for making requests to the LiteLLM Proxy.
+
+#### OpenAI Python Library
+
+```python
+
+import openai
+client = openai.OpenAI(
+    api_key="sk-1234", # Format should be 'sk-<your_key>'
+    base_url="http://litellm.toxpipe.niehs.nih.gov" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys
+)
+
+response = client.chat.completions.create(
+    model="azure-gpt-4o", # model to send to the proxy
+    messages = [
+        {
+            "role": "user",
+            "content": "this is a test request, write a short poem"
+        }
+    ]
+)
+
+print(response)
+```
+
+#### LlamaIndex
+
+```python
+import os, dotenv
+
+from llama_index.llms import AzureOpenAI
+from llama_index.embeddings import AzureOpenAIEmbedding
+from llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext
+
+llm = AzureOpenAI(
+    engine="azure-gpt-4o", # model_name on litellm proxy
+    temperature=0.0,
+    azure_endpoint="https://litellm.toxpipe.niehs.nih.gov", # litellm proxy endpoint
+    api_key="sk-1234", # litellm proxy API Key
+    api_version="2024-02-01",
+)
+
+embed_model = AzureOpenAIEmbedding(
+    deployment_name="text-embedding-ada-002",
+    azure_endpoint="http://litellm.toxpipe.niehs.nih.gov",
+    api_key="sk-1234",
+    api_version="2024-02-01",
+)
+
+documents = SimpleDirectoryReader("llama_index_data").load_data()
+service_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)
+index = VectorStoreIndex.from_documents(documents, service_context=service_context)
+
+query_engine = index.as_query_engine()
+response = query_engine.query("What did the author do growing up?")
+print(response)
+```
+
+#### Langchain.py
+
+Langchain expects you to set the API key in the environment variable `OPENAI_API_KEY`. You can find more information about using this library here: <https://python.langchain.com/v0.2/docs/tutorials/llm_chain/>
+
+```python
+import getpass
+import os
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.output_parsers import StrOutputParser
+
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+
+model = ChatOpenAI(model="gpt-4", base_url="https://litellm.toxpipe.niehs.nih.gov")
+
+messages = [
+    SystemMessage(content="Translate the following from English into Italian"),
+    HumanMessage(content="hi!"),
+]
+
+parser = StrOutputParser()
+result = model.invoke(messages)
+parser.invoke(result)
+```
+
+### Models Available
+
+The following models are available on the LiteLLM Proxy:
+
+#### OpenAI Models
+
+- `azure-gpt-4o`
+- `azure-gpt-4-turbo-20240409`
+- `azure-gpt-4-turbo-preview`
+- `azure-gpt-4`
+- `text-embedding-ada-002`
+
+#### Anthropic Claude Models
+
+- `claude-3-5-sonnet`
+- `claude-3-haiku`
+- `claude-3-sonnet`
+- `claude-3-opus`

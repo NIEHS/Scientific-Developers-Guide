@@ -7,9 +7,9 @@ date-modified: "2024-06-19"
 
 Welcome to the NIEHS Scientific Developers Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge.
 
-## What is a `Scientific Developer`?
+## What is a "Scientific Developer"?
 
-What constitutes a **'scientific developer'**? These are people who typically:
+What constitutes a **"scientific developer"**? These are people who typically:
 
 - use R or Python (or Julia, MATLAB, SAS, etc...) to process scientific data
 - utilize scientific notebooks and publishing tools such as Jupyter, RMarkdown, Quarto, LaTeX, etc., to analyze data and create publications

@@ -1,12 +1,19 @@
 project:
   type: website
+  output-dir: _site
+  preview:
+    port: 4200
 
 website:
   title: "NIEHS Scientific Developers Guide"
+  back-to-top-navigation: true
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - href: ai.qmd
+        text: AI and LLMs
+      # - sidebar:ai
 
 format:
   html:

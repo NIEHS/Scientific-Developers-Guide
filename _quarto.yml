@@ -11,9 +11,16 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: ai.qmd
-        text: AI and LLMs
-      # - sidebar:ai
+      - sidebar:ai
+
+  sidebar:
+    - id: ai
+      title: "{{< iconify arcticons access >}} AI"
+      style: "docked" # All other sidebars inherit this style
+      background: light # All other sidebars inherit this style
+      collapse-level: 2
+      contents: 
+        - auto: "ai/*.qmd"
 
 format:
   html:

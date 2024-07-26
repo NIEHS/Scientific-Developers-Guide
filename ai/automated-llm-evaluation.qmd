@@ -1,0 +1,29 @@
+---
+title: "Automated LLM Evaluation"
+date: "2024-07-09"
+---
+
+## Introduction
+
+This page shows how to run automated LLM testing. If you are part of the NIEHS Github organization, you can see an example of this in the [NIEHS/ToxPipe-Model-Comparisons repository](https://github.com/NIEHS/ToxPipe-Model-Comparison/tree/main/reports/ecsa-gara-challenge).
+
+## Requirements
+
+- [Promptfoo installed](https://www.promptfoo.dev/docs/installation/)
+- `.env` file with the following variables:
+  - `OPENAI_BASE_URL`
+  - `OPENAI_API_KEY`
+  - `OPENAI_API_VERSION`
+- `promptfooconfig.yaml`
+
+
+## Running Tests
+
+To run the tests, execute the following command while in the same directory that the files above are in. If you run this command from a parent directory, you will have to use relative file paths.
+
+```bash
+npx promptfoo@latest eval --env-file .env
+```
+
+The results of the test will be output into the same directory. This can be changed by modifying the `promptfooconfig.yaml` file or using the `--output` flag when running the command.
+

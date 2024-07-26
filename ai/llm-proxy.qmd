@@ -1,23 +1,19 @@
 ---
-title: "AI and LLMs"
-date-modified: "2024-06-25"
-execute: 
-  eval: false
+title: "LiteLLM Proxy"
+date: "2024-07-09"
 ---
 
 ## Introduction
 
-Introduction goes here.
+The [LiteLLM Proxy](https://litellm.toxpipe.niehs.nih.gov) is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.
 
-## Accessing LLMs through LiteLLM Proxy
+Contact [Trey Saddler](mailto:trey.saddler@nih.gov) for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy.
 
-Contact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the LiteLLM Proxy.
-
-### Making Requests
+## Making Requests
 
 There are a few different methods for making requests to the LiteLLM Proxy.
 
-#### OpenAI Python Library
+### OpenAI Python Library
 
 ```python
 
@@ -40,7 +36,7 @@ response = client.chat.completions.create(
 print(response)
 ```
 
-#### LlamaIndex
+### LlamaIndex
 
 ```python
 import os, dotenv
@@ -73,7 +69,7 @@ response = query_engine.query("What did the author do growing up?")
 print(response)
 ```
 
-#### Langchain.py
+### Langchain.py
 
 Langchain expects you to set the API key in the environment variable `OPENAI_API_KEY`. You can find more information about using this library here: <https://python.langchain.com/v0.2/docs/tutorials/llm_chain/>
 
@@ -98,11 +94,11 @@ result = model.invoke(messages)
 parser.invoke(result)
 ```
 
-### Models Available
+## Models Available
 
 The following models are available on the LiteLLM Proxy:
 
-#### OpenAI Models
+### OpenAI Models
 
 - `azure-gpt-4o`
 - `azure-gpt-4-turbo-20240409`
@@ -110,7 +106,7 @@ The following models are available on the LiteLLM Proxy:
 - `azure-gpt-4`
 - `text-embedding-ada-002`
 
-#### Anthropic Claude Models
+### Anthropic Claude Models
 
 - `claude-3-5-sonnet`
 - `claude-3-haiku`

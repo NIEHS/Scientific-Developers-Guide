@@ -1,0 +1,43 @@
+---
+title: "Langfuse"
+subtitle: "LLM Tracing"
+date: "2024-07-26"
+---
+
+[ToxPipe Langfuse Dashboard](https://langfuse.toxpipe.niehs.nih.gov)
+
+## Introduction
+
+Langfuse is a tool that allows you to trace the lineage of a model's responses. This can be useful for debugging, understanding how a model works, and ensuring that the model is behaving as expected.
+
+[Click here for an introductory video to using Langfuse](https://langfuse.com/guides/videos/introducing-langfuse-2.0)
+
+## Setup
+
+First, login to the Langfuse dashboard using Azure AD.
+
+![]()
+
+### New Project
+
+To create a new project, click on the "New Project" button in the bottom left corner of the dashboard.
+
+![](/media/langfuse/new-project.png)
+
+Give the project a name and click "Create".
+
+![](/media/langfuse/new-project-name.png)
+
+### API Key
+
+To access the Langfuse API, you will need an API key. You can generate an API key by clicking on the "Create new API keys" button while viewing the project settings for the newly created project.
+
+![](/media/langfuse/create-new-api-keys.png)
+
+## Usage
+
+After creating a new set of API keys, the popup will display code snippets for using Langfuse with various LLM frameworks.
+
+![](/media/langfuse/api-keys-popup.png)
+
+You can also find more information in the [Langfuse Documentation](https://langfuse.com/docshttps://langfuse.toxpipe.niehs.nih.gov/docs).

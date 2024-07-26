@@ -21,25 +21,44 @@
     "text": "What is a “Scientific Developer”?\nWhat constitutes a “scientific developer”? These are people who typically:\n\nuse R or Python (or Julia, MATLAB, SAS, etc…) to process scientific data\nutilize scientific notebooks and publishing tools such as Jupyter, RMarkdown, Quarto, LaTeX, etc., to analyze data and create publications\nuse high-performance computing (HPC) to enable large analytical pipelines\nstore and interact with large amounts of data, including GB or TB (or even larger!) datasets\ncreate plots of all kinds and share their results in interactive ways (hello Shiny!)\n\nThis page is meant to support these developers, as well as the people who work closely with them (shoutout to the Office of Scientific Computing and the Office of Data Science)."
   },
   {
-    "objectID": "ai/index.html",
-    "href": "ai/index.html",
-    "title": "AI and LLMs",
+    "objectID": "ai/langfuse.html",
+    "href": "ai/langfuse.html",
+    "title": "Langfuse",
     "section": "",
-    "text": "Introduction goes here."
+    "text": "ToxPipe Langfuse Dashboard",
+    "crumbs": [
+      "Langfuse"
+    ]
   },
   {
-    "objectID": "ai/index.html#introduction",
-    "href": "ai/index.html#introduction",
-    "title": "AI and LLMs",
-    "section": "",
-    "text": "Introduction goes here."
+    "objectID": "ai/langfuse.html#introduction",
+    "href": "ai/langfuse.html#introduction",
+    "title": "Langfuse",
+    "section": "Introduction",
+    "text": "Introduction\nLangfuse is a tool that allows you to trace the lineage of a model’s responses. This can be useful for debugging, understanding how a model works, and ensuring that the model is behaving as expected.\nClick here for an introductory video to using Langfuse",
+    "crumbs": [
+      "Langfuse"
+    ]
   },
   {
-    "objectID": "ai/index.html#accessing-llms-through-litellm-proxy",
-    "href": "ai/index.html#accessing-llms-through-litellm-proxy",
-    "title": "AI and LLMs",
-    "section": "Accessing LLMs through LiteLLM Proxy",
-    "text": "Accessing LLMs through LiteLLM Proxy\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the LiteLLM Proxy."
+    "objectID": "ai/langfuse.html#setup",
+    "href": "ai/langfuse.html#setup",
+    "title": "Langfuse",
+    "section": "Setup",
+    "text": "Setup\nFirst, login to the Langfuse dashboard using Azure AD.\n\n\nNew Project\nTo create a new project, click on the “New Project” button in the bottom left corner of the dashboard.\n\nGive the project a name and click “Create”.\n\n\n\nAPI Key\nTo access the Langfuse API, you will need an API key. You can generate an API key by clicking on the “Create new API keys” button while viewing the project settings for the newly created project.",
+    "crumbs": [
+      "Langfuse"
+    ]
+  },
+  {
+    "objectID": "ai/langfuse.html#usage",
+    "href": "ai/langfuse.html#usage",
+    "title": "Langfuse",
+    "section": "Usage",
+    "text": "Usage\nAfter creating a new set of API keys, the popup will display code snippets for using Langfuse with various LLM frameworks.\n\nYou can also find more information in the Langfuse Documentation.",
+    "crumbs": [
+      "Langfuse"
+    ]
   },
   {
     "objectID": "ai/automated-llm-evaluation.html",
@@ -82,11 +101,42 @@
     ]
   },
   {
+    "objectID": "ai/index.html",
+    "href": "ai/index.html",
+    "title": "AI and LLMs",
+    "section": "",
+    "text": "Introduction goes here."
+  },
+  {
+    "objectID": "ai/index.html#introduction",
+    "href": "ai/index.html#introduction",
+    "title": "AI and LLMs",
+    "section": "",
+    "text": "Introduction goes here."
+  },
+  {
+    "objectID": "ai/index.html#accessing-llms-through-litellm-proxy",
+    "href": "ai/index.html#accessing-llms-through-litellm-proxy",
+    "title": "AI and LLMs",
+    "section": "Accessing LLMs through LiteLLM Proxy",
+    "text": "Accessing LLMs through LiteLLM Proxy\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the LiteLLM Proxy."
+  },
+  {
     "objectID": "ai/llm-proxy.html",
     "href": "ai/llm-proxy.html",
     "title": "LiteLLM Proxy",
     "section": "",
-    "text": "There are a few different methods for making requests to the LiteLLM Proxy.\n\n\n\nimport openai\nclient = openai.OpenAI(\n    api_key=\"sk-1234\", # Format should be 'sk-&lt;your_key&gt;'\n    base_url=\"http://litellm.toxpipe.niehs.nih.gov\" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys\n)\n\nresponse = client.chat.completions.create(\n    model=\"azure-gpt-4o\", # model to send to the proxy\n    messages = [\n        {\n            \"role\": \"user\",\n            \"content\": \"this is a test request, write a short poem\"\n        }\n    ]\n)\n\nprint(response)\n\n\n\nimport os, dotenv\n\nfrom llama_index.llms import AzureOpenAI\nfrom llama_index.embeddings import AzureOpenAIEmbedding\nfrom llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext\n\nllm = AzureOpenAI(\n    engine=\"azure-gpt-4o\", # model_name on litellm proxy\n    temperature=0.0,\n    azure_endpoint=\"https://litellm.toxpipe.niehs.nih.gov\", # litellm proxy endpoint\n    api_key=\"sk-1234\", # litellm proxy API Key\n    api_version=\"2024-02-01\",\n)\n\nembed_model = AzureOpenAIEmbedding(\n    deployment_name=\"text-embedding-ada-002\",\n    azure_endpoint=\"http://litellm.toxpipe.niehs.nih.gov\",\n    api_key=\"sk-1234\",\n    api_version=\"2024-02-01\",\n)\n\ndocuments = SimpleDirectoryReader(\"llama_index_data\").load_data()\nservice_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)\nindex = VectorStoreIndex.from_documents(documents, service_context=service_context)\n\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What did the author do growing up?\")\nprint(response)\n\n\n\nLangchain expects you to set the API key in the environment variable OPENAI_API_KEY. You can find more information about using this library here: https://python.langchain.com/v0.2/docs/tutorials/llm_chain/\nimport getpass\nimport os\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.output_parsers import StrOutputParser\n\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nmodel = ChatOpenAI(model=\"gpt-4\", base_url=\"https://litellm.toxpipe.niehs.nih.gov\")\n\nmessages = [\n    SystemMessage(content=\"Translate the following from English into Italian\"),\n    HumanMessage(content=\"hi!\"),\n]\n\nparser = StrOutputParser()\nresult = model.invoke(messages)\nparser.invoke(result)",
+    "text": "The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy.",
+    "crumbs": [
+      "LiteLLM Proxy"
+    ]
+  },
+  {
+    "objectID": "ai/llm-proxy.html#introduction",
+    "href": "ai/llm-proxy.html#introduction",
+    "title": "LiteLLM Proxy",
+    "section": "",
+    "text": "The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy.",
     "crumbs": [
       "LiteLLM Proxy"
     ]
@@ -95,8 +145,8 @@
     "objectID": "ai/llm-proxy.html#making-requests",
     "href": "ai/llm-proxy.html#making-requests",
     "title": "LiteLLM Proxy",
-    "section": "",
-    "text": "There are a few different methods for making requests to the LiteLLM Proxy.\n\n\n\nimport openai\nclient = openai.OpenAI(\n    api_key=\"sk-1234\", # Format should be 'sk-&lt;your_key&gt;'\n    base_url=\"http://litellm.toxpipe.niehs.nih.gov\" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys\n)\n\nresponse = client.chat.completions.create(\n    model=\"azure-gpt-4o\", # model to send to the proxy\n    messages = [\n        {\n            \"role\": \"user\",\n            \"content\": \"this is a test request, write a short poem\"\n        }\n    ]\n)\n\nprint(response)\n\n\n\nimport os, dotenv\n\nfrom llama_index.llms import AzureOpenAI\nfrom llama_index.embeddings import AzureOpenAIEmbedding\nfrom llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext\n\nllm = AzureOpenAI(\n    engine=\"azure-gpt-4o\", # model_name on litellm proxy\n    temperature=0.0,\n    azure_endpoint=\"https://litellm.toxpipe.niehs.nih.gov\", # litellm proxy endpoint\n    api_key=\"sk-1234\", # litellm proxy API Key\n    api_version=\"2024-02-01\",\n)\n\nembed_model = AzureOpenAIEmbedding(\n    deployment_name=\"text-embedding-ada-002\",\n    azure_endpoint=\"http://litellm.toxpipe.niehs.nih.gov\",\n    api_key=\"sk-1234\",\n    api_version=\"2024-02-01\",\n)\n\ndocuments = SimpleDirectoryReader(\"llama_index_data\").load_data()\nservice_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)\nindex = VectorStoreIndex.from_documents(documents, service_context=service_context)\n\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What did the author do growing up?\")\nprint(response)\n\n\n\nLangchain expects you to set the API key in the environment variable OPENAI_API_KEY. You can find more information about using this library here: https://python.langchain.com/v0.2/docs/tutorials/llm_chain/\nimport getpass\nimport os\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.output_parsers import StrOutputParser\n\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nmodel = ChatOpenAI(model=\"gpt-4\", base_url=\"https://litellm.toxpipe.niehs.nih.gov\")\n\nmessages = [\n    SystemMessage(content=\"Translate the following from English into Italian\"),\n    HumanMessage(content=\"hi!\"),\n]\n\nparser = StrOutputParser()\nresult = model.invoke(messages)\nparser.invoke(result)",
+    "section": "Making Requests",
+    "text": "Making Requests\nThere are a few different methods for making requests to the LiteLLM Proxy.\n\nOpenAI Python Library\n\nimport openai\nclient = openai.OpenAI(\n    api_key=\"sk-1234\", # Format should be 'sk-&lt;your_key&gt;'\n    base_url=\"http://litellm.toxpipe.niehs.nih.gov\" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys\n)\n\nresponse = client.chat.completions.create(\n    model=\"azure-gpt-4o\", # model to send to the proxy\n    messages = [\n        {\n            \"role\": \"user\",\n            \"content\": \"this is a test request, write a short poem\"\n        }\n    ]\n)\n\nprint(response)\n\n\nLlamaIndex\nimport os, dotenv\n\nfrom llama_index.llms import AzureOpenAI\nfrom llama_index.embeddings import AzureOpenAIEmbedding\nfrom llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext\n\nllm = AzureOpenAI(\n    engine=\"azure-gpt-4o\", # model_name on litellm proxy\n    temperature=0.0,\n    azure_endpoint=\"https://litellm.toxpipe.niehs.nih.gov\", # litellm proxy endpoint\n    api_key=\"sk-1234\", # litellm proxy API Key\n    api_version=\"2024-02-01\",\n)\n\nembed_model = AzureOpenAIEmbedding(\n    deployment_name=\"text-embedding-ada-002\",\n    azure_endpoint=\"http://litellm.toxpipe.niehs.nih.gov\",\n    api_key=\"sk-1234\",\n    api_version=\"2024-02-01\",\n)\n\ndocuments = SimpleDirectoryReader(\"llama_index_data\").load_data()\nservice_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)\nindex = VectorStoreIndex.from_documents(documents, service_context=service_context)\n\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What did the author do growing up?\")\nprint(response)\n\n\nLangchain.py\nLangchain expects you to set the API key in the environment variable OPENAI_API_KEY. You can find more information about using this library here: https://python.langchain.com/v0.2/docs/tutorials/llm_chain/\nimport getpass\nimport os\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.output_parsers import StrOutputParser\n\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nmodel = ChatOpenAI(model=\"gpt-4\", base_url=\"https://litellm.toxpipe.niehs.nih.gov\")\n\nmessages = [\n    SystemMessage(content=\"Translate the following from English into Italian\"),\n    HumanMessage(content=\"hi!\"),\n]\n\nparser = StrOutputParser()\nresult = model.invoke(messages)\nparser.invoke(result)",
     "crumbs": [
       "LiteLLM Proxy"
     ]

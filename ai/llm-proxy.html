@@ -138,6 +138,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Automated LLM Evaluation</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../ai/langfuse.html">
+ <span class="dropdown-text">Langfuse</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../ai/llm-proxy.html">
  <span class="dropdown-text">LiteLLM Proxy</span></a>
   </li>  
@@ -174,6 +178,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../ai/langfuse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Langfuse</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../ai/llm-proxy.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">LiteLLM Proxy</span></a>
   </div>
@@ -188,7 +198,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#making-requests" id="toc-making-requests" class="nav-link active" data-scroll-target="#making-requests">Making Requests</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#making-requests" id="toc-making-requests" class="nav-link" data-scroll-target="#making-requests">Making Requests</a>
   <ul class="collapse">
   <li><a href="#openai-python-library" id="toc-openai-python-library" class="nav-link" data-scroll-target="#openai-python-library">OpenAI Python Library</a></li>
   <li><a href="#llamaindex" id="toc-llamaindex" class="nav-link" data-scroll-target="#llamaindex">LlamaIndex</a></li>
@@ -230,6 +241,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The <a href="https://litellm.toxpipe.niehs.nih.gov">LiteLLM Proxy</a> is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.</p>
+<p>Contact <a href="mailto:trey.saddler@nih.gov">Trey Saddler</a> for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy.</p>
+</section>
 <section id="making-requests" class="level2">
 <h2 class="anchored" data-anchor-id="making-requests">Making Requests</h2>
 <p>There are a few different methods for making requests to the LiteLLM Proxy.</p>

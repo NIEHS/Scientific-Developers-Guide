@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-07-09">
+<meta name="dcterms.date" content="2024-07-26">
 
-<title>NIEHS Scientific Developers Guide - Automated LLM Evaluation</title>
+<title>NIEHS Scientific Developers Guide - Langfuse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -158,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ai/automated-llm-evaluation.html">Automated LLM Evaluation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ai/langfuse.html">Langfuse</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -172,13 +138,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ai/automated-llm-evaluation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../ai/automated-llm-evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Automated LLM Evaluation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ai/langfuse.html" class="sidebar-item-text sidebar-link">
+  <a href="../ai/langfuse.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Langfuse</span></a>
   </div>
 </li>
@@ -199,8 +165,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
-  <li><a href="#running-tests" id="toc-running-tests" class="nav-link" data-scroll-target="#running-tests">Running Tests</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#new-project" id="toc-new-project" class="nav-link" data-scroll-target="#new-project">New Project</a></li>
+  <li><a href="#api-key" id="toc-api-key" class="nav-link" data-scroll-target="#api-key">API Key</a></li>
+  </ul></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
   </ul>
 </nav>
     </div>
@@ -209,7 +179,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Automated LLM Evaluation</h1>
+<h1 class="title">Langfuse</h1>
+<p class="subtitle lead">LLM Tracing</p>
 </div>
 
 
@@ -220,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 9, 2024</p>
+      <p class="date">July 26, 2024</p>
     </div>
   </div>
   
@@ -232,28 +203,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><a href="https://langfuse.toxpipe.niehs.nih.gov">ToxPipe Langfuse Dashboard</a></p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This page shows how to run automated LLM testing. If you are part of the NIEHS Github organization, you can see an example of this in the <a href="https://github.com/NIEHS/ToxPipe-Model-Comparison/tree/main/reports/ecsa-gara-challenge">NIEHS/ToxPipe-Model-Comparisons repository</a>.</p>
+<p>Langfuse is a tool that allows you to trace the lineage of a model’s responses. This can be useful for debugging, understanding how a model works, and ensuring that the model is behaving as expected.</p>
+<p><a href="https://langfuse.com/guides/videos/introducing-langfuse-2.0">Click here for an introductory video to using Langfuse</a></p>
 </section>
-<section id="requirements" class="level2">
-<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
-<ul>
-<li><a href="https://www.promptfoo.dev/docs/installation/">Promptfoo installed</a></li>
-<li><code>.env</code> file with the following variables:
-<ul>
-<li><code>OPENAI_BASE_URL</code></li>
-<li><code>OPENAI_API_KEY</code></li>
-<li><code>OPENAI_API_VERSION</code></li>
-</ul></li>
-<li><code>promptfooconfig.yaml</code></li>
-</ul>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>First, login to the Langfuse dashboard using Azure AD.</p>
+<p><img src=".png" class="img-fluid"></p>
+<section id="new-project" class="level3">
+<h3 class="anchored" data-anchor-id="new-project">New Project</h3>
+<p>To create a new project, click on the “New Project” button in the bottom left corner of the dashboard.</p>
+<p><img src="..\media/langfuse/new-project.png" class="img-fluid"></p>
+<p>Give the project a name and click “Create”.</p>
+<p><img src="..\media/langfuse/new-project-name.png" class="img-fluid"></p>
 </section>
-<section id="running-tests" class="level2">
-<h2 class="anchored" data-anchor-id="running-tests">Running Tests</h2>
-<p>To run the tests, execute the following command while in the same directory that the files above are in. If you run this command from a parent directory, you will have to use relative file paths.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> promptfoo@latest eval <span class="at">--env-file</span> .env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The results of the test will be output into the same directory. This can be changed by modifying the <code>promptfooconfig.yaml</code> file or using the <code>--output</code> flag when running the command.</p>
+<section id="api-key" class="level3">
+<h3 class="anchored" data-anchor-id="api-key">API Key</h3>
+<p>To access the Langfuse API, you will need an API key. You can generate an API key by clicking on the “Create new API keys” button while viewing the project settings for the newly created project.</p>
+<p><img src="..\media/langfuse/create-new-api-keys.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>After creating a new set of API keys, the popup will display code snippets for using Langfuse with various LLM frameworks.</p>
+<p><img src="..\media/langfuse/api-keys-popup.png" class="img-fluid"></p>
+<p>You can also find more information in the <a href="https://langfuse.com/docshttps://langfuse.toxpipe.niehs.nih.gov/docs">Langfuse Documentation</a>.</p>
 
 
 </section>

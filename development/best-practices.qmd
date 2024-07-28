@@ -1,0 +1,9 @@
+---
+title: "Best Practices"
+date: "2024-07-27"
+---
+
+## Introduction
+
+Welcome to the NIEHS Best Practices Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge.
+

@@ -1,0 +1,7 @@
+---
+title: "Computing"
+---
+
+## Introduction
+
+Computing is a broad field that encompasses the study of computers, software, and information systems. It involves the design, development, and use of computer systems and software applications to solve problems and perform tasks. Computing technologies have become an integral part of modern society, impacting various aspects of our lives, from communication and entertainment to business and education. This section explores different topics related to computing, including artificial intelligence, software development, and more. 

@@ -1,0 +1,7 @@
+---
+title: "Biowulf"
+---
+
+## Introduction
+
+[Biowulf](https://hpc.nih.gov/) is the high-performance computing (HPC) cluster at the National Institutes of Health (NIH). [It is one of the largest Linux clusters](https://hpc.nih.gov/systems/hardware.html) dedicated to biomedical research in the world. Biowulf provides researchers with the computational resources they need to perform complex simulations, analyze large datasets, and run computationally intensive algorithms.

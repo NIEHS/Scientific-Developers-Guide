@@ -1,0 +1,7 @@
+---
+title: "Interactivity"
+---
+
+## Introduction
+
+Interactivity is an essential feature of modern data analysis and visualization tools. It allows users to explore data, ask questions, and gain insights through direct manipulation and feedback. Interactive tools enable users to interact with data visualizations, models, and dashboards, providing a more engaging and informative experience.

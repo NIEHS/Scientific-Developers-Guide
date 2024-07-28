@@ -1,0 +1,35 @@
+---
+title: "Coding"
+date: "2024-07-27"
+---
+
+## Introduction
+
+Welcome to the NIEHS Coding Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge.
+
+## Languages
+
+The NIEHS primarily uses Python and R for scientific software development. These languages are widely used in the scientific community and have a large number of libraries and tools available for data analysis, visualization, and machine learning. 
+
+### Python
+
+Python is a versatile language that is easy to learn and use. It has a large and active community that develops libraries for a wide range of scientific applications. Some popular libraries for scientific computing in Python include:
+
+- NumPy: A library for numerical computing that provides support for large, multi-dimensional arrays and matrices.
+- Pandas: A library for data manipulation and analysis that provides data structures like DataFrames for working with structured data.
+- Matplotlib: A library for creating static, animated, and interactive visualizations in Python.
+- Scikit-learn: A library for machine learning that provides simple and efficient tools for data mining and data analysis.
+
+### R
+
+R is a language and environment for statistical computing and graphics. It is widely used in academia and industry for data analysis and visualization. Some popular libraries for scientific computing in R include:
+
+- ggplot2: A library for creating elegant and informative graphics in R.
+- dplyr: A library for data manipulation that provides a grammar of data manipulation.
+- tidyr: A library for tidying messy data that provides tools for reshaping and restructuring data.
+- caret: A library for machine learning that provides a consistent interface for training and tuning predictive models.
+- shiny: A library for creating interactive web applications with R.
+
+## Version Control
+
+Version control is an essential tool for managing changes to code and collaborating with colleagues. The NIEHS uses Git, a distributed version control system, to track changes to code and documents. Git allows developers to work on projects simultaneously, track changes, and merge changes from different branches.

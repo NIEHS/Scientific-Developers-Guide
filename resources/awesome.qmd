@@ -1,0 +1,8 @@
+---
+title: "Awesome Scientific Developer's List"
+date: "2024-07-27"
+---
+
+## Introduction
+
+In the spirit of '[awesome lists](https://github.com/sindresorhus/awesome)', we present the **Awesome Scientific Developer's List**. This is a curated list of resources, tools, and other media for scientific developers at NIEHS and beyond. Whether you're new to scientific programming or a seasoned pro, we hope you'll find something useful here.

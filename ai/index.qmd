@@ -1,15 +1,7 @@
 ---
-title: "AI and LLMs"
-date-modified: "2024-06-25"
-execute: 
-  eval: false
+title: "Artificial Intelligence"
 ---
 
 ## Introduction
 
-Introduction goes here.
-
-## Accessing LLMs through LiteLLM Proxy
-
-Contact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the LiteLLM Proxy.
-
+Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.

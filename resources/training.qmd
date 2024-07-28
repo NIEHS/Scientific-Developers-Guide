@@ -1,0 +1,10 @@
+---
+title: "Training"
+---
+
+## Introduction
+
+- [**The Missing Semester of Your CS Education** | MIT](https://missing.csail.mit.edu/): Master practical tools and skills in computer science, which are often overlooked but are crucial for efficient problem-solving and productivity in academia and scientific development.
+- [**Software Carpentry**](https://software-carpentry.org/): Learn foundational computing skills for scientific research, including programming, version control, and task automation.
+- [**O'Reilly Books**](https://www.oreilly.com/): Access a wide range of technical books and resources on programming, data science, and machine learning.
+- [**NIH Library Training & Events**](https://www.nihlibrary.nih.gov/training/calendar): The NIH Library offers a variety of training sessions on scientific computing, data analysis, and programming.

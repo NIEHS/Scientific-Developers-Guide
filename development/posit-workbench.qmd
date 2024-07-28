@@ -1,0 +1,7 @@
+---
+title: "Posit Workbench"
+---
+
+## Introduction
+
+Posit Workbench enables the collaboration, centralized management, metrics, security, and commercial support that professional data science teams need to operate at scale.

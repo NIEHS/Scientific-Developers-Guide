@@ -1,0 +1,7 @@
+---
+title: "Databases"
+---
+
+## Introduction
+
+This section provides guidance on how to work with databases in scientific software development. Databases are a critical component of many scientific software projects, as they provide a way to store, query, and analyze large amounts of data.

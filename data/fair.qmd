@@ -1,0 +1,11 @@
+---
+title: "FAIR Data"
+subtitle: "Findable, Accessible, Interoperable, Reusable"
+---
+
+## Introduction
+
+The FAIR Data Principles are a set of guidelines designed to enhance the reusability of scientific data. The principles were developed in 2016 by a group of stakeholders from academia, industry, and government. The FAIR Data Principles are intended to make data Findable, Accessible, Interoperable, and Reusable (FAIR).
+
+The FAIR Data Principles are based on the idea that data should be treated as a valuable asset that can be reused and repurposed. By following the FAIR Data Principles, researchers can ensure that their data is easily discoverable, accessible, and usable by others.
+

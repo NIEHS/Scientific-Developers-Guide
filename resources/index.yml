@@ -1,0 +1,7 @@
+- name: Training
+  href: ./training.qmd
+  custom-field: Various training resources
+- name: Communities
+  href: ./communities.qmd
+  custom-field: Communities within NIH and NIEHS
+- name: 

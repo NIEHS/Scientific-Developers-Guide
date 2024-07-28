@@ -1,0 +1,8 @@
+---
+title: "Local Development"
+---
+
+## Introduction
+
+Local development is the process of building, testing, and debugging software applications on a developer's local machine before deploying them to a production environment. Local development environments are typically set up to mimic the production environment as closely as possible, allowing developers to work on their code in a controlled and isolated environment. This guide will cover the key concepts and best practices for setting up and using a local development environment, including tools, workflows, and strategies for effective local development.
+

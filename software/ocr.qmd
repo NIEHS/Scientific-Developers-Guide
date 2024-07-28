@@ -1,0 +1,7 @@
+---
+title: "OCR"
+---
+
+## Introduction
+
+Optical character recognition (OCR) is the process of converting images of text into machine-encoded text. This enables the extraction of text from images or documents, which can be useful for a variety of applications, such as digitizing printed documents, extracting text from images for search engines, and more.

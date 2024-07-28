@@ -1,0 +1,15 @@
+---
+title: "Cloud Computing"
+---
+
+## Introduction
+
+This page provides an overview of cloud computing services available at NIEHS. Cloud computing offers researchers a flexible and scalable platform for running computational analyses, storing data, and collaborating with colleagues.
+
+## NIH Cloud Lab
+
+The [NIH Cloud Lab](https://cloud.nih.gov/resources/cloudlab/) removes barriers to cloud adoption by providing no-cost, customized, and scientifically relevant training, making it easier for researchers to learn about and explore the cloud with confidence. Participating National Institutes of Health staff and affiliated researchers receive up to 90 days of access to a cloud account and $500 of credits to explore cloud capabilities for research and access bioinformatic tutorials and data sets – all in a secure, NIH-approved environment.
+
+## NIH STRIDES Initiative
+
+The [STRIDES Initiative](https://cloud.nih.gov/) aims to help NIH and its institutions accelerate biomedical research by reducing barriers in utilizing commercial cloud services. This initiative aims to harness the power of the cloud to accelerate biomedical discovery. NIH and NIH-funded researchers can take advantage of STRIDES benefits.

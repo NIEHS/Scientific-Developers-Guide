@@ -1,0 +1,13 @@
+---
+title: "Electronic Lab Notebooks"
+---
+
+## Introduction
+
+Electronic lab notebooks (ELNs) are digital platforms that allow researchers to record, manage, and share their experimental data and research notes. ELNs offer several advantages over traditional paper notebooks, including improved organization, searchability, and collaboration capabilities. In this guide, we will explore the benefits of using ELNs and best practices for effectively using electronic lab notebooks in your research workflow.
+
+## NIH Mandate
+
+The National Institutes of Health (NIH) has [issued a mandate](https://oir.nih.gov/sourcebook/intramural-program-oversight/electronic-lab-notebooks/intramural-electronic-lab-notebook-policy) requiring all NIH-funded researchers to use electronic lab notebooks for recording and managing their research data.
+
+> As of June 30, 2024, NIH IRP Investigators are required to use only electronic resources to document new and ongoing research, consistent with the NARA/OMB Federal wide Transition to Electronic Records mandate.

@@ -1,8 +1,18 @@
 ---
 title: "{{< iconify hugeicons artificial-intelligence-04 >}} Artificial Intelligence"
 description: "Artificial intelligence (AI) topics including large language models (LLMs), deep learning and machine learning, speech recognition, natural language processing (NLP), etc."
+listing:
+  - id: ai-introduction
+    contents:
+      - "*.qmd"
+      - "!index.qmd"
+    type: default
+    sort: "title desc"
 ---
 
 ## Introduction
 
 Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.
+
+::: {#ai-introduction}
+:::

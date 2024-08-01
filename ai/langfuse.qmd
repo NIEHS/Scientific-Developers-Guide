@@ -2,6 +2,7 @@
 title: "Langfuse"
 subtitle: "LLM Tracing"
 date: "2024-07-26"
+image: "/media/langfuse/langfuse-logo.png"
 ---
 
 [ToxPipe Langfuse Dashboard](https://langfuse.toxpipe.niehs.nih.gov)

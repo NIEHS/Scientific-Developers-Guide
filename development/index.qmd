@@ -1,4 +1,5 @@
 ---
-title: "Development"
+title: "{{< iconify carbon development >}} Development"
 ---
 
+Development is the process of creating a new website or application. It involves designing, coding, and testing the website or application to ensure that it works as intended. Development can be done by a single person or a team of developers, depending on the size and complexity of the project.

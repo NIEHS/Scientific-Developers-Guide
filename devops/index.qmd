@@ -1,3 +1,5 @@
 ---
-title: "DevOps"
+title: "{{< iconify carbon workflow-automation >}} DevOps"
 ---
+
+DevOps is a set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery of high-quality software. It aims to improve collaboration between development and operations teams, automate manual processes, and increase the speed and efficiency of software delivery.

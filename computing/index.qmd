@@ -1,5 +1,6 @@
 ---
-title: "Computing"
+title: "{{< iconify akar-icons computing >}} Computing"
+description: "Local environment management and high performance computing (HPC)."
 ---
 
 ## Introduction

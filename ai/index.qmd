@@ -1,5 +1,6 @@
 ---
-title: "Artificial Intelligence"
+title: "{{< iconify hugeicons artificial-intelligence-04 >}} Artificial Intelligence"
+description: "Artificial intelligence (AI) topics including large language models (LLMs), deep learning and machine learning, speech recognition, natural language processing (NLP), etc."
 ---
 
 ## Introduction

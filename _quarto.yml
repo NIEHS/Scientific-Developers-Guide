@@ -9,22 +9,16 @@ website:
   back-to-top-navigation: true
   navbar:
     left:
-      - href: index.qmd
-        text: Home
       - href: ai/index.qmd
-        text: AI
+        text: "{{< iconify hugeicons artificial-intelligence-04 >}} AI"
+      - href: analysis/index.qmd
       - href: computing/index.qmd
-        text: Computing
       - href: data/index.qmd
-        text: Data
       - href: deployment/index.qmd
-        text: Deployment
+      - href: development/index.qmd
       - href: devops/index.qmd
-        text: DevOps
       - href: resources/index.qmd
-        text: Resources
       - href: software/index.qmd
-        text: Software
 
 format:
   html:

@@ -1,0 +1,36 @@
+- title: "AI and LLMs"
+  subtitle: Learn about AI and Large Language Models
+  image: /media/ai.jpeg
+  path: ai/index.qmd
+- title: "Analysis"
+  subtitle: 
+  image: /media/data-analysis.jpeg
+  path: analysis/index.qmd
+- title: "Computing"
+  subtitle: 
+  image: /media/computing.jpeg
+  path: computing/index.qmd
+- title: "Data"
+  subtitle: 
+  image: /media/data-storage.jpeg
+  path: data/index.qmd
+- title: "Deployment"
+  subtitle: 
+  image: /media/deployment.jpeg
+  path: deployment/index.qmd
+- title: "Development"
+  subtitle: 
+  image: /media/development.jpeg
+  path: development/index.qmd
+- title: "DevOps"
+  subtitle: 
+  image: /media/devops.jpeg
+  path: devops/index.qmd
+- title: "Resources"
+  subtitle: 
+  image: /media/resources.jpeg
+  path: resources/index.qmd
+- title: "Software"
+  subtitle: 
+  image: /media/software.jpeg
+  path: software/index.qmd

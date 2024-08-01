@@ -1,5 +1,7 @@
 ---
-title: "Analysis"
+title: "{{< iconify carbon text-link-analysis >}} Analysis"
+description: "Data analysis, visualization, workflows, and more."
+image: "../media/data-analysis.jpeg"
 ---
 
 ## Introduction

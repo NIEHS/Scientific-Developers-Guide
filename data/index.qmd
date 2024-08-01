@@ -1,6 +1,7 @@
 ---
-title: "Data"
+title: "{{< iconify akar-icons data >}} Data"
 ---
 
 ## Introduction
 
+Data is a collection of facts, figures, and statistics that can be analyzed and interpreted to gain insights and make informed decisions. It plays a crucial role in various fields, including business, science, healthcare, and more. With the rise of digital technologies, the amount of data generated and stored has grown exponentially, leading to the emergence of big data and data science as key areas of study. This section explores different topics related to data, including data analysis, data visualization, and data management.

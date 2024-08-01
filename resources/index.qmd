@@ -1,13 +1,11 @@
 ---
-title: "Resources"
+title: "{{< iconify grommet-icons resources >}} Resources"
 listing:
-    - id: resources
-      template: listing.ejs
-      contents:
-        - index.yml
+  - id: resources
+    contents: "index.yml"
 ---
 
 The following are a list of resources.
 
-:::{#resources}
+::: {#resources}
 :::

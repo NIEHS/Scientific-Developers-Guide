@@ -1,10 +1,17 @@
 ---
 title: "Welcome"
+listing:
+  - id: welcome
+    type: grid
+    contents:
+      - home.yml
 ---
 
-Welcome to the NIEHS Scientific Developers Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge.
+Welcome to the NIEHS Scientific Developers Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge. 
 
 ## What is a "Scientific Developer"?
+
+![](/media/scientific-developer.jpg)
 
 What constitutes a **"scientific developer"**? These are people who typically:
 
@@ -16,3 +23,7 @@ What constitutes a **"scientific developer"**? These are people who typically:
 
 This page is meant to support these developers, as well as the people who work closely with them (shoutout to the [Office of Scientific Computing](https://www.niehs.nih.gov/research/atniehs/dir/sio) and the [Office of Data Science](https://www.niehs.nih.gov/about/od/osec/osim)).
 
+## Topics
+
+::: {#welcome .column-screen-inset-right style="max-width: 850px;"}
+:::

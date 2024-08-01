@@ -1,5 +1,5 @@
 ---
-title: "Software"
+title: "{{< iconify hugeicons software >}} Software"
 ---
 
 ## Introduction

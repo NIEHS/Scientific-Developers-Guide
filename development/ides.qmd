@@ -15,6 +15,9 @@ Visual Studio Code (VS Code) is a free source-code editor made by Microsoft for 
 
 JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. It provides a flexible and powerful user interface for working with Jupyter notebooks, text files, and data. JupyterLab supports interactive widgets, tables, and visualizations, making it a popular choice for data scientists and researchers.
 
+- [NIEHS Jupyterhub](https://jupyter.niehs.nih.gov)
+- [NIEHS Jupyterhub (GPU)](https://jupyter-gpu.niehs.nih.gov)
+
 ## RStudio Desktop
 
 RStudio Desktop is an integrated development environment (IDE) for R, a programming language widely used for statistical computing and graphics. RStudio Desktop provides a user-friendly interface for writing R code, running scripts, visualizing data, and managing packages. It includes features like syntax highlighting, code completion, and integrated help documentation.

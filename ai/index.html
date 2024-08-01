@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Artificial intelligence (AI) topics including large language models (LLMs), deep learning and machine learning, speech recognition, natural language processing (NLP), etc.">
 
-<title>NIEHS Scientific Developers Guide - AI and LLMs</title>
+<title> Artificial Intelligence – NIEHS Scientific Developers Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,7 +70,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-ai-introduction .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-ai-introduction'] = new List('listing-ai-introduction', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -84,37 +145,50 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="../ai/index.html" aria-current="page"> 
+<span class="menu-text"><iconify-icon inline="" icon="hugeicons:artificial-intelligence-04" aria-label="Icon artificial-intelligence-04 from hugeicons Iconify.design set." title="Icon artificial-intelligence-04 from hugeicons Iconify.design set."></iconify-icon> AI</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-arcticons-access--ai" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text"><iconify-icon inline="" icon="arcticons:access" aria-label="Icon access from arcticons Iconify.design set." title="Icon access from arcticons Iconify.design set."></iconify-icon> AI</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-arcticons-access--ai">    
-        <li>
-    <a class="dropdown-item" href="../ai/automated-llm-evaluation.html">
- <span class="dropdown-text">Automated LLM Evaluation</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../analysis/index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="carbon:text-link-analysis" aria-label="Icon text-link-analysis from carbon Iconify.design set." title="Icon text-link-analysis from carbon Iconify.design set."></iconify-icon> Analysis</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../ai/langfuse.html">
- <span class="dropdown-text">Langfuse</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../computing/index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="akar-icons:computing" aria-label="Icon computing from akar-icons Iconify.design set." title="Icon computing from akar-icons Iconify.design set."></iconify-icon> Computing</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../ai/llm-proxy.html">
- <span class="dropdown-text">LiteLLM Proxy</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../data/index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="akar-icons:data" aria-label="Icon data from akar-icons Iconify.design set." title="Icon data from akar-icons Iconify.design set."></iconify-icon> Data</span></a>
   </li>  
-    </ul>
-  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../deployment/index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="eos-icons:deploy" aria-label="Icon deploy from eos-icons Iconify.design set." title="Icon deploy from eos-icons Iconify.design set."></iconify-icon> Deployment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../development/index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="carbon:development" aria-label="Icon development from carbon Iconify.design set." title="Icon development from carbon Iconify.design set."></iconify-icon> Development</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../devops/index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="carbon:workflow-automation" aria-label="Icon workflow-automation from carbon Iconify.design set." title="Icon workflow-automation from carbon Iconify.design set."></iconify-icon> DevOps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resources/index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="grommet-icons:resources" aria-label="Icon resources from grommet-icons Iconify.design set." title="Icon resources from grommet-icons Iconify.design set."></iconify-icon> Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../software/index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="hugeicons:software" aria-label="Icon software from hugeicons Iconify.design set." title="Icon software from hugeicons Iconify.design set."></iconify-icon> Software</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -129,7 +203,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#accessing-llms-through-litellm-proxy" id="toc-accessing-llms-through-litellm-proxy" class="nav-link" data-scroll-target="#accessing-llms-through-litellm-proxy">Accessing LLMs through LiteLLM Proxy</a></li>
   </ul>
 </nav>
     </div>
@@ -138,21 +211,20 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AI and LLMs</h1>
+<h1 class="title"><iconify-icon inline="" icon="hugeicons:artificial-intelligence-04" aria-label="Icon artificial-intelligence-04 from hugeicons Iconify.design set." title="Icon artificial-intelligence-04 from hugeicons Iconify.design set."></iconify-icon> Artificial Intelligence</h1>
 </div>
 
+<div>
+  <div class="description">
+    Artificial intelligence (AI) topics including large language models (LLMs), deep learning and machine learning, speech recognition, natural language processing (NLP), etc.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">June 25, 2024</p>
-    </div>
-  </div>
     
   </div>
   
@@ -163,11 +235,115 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Introduction goes here.</p>
-</section>
-<section id="accessing-llms-through-litellm-proxy" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-llms-through-litellm-proxy">Accessing LLMs through LiteLLM Proxy</h2>
-<p>Contact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the LiteLLM Proxy.</p>
+<p>Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.</p>
+<div id="listing-ai-introduction" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1720497600000" data-listing-file-modified-sort="1722523324337" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="363">
+<div class="thumbnail">
+<p><a href="../ai/llm-proxy.html" class="no-external"></a></p><a href="../ai/llm-proxy.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../ai/llm-proxy.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../ai/llm-proxy.html" class="no-external">LiteLLM Proxy</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../ai/llm-proxy.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../ai/llm-proxy.html" class="no-external">The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../ai/llm-proxy.html" class="no-external">
+<div class="listing-date">
+Jul 9, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1721966400000" data-listing-file-modified-sort="1722523768499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
+<div class="thumbnail">
+<p><a href="../ai/langfuse.html" class="no-external"></a></p><a href="../ai/langfuse.html" class="no-external">
+<p><img loading="lazy" src="../media/langfuse/langfuse-logo.png" class="thumbnail-image"></p>
+</a><p><a href="../ai/langfuse.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../ai/langfuse.html" class="no-external">Langfuse</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../ai/langfuse.html" class="no-external">LLM Tracing</a>
+</div>
+<div class="listing-description">
+<a href="../ai/langfuse.html" class="no-external">ToxPipe Langfuse Dashboard</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../ai/langfuse.html" class="no-external">
+<div class="listing-date">
+Jul 26, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1722052800000" data-listing-file-modified-sort="1722523324336" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="142">
+<div class="thumbnail">
+<p><a href="../ai/coding-assistants.html" class="no-external"></a></p><a href="../ai/coding-assistants.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../ai/coding-assistants.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../ai/coding-assistants.html" class="no-external">Coding Assistants</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../ai/coding-assistants.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../ai/coding-assistants.html" class="no-external">Welcome to the NIEHS Coding Assistants Guide.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../ai/coding-assistants.html" class="no-external">
+<div class="listing-date">
+Jul 27, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1720497600000" data-listing-file-modified-sort="1722523324335" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="118">
+<div class="thumbnail">
+<p><a href="../ai/automated-llm-evaluation.html" class="no-external"></a></p><a href="../ai/automated-llm-evaluation.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../ai/automated-llm-evaluation.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../ai/automated-llm-evaluation.html" class="no-external">Automated LLM Evaluation</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../ai/automated-llm-evaluation.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../ai/automated-llm-evaluation.html" class="no-external">This page shows how to run automated LLM testing. If you are part of the NIEHS Github organization, you can see an example of this in the NIEHS/ToxPipe-Model-Comparisons…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../ai/automated-llm-evaluation.html" class="no-external">
+<div class="listing-date">
+Jul 9, 2024
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+
 
 
 </section>
@@ -208,18 +384,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -251,7 +416,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/NIEHS\.github\.io\/Scientific-Developers-Guide\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -286,7 +491,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

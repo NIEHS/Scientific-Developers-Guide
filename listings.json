@@ -1,0 +1,29 @@
+[
+  {
+    "listing": "/ai/index.html",
+    "items": [
+      "/ai/llm-proxy.html",
+      "/ai/langfuse.html",
+      "/ai/coding-assistants.html",
+      "/ai/automated-llm-evaluation.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/ai/index.html",
+      "/analysis/index.html",
+      "/computing/index.html",
+      "/data/index.html",
+      "/deployment/index.html",
+      "/devops/index.html",
+      "/development/index.html",
+      "/resources/index.html",
+      "/software/index.html"
+    ]
+  },
+  {
+    "listing": "/resources/index.html",
+    "items": []
+  }
+]

@@ -1,6 +1,6 @@
 ---
 title: "Coding Assistants"
-date: "2024-07-27"
+date-modified: "2024-07-27"
 ---
 
 ## Introduction
@@ -9,10 +9,10 @@ Welcome to the NIEHS Coding Assistants Guide.
 
 This guide is intended to provide a set of best practices and guidelines for using coding assistants in your development workflow. Coding assistants are tools that help you write code more efficiently and effectively by providing suggestions, auto-completions, and other features that streamline the coding process.
 
-## GitHub Copilot
+## {{< iconify logos github-icon >}} GitHub Copilot
 
 GitHub Copilot is an AI-powered code completion tool that helps you write code faster and with fewer errors. It is based on the OpenAI Codex model and is available as a plugin for Visual Studio Code and other popular code editors. GitHub Copilot can generate code snippets, complete function calls, and provide context-aware suggestions to improve your coding experience.
 
-## Continue.dev VSCode Plugin
+## ![](/media/continue-logo.png){height=1em} Continue.dev VSCode Plugin
 
 [Continue](https://docs.continue.dev/intro) is an open-source AI code assistant. You can connect any models and any context to build custom autocomplete and chat experiences inside [VS Code](/development/ides.qmd#visual-studio-code) and JetBrains.

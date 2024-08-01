@@ -1,11 +1,13 @@
 ---
 title: "Automated LLM Evaluation"
-date: "2024-07-09"
+date-modified: "2024-07-09"
+description: "Running automated large language model (LLM) testing using Promptfoo."
+image: /media/promptfoo-logo.svg
 ---
 
 ## Introduction
 
-This page shows how to run automated LLM testing. If you are part of the NIEHS Github organization, you can see an example of this in the [NIEHS/ToxPipe-Model-Comparisons repository](https://github.com/NIEHS/ToxPipe-Model-Comparison/tree/main/reports/ecsa-gara-challenge).
+This page shows how to run automated LLM testing. If you are part of the [NIEHS GitHub](https://github.com/NIEHS) organization, you can see an example of this in the [NIEHS/ToxPipe-Model-Comparisons](https://github.com/NIEHS/ToxPipe-Model-Comparison/tree/main/reports/ecsa-gara-challenge) repository.
 
 ## Requirements
 

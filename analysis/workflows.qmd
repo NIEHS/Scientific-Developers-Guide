@@ -1,7 +1,37 @@
 ---
 title: "Workflows and Pipelines"
+date-modified: "2024-08-01"
+# image: 
 ---
 
 ## Introduction
 
 Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis.
+
+For a list of possible tools and frameworks for building workflows and pipelines, see the {{< iconify logos github-icon >}} [Awesome Pipelines](https://github.com/pditommaso/awesome-pipeline) list.
+
+Below are some tool and frameworks utilized by NIEHS scientific developers. 
+
+## `targets` R Package
+
+![](/media/targets-logo.svg){height="10em"}
+
+> The targets package is a Make-like pipeline tool for statistics and data science in R. The package skips costly runtime for tasks that are already up to date, orchestrates the necessary computation with implicit parallel computing, and abstracts files as R objects. If all the current output matches the current upstream code and data, then the whole pipeline is up to date, and the results are more trustworthy than otherwise.^[[`targets` Homepage](https://docs.ropensci.org/targets/)]
+
+For documentation surrounding the `targets` R package, see the [The {targets} R package user manual](https://books.ropensci.org/targets/).
+
+## `snakemake` Workflow Management System
+
+![](/media/snakemake-logo.png)
+
+> The Snakemake workflow management system is a tool to create reproducible and scalable data analyses. Workflows are described via a human readable, Python based language. They can be seamlessly scaled to server, cluster, grid and cloud environments, without the need to modify the workflow definition. Finally, Snakemake workflows can entail a description of required software, which will be automatically deployed to any execution environment.^[[`snakemake` Homepage](https://snakemake.readthedocs.io/en/stable/)]
+
+For documentation surrounding the `snakemake` workflow management system, see the [Snakemake Documentation](https://snakemake.readthedocs.io/en/stable/).
+
+## `Nextflow` Data-driven Computational Pipelines
+
+![](/media/nextflow-logo.svg){height="6em"}
+
+>  Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages. Its fluent DSL simplifies the implementation and the deployment of complex parallel and reactive workflows on clouds and clusters. .^[[`Nextflow` Homepage](https://www.nextflow.io/)]
+
+For documentation surrounding the `Nextflow` data-driven computational pipelines, see the [Nextflow Documentation](https://www.nextflow.io/docs/latest/index.html).

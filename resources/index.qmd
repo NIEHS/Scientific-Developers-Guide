@@ -2,7 +2,11 @@
 title: "{{< iconify grommet-icons resources >}} Resources"
 listing:
   - id: resources
-    contents: "index.yml"
+    contents:
+      - "*.qmd"
+      - "!index.qmd"
+    type: grid
+    sort: "title desc"
 ---
 
 The following are a list of resources.

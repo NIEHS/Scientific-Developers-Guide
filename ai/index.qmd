@@ -6,7 +6,7 @@ listing:
     contents:
       - "*.qmd"
       - "!index.qmd"
-    type: default
+    type: grid
     sort: "title desc"
 ---
 

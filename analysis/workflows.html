@@ -142,6 +142,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#targets-r-package" id="toc-targets-r-package" class="nav-link" data-scroll-target="#targets-r-package"><code>targets</code> R Package</a></li>
+  <li><a href="#snakemake-workflow-management-system" id="toc-snakemake-workflow-management-system" class="nav-link" data-scroll-target="#snakemake-workflow-management-system"><code>snakemake</code> Workflow Management System</a></li>
+  <li><a href="#nextflow-data-driven-computational-pipelines" id="toc-nextflow-data-driven-computational-pipelines" class="nav-link" data-scroll-target="#nextflow-data-driven-computational-pipelines"><code>Nextflow</code> Data-driven Computational Pipelines</a></li>
   </ul>
 </nav>
     </div>
@@ -159,6 +162,12 @@ ul.task-list li input[type="checkbox"] {
 
     
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 1, 2024</p>
+    </div>
+  </div>
     
   </div>
   
@@ -170,11 +179,45 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis.</p>
+<p>For a list of possible tools and frameworks for building workflows and pipelines, see the <iconify-icon inline="" icon="logos:github-icon" aria-label="Icon github-icon from logos Iconify.design set." title="Icon github-icon from logos Iconify.design set."></iconify-icon> <a href="https://github.com/pditommaso/awesome-pipeline">Awesome Pipelines</a> list.</p>
+<p>Below are some tool and frameworks utilized by NIEHS scientific developers.</p>
+</section>
+<section id="targets-r-package" class="level2">
+<h2 class="anchored" data-anchor-id="targets-r-package"><code>targets</code> R Package</h2>
+<p><img src="../media/targets-logo.svg" style="height:10em"></p>
+<blockquote class="blockquote">
+<p>The targets package is a Make-like pipeline tool for statistics and data science in R. The package skips costly runtime for tasks that are already up to date, orchestrates the necessary computation with implicit parallel computing, and abstracts files as R objects. If all the current output matches the current upstream code and data, then the whole pipeline is up to date, and the results are more trustworthy than otherwise.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<p>For documentation surrounding the <code>targets</code> R package, see the <a href="https://books.ropensci.org/targets/">The {targets} R package user manual</a>.</p>
+</section>
+<section id="snakemake-workflow-management-system" class="level2">
+<h2 class="anchored" data-anchor-id="snakemake-workflow-management-system"><code>snakemake</code> Workflow Management System</h2>
+<p><img src="../media/snakemake-logo.png" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p>The Snakemake workflow management system is a tool to create reproducible and scalable data analyses. Workflows are described via a human readable, Python based language. They can be seamlessly scaled to server, cluster, grid and cloud environments, without the need to modify the workflow definition. Finally, Snakemake workflows can entail a description of required software, which will be automatically deployed to any execution environment.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</blockquote>
+<p>For documentation surrounding the <code>snakemake</code> workflow management system, see the <a href="https://snakemake.readthedocs.io/en/stable/">Snakemake Documentation</a>.</p>
+</section>
+<section id="nextflow-data-driven-computational-pipelines" class="level2">
+<h2 class="anchored" data-anchor-id="nextflow-data-driven-computational-pipelines"><code>Nextflow</code> Data-driven Computational Pipelines</h2>
+<p><img src="../media/nextflow-logo.svg" style="height:6em"></p>
+<blockquote class="blockquote">
+<p>Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages. Its fluent DSL simplifies the implementation and the deployment of complex parallel and reactive workflows on clouds and clusters. .<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+</blockquote>
+<p>For documentation surrounding the <code>Nextflow</code> data-driven computational pipelines, see the <a href="https://www.nextflow.io/docs/latest/index.html">Nextflow Documentation</a>.</p>
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://docs.ropensci.org/targets/"><code>targets</code> Homepage</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://snakemake.readthedocs.io/en/stable/"><code>snakemake</code> Homepage</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://www.nextflow.io/"><code>Nextflow</code> Homepage</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

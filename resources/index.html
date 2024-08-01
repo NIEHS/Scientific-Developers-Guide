@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-name','listing-href','listing-custom-field',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-name","listing-href","listing-custom-field"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -222,55 +222,96 @@ window.Quarto = {
 
 
 <p>The following are a list of resources.</p>
-<div id="listing-resources" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0">
-<div class="body">
-
-</div>
-<div class="metadata">
-<p><a href="" class="no-external"></a></p><a href="" class="no-external">
-<div class="metadata-value listing-name">
+<div id="listing-resources" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1722523324348" data-listing-reading-time-sort="1" data-listing-word-count-sort="90">
+<a href="../resources/training.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Training
+</h5>
+<div class="card-text listing-description">
+
+
+<ul>
+<li><strong>The Missing Semester of Your CS Education</strong> | MIT: Master practical tools and skills in computer science, which are often overlooked but are crucial for efficient…</li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li></ul>
 </div>
-<div class="metadata-value listing-href">
-./training.qmd
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
-<div class="metadata-value listing-custom-field">
-Various training resources
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1722523324348" data-listing-reading-time-sort="1" data-listing-word-count-sort="119">
+<a href="../resources/lab-notebooks.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Electronic Lab Notebooks
+</h5>
+<div class="card-text listing-description">
+Electronic lab notebooks (ELNs) are digital platforms that allow researchers to record, manage, and share their experimental data and research notes. ELNs offer several…
 </div>
-<div class="quarto-post image-right" data-index="1">
-<div class="body">
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
 
 </div>
-<div class="metadata">
-<p><a href="" class="no-external"></a></p><a href="" class="no-external">
-<div class="metadata-value listing-name">
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1722052800000" data-listing-file-modified-sort="1722524066269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="438">
+<a href="../resources/communities.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Communities
+</h5>
+<div class="card-text listing-description">
+Welcome to the NIEHS Communities Guide. This guide is intended to direct you to the various NIEHS communities that you can join to connect with other researchers, share…
 </div>
-<div class="metadata-value listing-href">
-./communities.qmd
-</div>
-<div class="metadata-value listing-custom-field">
-Communities within NIH and NIEHS
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2">
-<div class="body">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
 
 </div>
-<div class="metadata">
-<p><a href="" class="no-external"></a></p><a href="" class="no-external">
-<div class="metadata-value listing-name">
-&nbsp;
+<div class="listing-date">
+Jul 27, 2024
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1722052800000" data-listing-file-modified-sort="1722523324347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="48">
+<a href="../resources/awesome.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Awesome Scientific Developer’s List
+</h5>
+<div class="card-text listing-description">
+In the spirit of ‘awesome lists’, we present the <strong>Awesome Scientific Developer’s List</strong>. This is a curated list of resources, tools, and other media for scientific developers…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Jul 27, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
 </div>
 </div>
 <div class="listing-no-matching d-none">

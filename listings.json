@@ -1,11 +1,27 @@
 [
   {
+    "listing": "/deployment/index.html",
+    "items": [
+      "/deployment/publishing.html",
+      "/deployment/posit-connect.html",
+      "/deployment/github-pages.html",
+      "/deployment/cloud.html"
+    ]
+  },
+  {
     "listing": "/ai/index.html",
     "items": [
       "/ai/llm-proxy.html",
       "/ai/langfuse.html",
       "/ai/coding-assistants.html",
       "/ai/automated-llm-evaluation.html"
+    ]
+  },
+  {
+    "listing": "/software/index.html",
+    "items": [
+      "/software/ssw.html",
+      "/software/ocr.html"
     ]
   },
   {
@@ -24,6 +40,54 @@
   },
   {
     "listing": "/resources/index.html",
-    "items": []
+    "items": [
+      "/resources/training.html",
+      "/resources/lab-notebooks.html",
+      "/resources/communities.html",
+      "/resources/awesome.html"
+    ]
+  },
+  {
+    "listing": "/analysis/index.html",
+    "items": [
+      "/analysis/workflows.html",
+      "/analysis/visualization.html",
+      "/analysis/scientific-notebooks.html",
+      "/analysis/interactivity.html"
+    ]
+  },
+  {
+    "listing": "/devops/index.html",
+    "items": [
+      "/devops/ci-cd.html"
+    ]
+  },
+  {
+    "listing": "/development/index.html",
+    "items": [
+      "/development/r.html",
+      "/development/python.html",
+      "/development/posit-workbench.html",
+      "/development/ides.html",
+      "/development/coding.html",
+      "/development/best-practices.html"
+    ]
+  },
+  {
+    "listing": "/computing/index.html",
+    "items": [
+      "/computing/niehs-hpc.html",
+      "/computing/local.html",
+      "/computing/biowulf.html"
+    ]
+  },
+  {
+    "listing": "/data/index.html",
+    "items": [
+      "/data/fair.html",
+      "/data/databases.html",
+      "/data/storage.html",
+      "/data/sharing.html"
+    ]
   }
 ]

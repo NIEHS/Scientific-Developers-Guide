@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-07-09">
+<meta name="description" content="Access a variety of language models through a single endpoint using the LiteLLM Proxy.">
 
-<title>LiteLLM Proxy – NIEHS Scientific Developers Guide</title>
+<title>🚅 LiteLLM Proxy – NIEHS Scientific Developers Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -177,12 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#making-requests" id="toc-making-requests" class="nav-link" data-scroll-target="#making-requests">Making Requests</a>
-  <ul class="collapse">
-  <li><a href="#openai-python-library" id="toc-openai-python-library" class="nav-link" data-scroll-target="#openai-python-library">OpenAI Python Library</a></li>
-  <li><a href="#llamaindex" id="toc-llamaindex" class="nav-link" data-scroll-target="#llamaindex">LlamaIndex</a></li>
-  <li><a href="#langchain.py" id="toc-langchain.py" class="nav-link" data-scroll-target="#langchain.py">Langchain.py</a></li>
-  </ul></li>
+  <li><a href="#making-requests" id="toc-making-requests" class="nav-link" data-scroll-target="#making-requests">Making Requests</a></li>
   <li><a href="#models-available" id="toc-models-available" class="nav-link" data-scroll-target="#models-available">Models Available</a>
   <ul class="collapse">
   <li><a href="#openai-models" id="toc-openai-models" class="nav-link" data-scroll-target="#openai-models">OpenAI Models</a></li>
@@ -196,21 +191,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">LiteLLM Proxy</h1>
+<h1 class="title">🚅 LiteLLM Proxy</h1>
 </div>
 
+<div>
+  <div class="description">
+    Access a variety of language models through a single endpoint using the LiteLLM Proxy.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+  
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 9, 2024</p>
+      <p class="date-modified">July 9, 2024</p>
     </div>
   </div>
-  
     
   </div>
   
@@ -227,10 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="making-requests" class="level2">
 <h2 class="anchored" data-anchor-id="making-requests">Making Requests</h2>
 <p>There are a few different methods for making requests to the LiteLLM Proxy.</p>
-<section id="openai-python-library" class="level3">
-<h3 class="anchored" data-anchor-id="openai-python-library">OpenAI Python Library</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">OpenAI Python Library</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><img src="../media/llamaindex-logo.jpg" style="height:1em"> LlamaIndex</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><iconify-icon inline="" icon="simple-icons:langchain" aria-label="Icon langchain from simple-icons Iconify.design set." title="Icon langchain from simple-icons Iconify.design set."></iconify-icon> Langchain.py</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> openai.OpenAI(</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span><span class="st">"sk-1234"</span>, <span class="co"># Format should be 'sk-&lt;your_key&gt;'</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    base_url<span class="op">=</span><span class="st">"http://litellm.toxpipe.niehs.nih.gov"</span> <span class="co"># LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys</span></span>
@@ -247,9 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="llamaindex" class="level3">
-<h3 class="anchored" data-anchor-id="llamaindex">LlamaIndex</h3>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, dotenv</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> llama_index.llms <span class="im">import</span> AzureOpenAI</span>
@@ -278,9 +279,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>query_engine <span class="op">=</span> index.as_query_engine()</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> query_engine.query(<span class="st">"What did the author do growing up?"</span>)</span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="langchain.py" class="level3">
-<h3 class="anchored" data-anchor-id="langchain.py">Langchain.py</h3>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>Langchain expects you to set the API key in the environment variable <code>OPENAI_API_KEY</code>. You can find more information about using this library here: <a href="https://python.langchain.com/v0.2/docs/tutorials/llm_chain/" class="uri">https://python.langchain.com/v0.2/docs/tutorials/llm_chain/</a></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getpass</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -300,7 +300,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>parser <span class="op">=</span> StrOutputParser()</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> model.invoke(messages)</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>parser.invoke(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+</div>
+</div>
+</div>
 </section>
 <section id="models-available" class="level2">
 <h2 class="anchored" data-anchor-id="models-available">Models Available</h2>

@@ -74,14 +74,14 @@
     "href": "deployment/index.html",
     "title": " Deployment",
     "section": "",
-    "text": "Deployment is the process of making software applications available to users. This involves taking the code that has been developed and making it accessible to users in a production environment. Deployment can involve a variety of tasks, such as setting up servers, configuring databases, and ensuring that the application is running smoothly. There are many different deployment strategies that can be used, depending on the needs of the application and the organization. These strategies can include manual deployments, continuous integration and continuous deployment (CI/CD), and more. Deployment is a critical part of the software development lifecycle, as it is the final step in getting software into the hands of users."
+    "text": "Deployment is the process of making software applications available to users. This involves taking the code that has been developed and making it accessible to users in a production environment. Deployment can involve a variety of tasks, such as setting up servers, configuring databases, and ensuring that the application is running smoothly. There are many different deployment strategies that can be used, depending on the needs of the application and the organization. These strategies can include manual deployments, continuous integration and continuous deployment (CI/CD), and more. Deployment is a critical part of the software development lifecycle, as it is the final step in getting software into the hands of users.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "deployment/index.html#introduction",
     "href": "deployment/index.html#introduction",
     "title": " Deployment",
     "section": "",
-    "text": "Deployment is the process of making software applications available to users. This involves taking the code that has been developed and making it accessible to users in a production environment. Deployment can involve a variety of tasks, such as setting up servers, configuring databases, and ensuring that the application is running smoothly. There are many different deployment strategies that can be used, depending on the needs of the application and the organization. These strategies can include manual deployments, continuous integration and continuous deployment (CI/CD), and more. Deployment is a critical part of the software development lifecycle, as it is the final step in getting software into the hands of users."
+    "text": "Deployment is the process of making software applications available to users. This involves taking the code that has been developed and making it accessible to users in a production environment. Deployment can involve a variety of tasks, such as setting up servers, configuring databases, and ensuring that the application is running smoothly. There are many different deployment strategies that can be used, depending on the needs of the application and the organization. These strategies can include manual deployments, continuous integration and continuous deployment (CI/CD), and more. Deployment is a critical part of the software development lifecycle, as it is the final step in getting software into the hands of users.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "deployment/github-pages.html",
@@ -130,28 +130,28 @@
     "href": "ai/index.html",
     "title": " Artificial Intelligence",
     "section": "",
-    "text": "Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nLLM Tracing\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 9, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.\n\n\n\n\n\n\n\n\n\n\n\nAccess a variety of language models through a single endpoint using the LiteLLM Proxy.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning automated large language model (LLM) testing using Promptfoo.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "ai/index.html#introduction",
     "href": "ai/index.html#introduction",
     "title": " Artificial Intelligence",
     "section": "",
-    "text": "Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nLLM Tracing\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 9, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.\n\n\n\n\n\n\n\n\n\n\n\nAccess a variety of language models through a single endpoint using the LiteLLM Proxy.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning automated large language model (LLM) testing using Promptfoo.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "ai/automated-llm-evaluation.html",
     "href": "ai/automated-llm-evaluation.html",
     "title": "Automated LLM Evaluation",
     "section": "",
-    "text": "This page shows how to run automated LLM testing. If you are part of the NIEHS Github organization, you can see an example of this in the NIEHS/ToxPipe-Model-Comparisons repository."
+    "text": "This page shows how to run automated LLM testing. If you are part of the NIEHS GitHub organization, you can see an example of this in the NIEHS/ToxPipe-Model-Comparisons repository."
   },
   {
     "objectID": "ai/automated-llm-evaluation.html#introduction",
     "href": "ai/automated-llm-evaluation.html#introduction",
     "title": "Automated LLM Evaluation",
     "section": "",
-    "text": "This page shows how to run automated LLM testing. If you are part of the NIEHS Github organization, you can see an example of this in the NIEHS/ToxPipe-Model-Comparisons repository."
+    "text": "This page shows how to run automated LLM testing. If you are part of the NIEHS GitHub organization, you can see an example of this in the NIEHS/ToxPipe-Model-Comparisons repository."
   },
   {
     "objectID": "ai/automated-llm-evaluation.html#requirements",
@@ -172,14 +172,14 @@
     "href": "software/index.html",
     "title": " Software",
     "section": "",
-    "text": "Software is a collection of instructions and data that tell a computer how to work. It includes applications, programs, and operating systems that enable computers to perform specific tasks. Software can be categorized into different types, such as system software, application software, and programming software. It plays a crucial role in the functioning of modern computers and is essential for various industries and sectors."
+    "text": "Software is a collection of instructions and data that tell a computer how to work. It includes applications, programs, and operating systems that enable computers to perform specific tasks. Software can be categorized into different types, such as system software, application software, and programming software. It plays a crucial role in the functioning of modern computers and is essential for various industries and sectors.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "software/index.html#introduction",
     "href": "software/index.html#introduction",
     "title": " Software",
     "section": "",
-    "text": "Software is a collection of instructions and data that tell a computer how to work. It includes applications, programs, and operating systems that enable computers to perform specific tasks. Software can be categorized into different types, such as system software, application software, and programming software. It plays a crucial role in the functioning of modern computers and is essential for various industries and sectors."
+    "text": "Software is a collection of instructions and data that tell a computer how to work. It includes applications, programs, and operating systems that enable computers to perform specific tasks. Software can be categorized into different types, such as system software, application software, and programming software. It plays a crucial role in the functioning of modern computers and is essential for various industries and sectors.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -228,7 +228,7 @@
     "href": "resources/index.html",
     "title": " Resources",
     "section": "",
-    "text": "The following are a list of resources.\n\n\n\n\n\n\n\n\n\nTraining\n\n\n./training.qmd\n\n\nVarious training resources\n\n\n\n\n\n\n\n\n\n\n\nCommunities\n\n\n./communities.qmd\n\n\nCommunities within NIH and NIEHS\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+    "text": "The following are a list of resources.\n\n\n\n\n\n\n\n\nTraining\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nElectronic Lab Notebooks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCommunities\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAwesome Scientific Developer’s List\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "development/r.html",
@@ -340,14 +340,14 @@
     "href": "analysis/index.html",
     "title": " Analysis",
     "section": "",
-    "text": "Data analysis is the process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making. It is a crucial step in the data science pipeline and is used across a wide range of industries and applications. Data analysis can involve a variety of techniques and tools, from simple data aggregation and visualization to complex statistical modeling and machine learning algorithms. By analyzing data, organizations can gain valuable insights, make data-driven decisions, and uncover hidden patterns and trends."
+    "text": "Data analysis is the process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making. It is a crucial step in the data science pipeline and is used across a wide range of industries and applications. Data analysis can involve a variety of techniques and tools, from simple data aggregation and visualization to complex statistical modeling and machine learning algorithms. By analyzing data, organizations can gain valuable insights, make data-driven decisions, and uncover hidden patterns and trends.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "analysis/index.html#introduction",
     "href": "analysis/index.html#introduction",
     "title": " Analysis",
     "section": "",
-    "text": "Data analysis is the process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making. It is a crucial step in the data science pipeline and is used across a wide range of industries and applications. Data analysis can involve a variety of techniques and tools, from simple data aggregation and visualization to complex statistical modeling and machine learning algorithms. By analyzing data, organizations can gain valuable insights, make data-driven decisions, and uncover hidden patterns and trends."
+    "text": "Data analysis is the process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making. It is a crucial step in the data science pipeline and is used across a wide range of industries and applications. Data analysis can involve a variety of techniques and tools, from simple data aggregation and visualization to complex statistical modeling and machine learning algorithms. By analyzing data, organizations can gain valuable insights, make data-driven decisions, and uncover hidden patterns and trends.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "devops/ci-cd.html",
@@ -368,21 +368,49 @@
     "href": "devops/index.html",
     "title": " DevOps",
     "section": "",
-    "text": "DevOps is a set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery of high-quality software. It aims to improve collaboration between development and operations teams, automate manual processes, and increase the speed and efficiency of software delivery.\n\n\n\n Back to top"
+    "text": "DevOps is a set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery of high-quality software. It aims to improve collaboration between development and operations teams, automate manual processes, and increase the speed and efficiency of software delivery.\n\n\n\n\n\n\n\n\nCI/CD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "analysis/workflows.html",
     "href": "analysis/workflows.html",
     "title": "Workflows and Pipelines",
     "section": "",
-    "text": "Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis."
+    "text": "Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis.\nFor a list of possible tools and frameworks for building workflows and pipelines, see the  Awesome Pipelines list.\nBelow are some tool and frameworks utilized by NIEHS scientific developers."
   },
   {
     "objectID": "analysis/workflows.html#introduction",
     "href": "analysis/workflows.html#introduction",
     "title": "Workflows and Pipelines",
     "section": "",
-    "text": "Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis."
+    "text": "Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis.\nFor a list of possible tools and frameworks for building workflows and pipelines, see the  Awesome Pipelines list.\nBelow are some tool and frameworks utilized by NIEHS scientific developers."
+  },
+  {
+    "objectID": "analysis/workflows.html#targets-r-package",
+    "href": "analysis/workflows.html#targets-r-package",
+    "title": "Workflows and Pipelines",
+    "section": "targets R Package",
+    "text": "targets R Package\n\n\nThe targets package is a Make-like pipeline tool for statistics and data science in R. The package skips costly runtime for tasks that are already up to date, orchestrates the necessary computation with implicit parallel computing, and abstracts files as R objects. If all the current output matches the current upstream code and data, then the whole pipeline is up to date, and the results are more trustworthy than otherwise.1\n\nFor documentation surrounding the targets R package, see the The {targets} R package user manual."
+  },
+  {
+    "objectID": "analysis/workflows.html#snakemake-workflow-management-system",
+    "href": "analysis/workflows.html#snakemake-workflow-management-system",
+    "title": "Workflows and Pipelines",
+    "section": "snakemake Workflow Management System",
+    "text": "snakemake Workflow Management System\n\n\nThe Snakemake workflow management system is a tool to create reproducible and scalable data analyses. Workflows are described via a human readable, Python based language. They can be seamlessly scaled to server, cluster, grid and cloud environments, without the need to modify the workflow definition. Finally, Snakemake workflows can entail a description of required software, which will be automatically deployed to any execution environment.2\n\nFor documentation surrounding the snakemake workflow management system, see the Snakemake Documentation."
+  },
+  {
+    "objectID": "analysis/workflows.html#nextflow-data-driven-computational-pipelines",
+    "href": "analysis/workflows.html#nextflow-data-driven-computational-pipelines",
+    "title": "Workflows and Pipelines",
+    "section": "Nextflow Data-driven Computational Pipelines",
+    "text": "Nextflow Data-driven Computational Pipelines\n\n\nNextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages. Its fluent DSL simplifies the implementation and the deployment of complex parallel and reactive workflows on clouds and clusters. .3\n\nFor documentation surrounding the Nextflow data-driven computational pipelines, see the Nextflow Documentation."
+  },
+  {
+    "objectID": "analysis/workflows.html#footnotes",
+    "href": "analysis/workflows.html#footnotes",
+    "title": "Workflows and Pipelines",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\ntargets Homepage↩︎\nsnakemake Homepage↩︎\nNextflow Homepage↩︎"
   },
   {
     "objectID": "analysis/interactivity.html",
@@ -431,7 +459,7 @@
     "href": "development/index.html",
     "title": " Development",
     "section": "",
-    "text": "Development is the process of creating a new website or application. It involves designing, coding, and testing the website or application to ensure that it works as intended. Development can be done by a single person or a team of developers, depending on the size and complexity of the project.\n\n\n\n Back to top"
+    "text": "Development is the process of creating a new website or application. It involves designing, coding, and testing the website or application to ensure that it works as intended. Development can be done by a single person or a team of developers, depending on the size and complexity of the project.\n\n\n\n\n\n\n\n\nR Programming Language\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosit Workbench\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrated Development Environments (IDEs)\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCoding\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nBest Practices\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "development/ides.html",
@@ -555,28 +583,28 @@
   {
     "objectID": "ai/llm-proxy.html",
     "href": "ai/llm-proxy.html",
-    "title": "LiteLLM Proxy",
+    "title": "🚅 LiteLLM Proxy",
     "section": "",
     "text": "The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy."
   },
   {
     "objectID": "ai/llm-proxy.html#introduction",
     "href": "ai/llm-proxy.html#introduction",
-    "title": "LiteLLM Proxy",
+    "title": "🚅 LiteLLM Proxy",
     "section": "",
     "text": "The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy."
   },
   {
     "objectID": "ai/llm-proxy.html#making-requests",
     "href": "ai/llm-proxy.html#making-requests",
-    "title": "LiteLLM Proxy",
+    "title": "🚅 LiteLLM Proxy",
     "section": "Making Requests",
-    "text": "Making Requests\nThere are a few different methods for making requests to the LiteLLM Proxy.\n\nOpenAI Python Library\n\nimport openai\nclient = openai.OpenAI(\n    api_key=\"sk-1234\", # Format should be 'sk-&lt;your_key&gt;'\n    base_url=\"http://litellm.toxpipe.niehs.nih.gov\" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys\n)\n\nresponse = client.chat.completions.create(\n    model=\"azure-gpt-4o\", # model to send to the proxy\n    messages = [\n        {\n            \"role\": \"user\",\n            \"content\": \"this is a test request, write a short poem\"\n        }\n    ]\n)\n\nprint(response)\n\n\nLlamaIndex\nimport os, dotenv\n\nfrom llama_index.llms import AzureOpenAI\nfrom llama_index.embeddings import AzureOpenAIEmbedding\nfrom llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext\n\nllm = AzureOpenAI(\n    engine=\"azure-gpt-4o\", # model_name on litellm proxy\n    temperature=0.0,\n    azure_endpoint=\"https://litellm.toxpipe.niehs.nih.gov\", # litellm proxy endpoint\n    api_key=\"sk-1234\", # litellm proxy API Key\n    api_version=\"2024-02-01\",\n)\n\nembed_model = AzureOpenAIEmbedding(\n    deployment_name=\"text-embedding-ada-002\",\n    azure_endpoint=\"http://litellm.toxpipe.niehs.nih.gov\",\n    api_key=\"sk-1234\",\n    api_version=\"2024-02-01\",\n)\n\ndocuments = SimpleDirectoryReader(\"llama_index_data\").load_data()\nservice_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)\nindex = VectorStoreIndex.from_documents(documents, service_context=service_context)\n\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What did the author do growing up?\")\nprint(response)\n\n\nLangchain.py\nLangchain expects you to set the API key in the environment variable OPENAI_API_KEY. You can find more information about using this library here: https://python.langchain.com/v0.2/docs/tutorials/llm_chain/\nimport getpass\nimport os\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.output_parsers import StrOutputParser\n\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nmodel = ChatOpenAI(model=\"gpt-4\", base_url=\"https://litellm.toxpipe.niehs.nih.gov\")\n\nmessages = [\n    SystemMessage(content=\"Translate the following from English into Italian\"),\n    HumanMessage(content=\"hi!\"),\n]\n\nparser = StrOutputParser()\nresult = model.invoke(messages)\nparser.invoke(result)"
+    "text": "Making Requests\nThere are a few different methods for making requests to the LiteLLM Proxy.\n\nOpenAI Python Library LlamaIndex Langchain.py\n\n\nimport openai\n\nclient = openai.OpenAI(\n    api_key=\"sk-1234\", # Format should be 'sk-&lt;your_key&gt;'\n    base_url=\"http://litellm.toxpipe.niehs.nih.gov\" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys\n)\n\nresponse = client.chat.completions.create(\n    model=\"azure-gpt-4o\", # model to send to the proxy\n    messages = [\n        {\n            \"role\": \"user\",\n            \"content\": \"this is a test request, write a short poem\"\n        }\n    ]\n)\n\nprint(response)\n\n\nimport os, dotenv\n\nfrom llama_index.llms import AzureOpenAI\nfrom llama_index.embeddings import AzureOpenAIEmbedding\nfrom llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext\n\nllm = AzureOpenAI(\n    engine=\"azure-gpt-4o\", # model_name on litellm proxy\n    temperature=0.0,\n    azure_endpoint=\"https://litellm.toxpipe.niehs.nih.gov\", # litellm proxy endpoint\n    api_key=\"sk-1234\", # litellm proxy API Key\n    api_version=\"2024-02-01\",\n)\n\nembed_model = AzureOpenAIEmbedding(\n    deployment_name=\"text-embedding-ada-002\",\n    azure_endpoint=\"http://litellm.toxpipe.niehs.nih.gov\",\n    api_key=\"sk-1234\",\n    api_version=\"2024-02-01\",\n)\n\ndocuments = SimpleDirectoryReader(\"llama_index_data\").load_data()\nservice_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)\nindex = VectorStoreIndex.from_documents(documents, service_context=service_context)\n\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What did the author do growing up?\")\nprint(response)\n\n\nLangchain expects you to set the API key in the environment variable OPENAI_API_KEY. You can find more information about using this library here: https://python.langchain.com/v0.2/docs/tutorials/llm_chain/\nimport getpass\nimport os\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.output_parsers import StrOutputParser\n\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nmodel = ChatOpenAI(model=\"gpt-4\", base_url=\"https://litellm.toxpipe.niehs.nih.gov\")\n\nmessages = [\n    SystemMessage(content=\"Translate the following from English into Italian\"),\n    HumanMessage(content=\"hi!\"),\n]\n\nparser = StrOutputParser()\nresult = model.invoke(messages)\nparser.invoke(result)"
   },
   {
     "objectID": "ai/llm-proxy.html#models-available",
     "href": "ai/llm-proxy.html#models-available",
-    "title": "LiteLLM Proxy",
+    "title": "🚅 LiteLLM Proxy",
     "section": "Models Available",
     "text": "Models Available\nThe following models are available on the LiteLLM Proxy:\n\nOpenAI Models\n\nazure-gpt-4o\nazure-gpt-4-turbo-20240409\nazure-gpt-4-turbo-preview\nazure-gpt-4\ntext-embedding-ada-002\n\n\n\nAnthropic Claude Models\n\nclaude-3-5-sonnet\nclaude-3-haiku\nclaude-3-sonnet\nclaude-3-opus"
   },
@@ -598,14 +626,14 @@
     "objectID": "ai/coding-assistants.html#github-copilot",
     "href": "ai/coding-assistants.html#github-copilot",
     "title": "Coding Assistants",
-    "section": "GitHub Copilot",
+    "section": " GitHub Copilot",
     "text": "GitHub Copilot\nGitHub Copilot is an AI-powered code completion tool that helps you write code faster and with fewer errors. It is based on the OpenAI Codex model and is available as a plugin for Visual Studio Code and other popular code editors. GitHub Copilot can generate code snippets, complete function calls, and provide context-aware suggestions to improve your coding experience."
   },
   {
     "objectID": "ai/coding-assistants.html#continue.dev-vscode-plugin",
     "href": "ai/coding-assistants.html#continue.dev-vscode-plugin",
     "title": "Coding Assistants",
-    "section": "Continue.dev VSCode Plugin",
+    "section": " Continue.dev VSCode Plugin",
     "text": "Continue.dev VSCode Plugin\nContinue is an open-source AI code assistant. You can connect any models and any context to build custom autocomplete and chat experiences inside VS Code and JetBrains."
   },
   {
@@ -669,42 +697,35 @@
     "href": "computing/index.html",
     "title": " Computing",
     "section": "",
-    "text": "Computing is a broad field that encompasses the study of computers, software, and information systems. It involves the design, development, and use of computer systems and software applications to solve problems and perform tasks. Computing technologies have become an integral part of modern society, impacting various aspects of our lives, from communication and entertainment to business and education. This section explores different topics related to computing, including artificial intelligence, software development, and more."
+    "text": "Computing is a broad field that encompasses the study of computers, software, and information systems. It involves the design, development, and use of computer systems and software applications to solve problems and perform tasks. Computing technologies have become an integral part of modern society, impacting various aspects of our lives, from communication and entertainment to business and education. This section explores different topics related to computing, including artificial intelligence, software development, and more.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "computing/index.html#introduction",
     "href": "computing/index.html#introduction",
     "title": " Computing",
     "section": "",
-    "text": "Computing is a broad field that encompasses the study of computers, software, and information systems. It involves the design, development, and use of computer systems and software applications to solve problems and perform tasks. Computing technologies have become an integral part of modern society, impacting various aspects of our lives, from communication and entertainment to business and education. This section explores different topics related to computing, including artificial intelligence, software development, and more."
-  },
-  {
-    "objectID": "computing/biowulf.html",
-    "href": "computing/biowulf.html",
-    "title": "Biowulf",
-    "section": "",
-    "text": "Biowulf is the high-performance computing (HPC) cluster at the National Institutes of Health (NIH). It is one of the largest Linux clusters dedicated to biomedical research in the world. Biowulf provides researchers with the computational resources they need to perform complex simulations, analyze large datasets, and run computationally intensive algorithms."
+    "text": "Computing is a broad field that encompasses the study of computers, software, and information systems. It involves the design, development, and use of computer systems and software applications to solve problems and perform tasks. Computing technologies have become an integral part of modern society, impacting various aspects of our lives, from communication and entertainment to business and education. This section explores different topics related to computing, including artificial intelligence, software development, and more.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "computing/biowulf.html#introduction",
     "href": "computing/biowulf.html#introduction",
     "title": "Biowulf",
-    "section": "",
-    "text": "Biowulf is the high-performance computing (HPC) cluster at the National Institutes of Health (NIH). It is one of the largest Linux clusters dedicated to biomedical research in the world. Biowulf provides researchers with the computational resources they need to perform complex simulations, analyze large datasets, and run computationally intensive algorithms."
+    "section": "Introduction",
+    "text": "Introduction\nBiowulf is the high-performance computing (HPC) cluster at the National Institutes of Health (NIH). It is one of the largest Linux clusters dedicated to biomedical research in the world. Biowulf provides researchers with the computational resources they need to perform complex simulations, analyze large datasets, and run computationally intensive algorithms."
   },
   {
     "objectID": "data/index.html",
     "href": "data/index.html",
     "title": " Data",
     "section": "",
-    "text": "Data is a collection of facts, figures, and statistics that can be analyzed and interpreted to gain insights and make informed decisions. It plays a crucial role in various fields, including business, science, healthcare, and more. With the rise of digital technologies, the amount of data generated and stored has grown exponentially, leading to the emergence of big data and data science as key areas of study. This section explores different topics related to data, including data analysis, data visualization, and data management."
+    "text": "Data is a collection of facts, figures, and statistics that can be analyzed and interpreted to gain insights and make informed decisions. It plays a crucial role in various fields, including business, science, healthcare, and more. With the rise of digital technologies, the amount of data generated and stored has grown exponentially, leading to the emergence of big data and data science as key areas of study. This section explores different topics related to data, including data analysis, data visualization, and data management.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "data/index.html#introduction",
     "href": "data/index.html#introduction",
     "title": " Data",
     "section": "",
-    "text": "Data is a collection of facts, figures, and statistics that can be analyzed and interpreted to gain insights and make informed decisions. It plays a crucial role in various fields, including business, science, healthcare, and more. With the rise of digital technologies, the amount of data generated and stored has grown exponentially, leading to the emergence of big data and data science as key areas of study. This section explores different topics related to data, including data analysis, data visualization, and data management."
+    "text": "Data is a collection of facts, figures, and statistics that can be analyzed and interpreted to gain insights and make informed decisions. It plays a crucial role in various fields, including business, science, healthcare, and more. With the rise of digital technologies, the amount of data generated and stored has grown exponentially, leading to the emergence of big data and data science as key areas of study. This section explores different topics related to data, including data analysis, data visualization, and data management.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "data/databases.html",

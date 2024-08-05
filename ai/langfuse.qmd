@@ -3,6 +3,7 @@ title: "Langfuse"
 subtitle: "LLM Tracing"
 date-modified: "2024-07-26"
 image: "/media/langfuse/langfuse-logo.png"
+fig-responsive: true
 ---
 
 [ToxPipe Langfuse Dashboard](https://langfuse.toxpipe.niehs.nih.gov)
@@ -17,7 +18,7 @@ Langfuse is a tool that allows you to trace the lineage of a model's responses. 
 
 First, login to the Langfuse dashboard using Azure AD.
 
-![]()
+![](/media/langfuse/login.png)
 
 ### New Project
 

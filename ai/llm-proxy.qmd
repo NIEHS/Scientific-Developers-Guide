@@ -17,7 +17,7 @@ There are a few different methods for making requests to the LiteLLM Proxy.
 
 ::: {.panel-tabset}
 
-## OpenAI Python Library
+## {{< iconify logos openai-icon >}} OpenAI Python Library
 
 ```python
 import openai

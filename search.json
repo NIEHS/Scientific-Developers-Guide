@@ -126,18 +126,32 @@
     "text": "Usage\nAfter creating a new set of API keys, the popup will display code snippets for using Langfuse with various LLM frameworks.\n\nYou can also find more information in the Langfuse Documentation."
   },
   {
-    "objectID": "ai/index.html",
-    "href": "ai/index.html",
-    "title": " Artificial Intelligence",
+    "objectID": "ai/models-available.html",
+    "href": "ai/models-available.html",
+    "title": "LLM Models Available",
     "section": "",
-    "text": "Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.\n\n\n\n\n\n\n\n\n\n\n\nAccess a variety of language models through a single endpoint using the LiteLLM Proxy.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning automated large language model (LLM) testing using Promptfoo.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Back to top"
   },
   {
-    "objectID": "ai/index.html#introduction",
-    "href": "ai/index.html#introduction",
-    "title": " Artificial Intelligence",
+    "objectID": "ai/llm-proxy.html",
+    "href": "ai/llm-proxy.html",
+    "title": "🚅 LiteLLM Proxy",
     "section": "",
-    "text": "Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.\n\n\n\n\n\n\n\n\n\n\n\nAccess a variety of language models through a single endpoint using the LiteLLM Proxy.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning automated large language model (LLM) testing using Promptfoo.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy."
+  },
+  {
+    "objectID": "ai/llm-proxy.html#introduction",
+    "href": "ai/llm-proxy.html#introduction",
+    "title": "🚅 LiteLLM Proxy",
+    "section": "",
+    "text": "The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy."
+  },
+  {
+    "objectID": "ai/llm-proxy.html#making-requests",
+    "href": "ai/llm-proxy.html#making-requests",
+    "title": "🚅 LiteLLM Proxy",
+    "section": "Making Requests",
+    "text": "Making Requests\nThere are a few different methods for making requests to the LiteLLM Proxy.\n\n OpenAI Python Library LlamaIndex Langchain.py\n\n\nimport openai\n\nclient = openai.OpenAI(\n    api_key=\"sk-1234\", # Format should be 'sk-&lt;your_key&gt;'\n    base_url=\"http://litellm.toxpipe.niehs.nih.gov\" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys\n)\n\nresponse = client.chat.completions.create(\n    model=\"azure-gpt-4o\", # model to send to the proxy\n    messages = [\n        {\n            \"role\": \"user\",\n            \"content\": \"this is a test request, write a short poem\"\n        }\n    ]\n)\n\nprint(response)\n\n\nimport os, dotenv\n\nfrom llama_index.llms import AzureOpenAI\nfrom llama_index.embeddings import AzureOpenAIEmbedding\nfrom llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext\n\nllm = AzureOpenAI(\n    engine=\"azure-gpt-4o\", # model_name on litellm proxy\n    temperature=0.0,\n    azure_endpoint=\"https://litellm.toxpipe.niehs.nih.gov\", # litellm proxy endpoint\n    api_key=\"sk-1234\", # litellm proxy API Key\n    api_version=\"2024-02-01\",\n)\n\nembed_model = AzureOpenAIEmbedding(\n    deployment_name=\"text-embedding-ada-002\",\n    azure_endpoint=\"http://litellm.toxpipe.niehs.nih.gov\",\n    api_key=\"sk-1234\",\n    api_version=\"2024-02-01\",\n)\n\ndocuments = SimpleDirectoryReader(\"llama_index_data\").load_data()\nservice_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)\nindex = VectorStoreIndex.from_documents(documents, service_context=service_context)\n\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What did the author do growing up?\")\nprint(response)\n\n\nLangchain expects you to set the API key in the environment variable OPENAI_API_KEY. You can find more information about using this library here: https://python.langchain.com/v0.2/docs/tutorials/llm_chain/\nimport getpass\nimport os\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.output_parsers import StrOutputParser\n\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nmodel = ChatOpenAI(model=\"gpt-4\", base_url=\"https://litellm.toxpipe.niehs.nih.gov\")\n\nmessages = [\n    SystemMessage(content=\"Translate the following from English into Italian\"),\n    HumanMessage(content=\"hi!\"),\n]\n\nparser = StrOutputParser()\nresult = model.invoke(messages)\nparser.invoke(result)"
   },
   {
     "objectID": "ai/automated-llm-evaluation.html",
@@ -203,263 +217,53 @@
     "text": "Topics\n\n\n\n\n\n\n\n\n\n\nAI and LLMs\n\n\nArtificial intelligence (AI) topics including large language models (LLMs), deep learning and machine learning, speech recognition, natural language processing (NLP), etc.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis\n\n\nData analysis, visualization, workflows, and more.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComputing\n\n\nLocal environment management and high performance computing (HPC).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDeployment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevOps\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevelopment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nResources\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSoftware\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "resources/lab-notebooks.html",
-    "href": "resources/lab-notebooks.html",
-    "title": "Electronic Lab Notebooks",
+    "objectID": "resources/training.html",
+    "href": "resources/training.html",
+    "title": "Training",
     "section": "",
-    "text": "Electronic lab notebooks (ELNs) are digital platforms that allow researchers to record, manage, and share their experimental data and research notes. ELNs offer several advantages over traditional paper notebooks, including improved organization, searchability, and collaboration capabilities. In this guide, we will explore the benefits of using ELNs and best practices for effectively using electronic lab notebooks in your research workflow."
+    "text": "The Missing Semester of Your CS Education | MIT: Master practical tools and skills in computer science, which are often overlooked but are crucial for efficient problem-solving and productivity in academia and scientific development.\nSoftware Carpentry: Learn foundational computing skills for scientific research, including programming, version control, and task automation.\nO’Reilly Books: Access a wide range of technical books and resources on programming, data science, and machine learning.\nNIH Library Training & Events: The NIH Library offers a variety of training sessions on scientific computing, data analysis, and programming."
   },
   {
-    "objectID": "resources/lab-notebooks.html#introduction",
-    "href": "resources/lab-notebooks.html#introduction",
-    "title": "Electronic Lab Notebooks",
+    "objectID": "resources/training.html#introduction",
+    "href": "resources/training.html#introduction",
+    "title": "Training",
     "section": "",
-    "text": "Electronic lab notebooks (ELNs) are digital platforms that allow researchers to record, manage, and share their experimental data and research notes. ELNs offer several advantages over traditional paper notebooks, including improved organization, searchability, and collaboration capabilities. In this guide, we will explore the benefits of using ELNs and best practices for effectively using electronic lab notebooks in your research workflow."
+    "text": "The Missing Semester of Your CS Education | MIT: Master practical tools and skills in computer science, which are often overlooked but are crucial for efficient problem-solving and productivity in academia and scientific development.\nSoftware Carpentry: Learn foundational computing skills for scientific research, including programming, version control, and task automation.\nO’Reilly Books: Access a wide range of technical books and resources on programming, data science, and machine learning.\nNIH Library Training & Events: The NIH Library offers a variety of training sessions on scientific computing, data analysis, and programming."
   },
   {
-    "objectID": "resources/lab-notebooks.html#nih-mandate",
-    "href": "resources/lab-notebooks.html#nih-mandate",
-    "title": "Electronic Lab Notebooks",
-    "section": "NIH Mandate",
-    "text": "NIH Mandate\nThe National Institutes of Health (NIH) has issued a mandate requiring all NIH-funded researchers to use electronic lab notebooks for recording and managing their research data.\n\nAs of June 30, 2024, NIH IRP Investigators are required to use only electronic resources to document new and ongoing research, consistent with the NARA/OMB Federal wide Transition to Electronic Records mandate."
-  },
-  {
-    "objectID": "resources/index.html",
-    "href": "resources/index.html",
-    "title": " Resources",
+    "objectID": "resources/communities.html",
+    "href": "resources/communities.html",
+    "title": "Communities",
     "section": "",
-    "text": "The following are a list of resources.\n\n\n\n\n\n\n\n\nTraining\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nElectronic Lab Notebooks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCommunities\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAwesome Scientific Developer’s List\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+    "text": "Welcome to the NIEHS Communities Guide. This guide is intended to direct you to the various NIEHS communities that you can join to connect with other researchers, share knowledge, and collaborate on projects."
   },
   {
-    "objectID": "development/r.html",
-    "href": "development/r.html",
-    "title": "R Programming Language",
+    "objectID": "resources/communities.html#introduction",
+    "href": "resources/communities.html#introduction",
+    "title": "Communities",
     "section": "",
-    "text": "R is a programming language and environment for statistical computing and graphics. It is widely used in academia and industry for data analysis, visualization, and statistical modeling. R provides a wide variety of statistical and graphical techniques, making it a powerful tool for researchers and data scientists."
+    "text": "Welcome to the NIEHS Communities Guide. This guide is intended to direct you to the various NIEHS communities that you can join to connect with other researchers, share knowledge, and collaborate on projects."
   },
   {
-    "objectID": "development/r.html#introduction",
-    "href": "development/r.html#introduction",
-    "title": "R Programming Language",
+    "objectID": "resources/communities.html#listservs",
+    "href": "resources/communities.html#listservs",
+    "title": "Communities",
+    "section": "ListServs",
+    "text": "ListServs\n\nAI@LIST.NIH.GOV: This listserv is for researchers interested in artificial intelligence and machine learning, run by the NIH AI Interest Group.\nAI-CLUB@LIST.NIH.GOV: Official list for AI Club. Subscribe for calendar invites to our AI Club journal clubs, workshops, and seminars, as well as other AI-related events and news on NIH Bethesda campus.\nAPSIG@LIST.NIH.GOV: The purpose of the NIH Artificial Intelligence (AI) Interest Group (AIIG), is to foster communication among the scientists of NIH, FDA and other agencies with diverse backgrounds who have a common interest in the development of artificial intelligence for the improve medical treatments. Topic include but not limit to artificial intelligence (AI), neural networks (CNN), algorithms, simulation, fuzzy logic, molecular and biological pattern recognition, biomarkers, biosensors, robotic platform technologies (RPT), and remote diagnosis and therapy (RDT). For information about the NIH Artificial Intelligence Interest Group (AIIG), contact Dr. June Lee, MD, Ph.D. at LeeJun@mail.nih.gov.\nARTIFICIAL-INTELLIGENCE@LIST.NIH.GOV: The official mailing list for the Artificial Intelligence - Scientific Interest Group. We promote AI-related events happening on campus and run AI Club - a volunteer-led journal club/workshop/seminar series focused on all AI-related applications and topics in biomedical science.\nATLASSIAN-USERS-GROUP@LIST.NIH.GOV: A list for sharing information about Atlassian products, licensing, and related software, as well as coordinating Atlassian user group meetings.\nATSIG-L@LIST.NIH.GOV: The Advanced Technologies Special Interest Group (ATSIG) is being developed under the auspices of the NIH electronic Research Administration (eRA) initiative and was initially intended to explore technologies that would aid in improving business practices at the NIH. The prime example of that was the use of imaging technology to convert paper applications to electronic format. Since that effort has been successfully accomplished the eRA Advanced Technologies effort has been broadened to include many more areas of emphasis that will certainly change the way that work is done in the future. Examples include all aspects of computer technology, the workplace of the future, biometrics, nanotechnology and disability-related technology, to name but a few.\nBCIG-L@LIST.NIH.GOV: The Biomedical Computing Interest Group (BCIG) is an interest group at The National Institutes of Health. The meetings are currently held in the Clinical Center in the Department of Clinical Research Informatics (10/1C290). Meeting days are every other Thursday and the time is 3:00 pm - 5:00 pm. A schedule of speakers is available.\nBD2KUPDATES@LIST.NIH.GOV: The purpose of this list is to send out notices of upcoming workshops and other pertinent information as relating to elements of Big Data to Knowledge BD2K."
+  },
+  {
+    "objectID": "resources/awesome.html",
+    "href": "resources/awesome.html",
+    "title": "Awesome Scientific Developer’s List",
     "section": "",
-    "text": "R is a programming language and environment for statistical computing and graphics. It is widely used in academia and industry for data analysis, visualization, and statistical modeling. R provides a wide variety of statistical and graphical techniques, making it a powerful tool for researchers and data scientists."
+    "text": "In the spirit of ‘awesome lists’, we present the Awesome Scientific Developer’s List. This is a curated list of resources, tools, and other media for scientific developers at NIEHS and beyond. Whether you’re new to scientific programming or a seasoned pro, we hope you’ll find something useful here."
   },
   {
-    "objectID": "development/r.html#key-features-of-r",
-    "href": "development/r.html#key-features-of-r",
-    "title": "R Programming Language",
-    "section": "Key Features of R",
-    "text": "Key Features of R\nR offers several key features that make it a popular choice for statistical computing and data analysis:\n\nData Analysis: R provides a wide range of tools for data manipulation, exploration, and analysis. It supports data structures like vectors, matrices, data frames, and lists, making it easy to work with structured data."
-  },
-  {
-    "objectID": "development/coding.html",
-    "href": "development/coding.html",
-    "title": "Coding",
+    "objectID": "resources/awesome.html#introduction",
+    "href": "resources/awesome.html#introduction",
+    "title": "Awesome Scientific Developer’s List",
     "section": "",
-    "text": "Welcome to the NIEHS Coding Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
-  },
-  {
-    "objectID": "development/coding.html#introduction",
-    "href": "development/coding.html#introduction",
-    "title": "Coding",
-    "section": "",
-    "text": "Welcome to the NIEHS Coding Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
-  },
-  {
-    "objectID": "development/coding.html#languages",
-    "href": "development/coding.html#languages",
-    "title": "Coding",
-    "section": "Languages",
-    "text": "Languages\nThe NIEHS primarily uses Python and R for scientific software development. These languages are widely used in the scientific community and have a large number of libraries and tools available for data analysis, visualization, and machine learning.\n\nPython\nPython is a versatile language that is easy to learn and use. It has a large and active community that develops libraries for a wide range of scientific applications. Some popular libraries for scientific computing in Python include:\n\nNumPy: A library for numerical computing that provides support for large, multi-dimensional arrays and matrices.\nPandas: A library for data manipulation and analysis that provides data structures like DataFrames for working with structured data.\nMatplotlib: A library for creating static, animated, and interactive visualizations in Python.\nScikit-learn: A library for machine learning that provides simple and efficient tools for data mining and data analysis.\n\n\n\nR\nR is a language and environment for statistical computing and graphics. It is widely used in academia and industry for data analysis and visualization. Some popular libraries for scientific computing in R include:\n\nggplot2: A library for creating elegant and informative graphics in R.\ndplyr: A library for data manipulation that provides a grammar of data manipulation.\ntidyr: A library for tidying messy data that provides tools for reshaping and restructuring data.\ncaret: A library for machine learning that provides a consistent interface for training and tuning predictive models.\nshiny: A library for creating interactive web applications with R."
-  },
-  {
-    "objectID": "development/coding.html#version-control",
-    "href": "development/coding.html#version-control",
-    "title": "Coding",
-    "section": "Version Control",
-    "text": "Version Control\nVersion control is an essential tool for managing changes to code and collaborating with colleagues. The NIEHS uses Git, a distributed version control system, to track changes to code and documents. Git allows developers to work on projects simultaneously, track changes, and merge changes from different branches."
-  },
-  {
-    "objectID": "development/python.html",
-    "href": "development/python.html",
-    "title": "Python",
-    "section": "",
-    "text": "Python is a versatile programming language that is widely used in scientific computing, data analysis, machine learning, and web development. Python’s simple and readable syntax, extensive standard library, and vibrant ecosystem of third-party libraries make it an ideal choice for a wide range of applications. In this guide, we will explore the key features of Python, best practices for writing Python code, and resources for learning more about Python programming."
-  },
-  {
-    "objectID": "development/python.html#introduction",
-    "href": "development/python.html#introduction",
-    "title": "Python",
-    "section": "",
-    "text": "Python is a versatile programming language that is widely used in scientific computing, data analysis, machine learning, and web development. Python’s simple and readable syntax, extensive standard library, and vibrant ecosystem of third-party libraries make it an ideal choice for a wide range of applications. In this guide, we will explore the key features of Python, best practices for writing Python code, and resources for learning more about Python programming."
-  },
-  {
-    "objectID": "development/posit-workbench.html",
-    "href": "development/posit-workbench.html",
-    "title": "Posit Workbench",
-    "section": "",
-    "text": "Posit Workbench enables the collaboration, centralized management, metrics, security, and commercial support that professional data science teams need to operate at scale."
-  },
-  {
-    "objectID": "development/posit-workbench.html#introduction",
-    "href": "development/posit-workbench.html#introduction",
-    "title": "Posit Workbench",
-    "section": "",
-    "text": "Posit Workbench enables the collaboration, centralized management, metrics, security, and commercial support that professional data science teams need to operate at scale."
-  },
-  {
-    "objectID": "analysis/scientific-notebooks.html",
-    "href": "analysis/scientific-notebooks.html",
-    "title": "Scientific Notebooks",
-    "section": "",
-    "text": "Scientific notebooks are digital platforms that allow researchers to create, share, and collaborate on computational analyses, data visualizations, and research findings. Scientific notebooks offer several advantages over traditional paper notebooks, including reproducibility, interactivity, and the ability to combine code, text, and multimedia elements in a single document. In this guide, we will explore the benefits of using scientific notebooks and best practices for effectively using these tools in your research workflow."
-  },
-  {
-    "objectID": "analysis/scientific-notebooks.html#introduction",
-    "href": "analysis/scientific-notebooks.html#introduction",
-    "title": "Scientific Notebooks",
-    "section": "",
-    "text": "Scientific notebooks are digital platforms that allow researchers to create, share, and collaborate on computational analyses, data visualizations, and research findings. Scientific notebooks offer several advantages over traditional paper notebooks, including reproducibility, interactivity, and the ability to combine code, text, and multimedia elements in a single document. In this guide, we will explore the benefits of using scientific notebooks and best practices for effectively using these tools in your research workflow."
-  },
-  {
-    "objectID": "analysis/scientific-notebooks.html#types-of-scientific-notebooks",
-    "href": "analysis/scientific-notebooks.html#types-of-scientific-notebooks",
-    "title": "Scientific Notebooks",
-    "section": "Types of Scientific Notebooks",
-    "text": "Types of Scientific Notebooks\nThere are several popular scientific notebook platforms available to researchers, each with its own unique features and capabilities. Some of the most widely used scientific notebook platforms include:\n\nJupyter Notebooks: Jupyter Notebooks are a web-based interactive computing environment that allows users to create and share documents that contain live code, equations, visualizations, and narrative text. Jupyter Notebooks support multiple programming languages, including Python, R, and Julia, and are widely used in data science, machine learning, and scientific research.\nRStudio: RStudio is a powerful integrated development environment (IDE) for R that provides an interactive environment for analyzing and visualizing data. It includes a built-in notebook interface, which allows users to create and share documents that contain live code, equations, visualizations, and narrative text.\nQuarto: Quarto is a modern scientific computing platform that combines the best features of Jupyter Notebooks, R Markdown, and LaTeX. Quarto documents support multiple programming languages, including Python, R, and Julia, and provide a rich set of tools for creating reproducible and interactive research documents.\nGoogle Colab: Google Colab is a cloud-based Jupyter notebook environment that allows users to write and execute Python code in a web browser. It provides free access to GPU and TPU resources, making it ideal for running deep learning models and large-scale data analyses."
-  },
-  {
-    "objectID": "analysis/scientific-notebooks.html#best-practices-for-using-scientific-notebooks",
-    "href": "analysis/scientific-notebooks.html#best-practices-for-using-scientific-notebooks",
-    "title": "Scientific Notebooks",
-    "section": "Best Practices for Using Scientific Notebooks",
-    "text": "Best Practices for Using Scientific Notebooks\nWhen using scientific notebooks in your research workflow, it is important to follow best practices to ensure reproducibility, transparency, and collaboration. Some key best practices for using scientific notebooks include:\n\nVersion Control: Use a version control system like Git to track changes to your notebook documents and collaborate with colleagues.\nDocumentation: Include detailed comments, explanations, and references in your notebook documents to provide context and clarity to your analyses.\nData Management: Store your data in a structured and organized manner, and use relative file paths to reference data files in your notebook documents.\nEnvironment Management: Use virtual environments or containerization tools like Conda or Docker to manage dependencies and ensure reproducibility of your analyses."
-  },
-  {
-    "objectID": "analysis/index.html",
-    "href": "analysis/index.html",
-    "title": " Analysis",
-    "section": "",
-    "text": "Data analysis is the process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making. It is a crucial step in the data science pipeline and is used across a wide range of industries and applications. Data analysis can involve a variety of techniques and tools, from simple data aggregation and visualization to complex statistical modeling and machine learning algorithms. By analyzing data, organizations can gain valuable insights, make data-driven decisions, and uncover hidden patterns and trends.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "analysis/index.html#introduction",
-    "href": "analysis/index.html#introduction",
-    "title": " Analysis",
-    "section": "",
-    "text": "Data analysis is the process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making. It is a crucial step in the data science pipeline and is used across a wide range of industries and applications. Data analysis can involve a variety of techniques and tools, from simple data aggregation and visualization to complex statistical modeling and machine learning algorithms. By analyzing data, organizations can gain valuable insights, make data-driven decisions, and uncover hidden patterns and trends.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "devops/ci-cd.html",
-    "href": "devops/ci-cd.html",
-    "title": "CI/CD",
-    "section": "",
-    "text": "Continuous Integration/Continuous Deployment (CI/CD) is a software development practice that enables developers to automate the process of building, testing, and deploying code changes. CI/CD helps teams deliver software faster, with higher quality, and more predictably. By automating the integration and deployment process, teams can reduce manual errors, improve code quality, and accelerate the delivery of new features and updates."
-  },
-  {
-    "objectID": "devops/ci-cd.html#introduction",
-    "href": "devops/ci-cd.html#introduction",
-    "title": "CI/CD",
-    "section": "",
-    "text": "Continuous Integration/Continuous Deployment (CI/CD) is a software development practice that enables developers to automate the process of building, testing, and deploying code changes. CI/CD helps teams deliver software faster, with higher quality, and more predictably. By automating the integration and deployment process, teams can reduce manual errors, improve code quality, and accelerate the delivery of new features and updates."
-  },
-  {
-    "objectID": "devops/index.html",
-    "href": "devops/index.html",
-    "title": " DevOps",
-    "section": "",
-    "text": "DevOps is a set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery of high-quality software. It aims to improve collaboration between development and operations teams, automate manual processes, and increase the speed and efficiency of software delivery.\n\n\n\n\n\n\n\n\nCI/CD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "analysis/workflows.html",
-    "href": "analysis/workflows.html",
-    "title": "Workflows and Pipelines",
-    "section": "",
-    "text": "Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis.\nFor a list of possible tools and frameworks for building workflows and pipelines, see the  Awesome Pipelines list.\nBelow are some tool and frameworks utilized by NIEHS scientific developers."
-  },
-  {
-    "objectID": "analysis/workflows.html#introduction",
-    "href": "analysis/workflows.html#introduction",
-    "title": "Workflows and Pipelines",
-    "section": "",
-    "text": "Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis.\nFor a list of possible tools and frameworks for building workflows and pipelines, see the  Awesome Pipelines list.\nBelow are some tool and frameworks utilized by NIEHS scientific developers."
-  },
-  {
-    "objectID": "analysis/workflows.html#targets-r-package",
-    "href": "analysis/workflows.html#targets-r-package",
-    "title": "Workflows and Pipelines",
-    "section": "targets R Package",
-    "text": "targets R Package\n\n\nThe targets package is a Make-like pipeline tool for statistics and data science in R. The package skips costly runtime for tasks that are already up to date, orchestrates the necessary computation with implicit parallel computing, and abstracts files as R objects. If all the current output matches the current upstream code and data, then the whole pipeline is up to date, and the results are more trustworthy than otherwise.1\n\nFor documentation surrounding the targets R package, see the The {targets} R package user manual."
-  },
-  {
-    "objectID": "analysis/workflows.html#snakemake-workflow-management-system",
-    "href": "analysis/workflows.html#snakemake-workflow-management-system",
-    "title": "Workflows and Pipelines",
-    "section": "snakemake Workflow Management System",
-    "text": "snakemake Workflow Management System\n\n\nThe Snakemake workflow management system is a tool to create reproducible and scalable data analyses. Workflows are described via a human readable, Python based language. They can be seamlessly scaled to server, cluster, grid and cloud environments, without the need to modify the workflow definition. Finally, Snakemake workflows can entail a description of required software, which will be automatically deployed to any execution environment.2\n\nFor documentation surrounding the snakemake workflow management system, see the Snakemake Documentation."
-  },
-  {
-    "objectID": "analysis/workflows.html#nextflow-data-driven-computational-pipelines",
-    "href": "analysis/workflows.html#nextflow-data-driven-computational-pipelines",
-    "title": "Workflows and Pipelines",
-    "section": "Nextflow Data-driven Computational Pipelines",
-    "text": "Nextflow Data-driven Computational Pipelines\n\n\nNextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages. Its fluent DSL simplifies the implementation and the deployment of complex parallel and reactive workflows on clouds and clusters. .3\n\nFor documentation surrounding the Nextflow data-driven computational pipelines, see the Nextflow Documentation."
-  },
-  {
-    "objectID": "analysis/workflows.html#footnotes",
-    "href": "analysis/workflows.html#footnotes",
-    "title": "Workflows and Pipelines",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\ntargets Homepage↩︎\nsnakemake Homepage↩︎\nNextflow Homepage↩︎"
-  },
-  {
-    "objectID": "analysis/interactivity.html",
-    "href": "analysis/interactivity.html",
-    "title": "Interactivity",
-    "section": "",
-    "text": "Interactivity is an essential feature of modern data analysis and visualization tools. It allows users to explore data, ask questions, and gain insights through direct manipulation and feedback. Interactive tools enable users to interact with data visualizations, models, and dashboards, providing a more engaging and informative experience."
-  },
-  {
-    "objectID": "analysis/interactivity.html#introduction",
-    "href": "analysis/interactivity.html#introduction",
-    "title": "Interactivity",
-    "section": "",
-    "text": "Interactivity is an essential feature of modern data analysis and visualization tools. It allows users to explore data, ask questions, and gain insights through direct manipulation and feedback. Interactive tools enable users to interact with data visualizations, models, and dashboards, providing a more engaging and informative experience."
-  },
-  {
-    "objectID": "analysis/visualization.html",
-    "href": "analysis/visualization.html",
-    "title": "Visualization",
-    "section": "",
-    "text": "Data visualization is the process of representing data in graphical or pictorial form to help people understand complex data patterns and relationships. Visualization is an essential tool for data analysis, as it allows researchers to explore data, identify trends and outliers, and communicate findings to a wider audience. In this guide, we will explore the key concepts and best practices for data visualization, including different types of visualizations, tools for creating visualizations, and strategies for designing effective visualizations."
-  },
-  {
-    "objectID": "analysis/visualization.html#introduction",
-    "href": "analysis/visualization.html#introduction",
-    "title": "Visualization",
-    "section": "",
-    "text": "Data visualization is the process of representing data in graphical or pictorial form to help people understand complex data patterns and relationships. Visualization is an essential tool for data analysis, as it allows researchers to explore data, identify trends and outliers, and communicate findings to a wider audience. In this guide, we will explore the key concepts and best practices for data visualization, including different types of visualizations, tools for creating visualizations, and strategies for designing effective visualizations."
-  },
-  {
-    "objectID": "development/best-practices.html",
-    "href": "development/best-practices.html",
-    "title": "Best Practices",
-    "section": "",
-    "text": "Welcome to the NIEHS Best Practices Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
-  },
-  {
-    "objectID": "development/best-practices.html#introduction",
-    "href": "development/best-practices.html#introduction",
-    "title": "Best Practices",
-    "section": "",
-    "text": "Welcome to the NIEHS Best Practices Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
-  },
-  {
-    "objectID": "development/index.html",
-    "href": "development/index.html",
-    "title": " Development",
-    "section": "",
-    "text": "Development is the process of creating a new website or application. It involves designing, coding, and testing the website or application to ensure that it works as intended. Development can be done by a single person or a team of developers, depending on the size and complexity of the project.\n\n\n\n\n\n\n\n\nR Programming Language\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosit Workbench\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrated Development Environments (IDEs)\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCoding\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nBest Practices\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+    "text": "In the spirit of ‘awesome lists’, we present the Awesome Scientific Developer’s List. This is a curated list of resources, tools, and other media for scientific developers at NIEHS and beyond. Whether you’re new to scientific programming or a seasoned pro, we hope you’ll find something useful here."
   },
   {
     "objectID": "development/ides.html",
@@ -504,53 +308,312 @@
     "text": "PyCharm\nPyCharm is an integrated development environment (IDE) for Python programming. It provides smart code completion, code inspections, on-the-fly error highlighting, and quick-fixes. PyCharm supports web development with Django, scientific development with Anaconda, and data science with Jupyter notebooks. It is available in both free and paid versions."
   },
   {
-    "objectID": "resources/awesome.html",
-    "href": "resources/awesome.html",
-    "title": "Awesome Scientific Developer’s List",
+    "objectID": "development/index.html",
+    "href": "development/index.html",
+    "title": " Development",
     "section": "",
-    "text": "In the spirit of ‘awesome lists’, we present the Awesome Scientific Developer’s List. This is a curated list of resources, tools, and other media for scientific developers at NIEHS and beyond. Whether you’re new to scientific programming or a seasoned pro, we hope you’ll find something useful here."
+    "text": "Development is the process of creating a new website or application. It involves designing, coding, and testing the website or application to ensure that it works as intended. Development can be done by a single person or a team of developers, depending on the size and complexity of the project.\n\n\n\n\n\n\n\n\nR Programming Language\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosit Workbench\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrated Development Environments (IDEs)\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCoding\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nBest Practices\n\n\n\n\n\n\n\n\n\nJul 27, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "resources/awesome.html#introduction",
-    "href": "resources/awesome.html#introduction",
-    "title": "Awesome Scientific Developer’s List",
+    "objectID": "development/best-practices.html",
+    "href": "development/best-practices.html",
+    "title": "Best Practices",
     "section": "",
-    "text": "In the spirit of ‘awesome lists’, we present the Awesome Scientific Developer’s List. This is a curated list of resources, tools, and other media for scientific developers at NIEHS and beyond. Whether you’re new to scientific programming or a seasoned pro, we hope you’ll find something useful here."
+    "text": "Welcome to the NIEHS Best Practices Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
   },
   {
-    "objectID": "resources/communities.html",
-    "href": "resources/communities.html",
-    "title": "Communities",
+    "objectID": "development/best-practices.html#introduction",
+    "href": "development/best-practices.html#introduction",
+    "title": "Best Practices",
     "section": "",
-    "text": "Welcome to the NIEHS Communities Guide. This guide is intended to direct you to the various NIEHS communities that you can join to connect with other researchers, share knowledge, and collaborate on projects."
+    "text": "Welcome to the NIEHS Best Practices Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
   },
   {
-    "objectID": "resources/communities.html#introduction",
-    "href": "resources/communities.html#introduction",
-    "title": "Communities",
+    "objectID": "analysis/visualization.html",
+    "href": "analysis/visualization.html",
+    "title": "Visualization",
     "section": "",
-    "text": "Welcome to the NIEHS Communities Guide. This guide is intended to direct you to the various NIEHS communities that you can join to connect with other researchers, share knowledge, and collaborate on projects."
+    "text": "Data visualization is the process of representing data in graphical or pictorial form to help people understand complex data patterns and relationships. Visualization is an essential tool for data analysis, as it allows researchers to explore data, identify trends and outliers, and communicate findings to a wider audience. In this guide, we will explore the key concepts and best practices for data visualization, including different types of visualizations, tools for creating visualizations, and strategies for designing effective visualizations."
   },
   {
-    "objectID": "resources/communities.html#listservs",
-    "href": "resources/communities.html#listservs",
-    "title": "Communities",
-    "section": "ListServs",
-    "text": "ListServs\n\nAI@LIST.NIH.GOV: This listserv is for researchers interested in artificial intelligence and machine learning, run by the NIH AI Interest Group.\nAI-CLUB@LIST.NIH.GOV: Official list for AI Club. Subscribe for calendar invites to our AI Club journal clubs, workshops, and seminars, as well as other AI-related events and news on NIH Bethesda campus.\nAPSIG@LIST.NIH.GOV: The purpose of the NIH Artificial Intelligence (AI) Interest Group (AIIG), is to foster communication among the scientists of NIH, FDA and other agencies with diverse backgrounds who have a common interest in the development of artificial intelligence for the improve medical treatments. Topic include but not limit to artificial intelligence (AI), neural networks (CNN), algorithms, simulation, fuzzy logic, molecular and biological pattern recognition, biomarkers, biosensors, robotic platform technologies (RPT), and remote diagnosis and therapy (RDT). For information about the NIH Artificial Intelligence Interest Group (AIIG), contact Dr. June Lee, MD, Ph.D. at LeeJun@mail.nih.gov.\nARTIFICIAL-INTELLIGENCE@LIST.NIH.GOV: The official mailing list for the Artificial Intelligence - Scientific Interest Group. We promote AI-related events happening on campus and run AI Club - a volunteer-led journal club/workshop/seminar series focused on all AI-related applications and topics in biomedical science.\nATLASSIAN-USERS-GROUP@LIST.NIH.GOV: A list for sharing information about Atlassian products, licensing, and related software, as well as coordinating Atlassian user group meetings.\nATSIG-L@LIST.NIH.GOV: The Advanced Technologies Special Interest Group (ATSIG) is being developed under the auspices of the NIH electronic Research Administration (eRA) initiative and was initially intended to explore technologies that would aid in improving business practices at the NIH. The prime example of that was the use of imaging technology to convert paper applications to electronic format. Since that effort has been successfully accomplished the eRA Advanced Technologies effort has been broadened to include many more areas of emphasis that will certainly change the way that work is done in the future. Examples include all aspects of computer technology, the workplace of the future, biometrics, nanotechnology and disability-related technology, to name but a few.\nBCIG-L@LIST.NIH.GOV: The Biomedical Computing Interest Group (BCIG) is an interest group at The National Institutes of Health. The meetings are currently held in the Clinical Center in the Department of Clinical Research Informatics (10/1C290). Meeting days are every other Thursday and the time is 3:00 pm - 5:00 pm. A schedule of speakers is available.\nBD2KUPDATES@LIST.NIH.GOV: The purpose of this list is to send out notices of upcoming workshops and other pertinent information as relating to elements of Big Data to Knowledge BD2K."
+    "objectID": "analysis/visualization.html#introduction",
+    "href": "analysis/visualization.html#introduction",
+    "title": "Visualization",
+    "section": "",
+    "text": "Data visualization is the process of representing data in graphical or pictorial form to help people understand complex data patterns and relationships. Visualization is an essential tool for data analysis, as it allows researchers to explore data, identify trends and outliers, and communicate findings to a wider audience. In this guide, we will explore the key concepts and best practices for data visualization, including different types of visualizations, tools for creating visualizations, and strategies for designing effective visualizations."
   },
   {
-    "objectID": "resources/training.html",
-    "href": "resources/training.html",
-    "title": "Training",
+    "objectID": "analysis/interactivity.html",
+    "href": "analysis/interactivity.html",
+    "title": "Interactivity",
     "section": "",
-    "text": "The Missing Semester of Your CS Education | MIT: Master practical tools and skills in computer science, which are often overlooked but are crucial for efficient problem-solving and productivity in academia and scientific development.\nSoftware Carpentry: Learn foundational computing skills for scientific research, including programming, version control, and task automation.\nO’Reilly Books: Access a wide range of technical books and resources on programming, data science, and machine learning.\nNIH Library Training & Events: The NIH Library offers a variety of training sessions on scientific computing, data analysis, and programming."
+    "text": "Interactivity is an essential feature of modern data analysis and visualization tools. It allows users to explore data, ask questions, and gain insights through direct manipulation and feedback. Interactive tools enable users to interact with data visualizations, models, and dashboards, providing a more engaging and informative experience."
   },
   {
-    "objectID": "resources/training.html#introduction",
-    "href": "resources/training.html#introduction",
-    "title": "Training",
+    "objectID": "analysis/interactivity.html#introduction",
+    "href": "analysis/interactivity.html#introduction",
+    "title": "Interactivity",
     "section": "",
-    "text": "The Missing Semester of Your CS Education | MIT: Master practical tools and skills in computer science, which are often overlooked but are crucial for efficient problem-solving and productivity in academia and scientific development.\nSoftware Carpentry: Learn foundational computing skills for scientific research, including programming, version control, and task automation.\nO’Reilly Books: Access a wide range of technical books and resources on programming, data science, and machine learning.\nNIH Library Training & Events: The NIH Library offers a variety of training sessions on scientific computing, data analysis, and programming."
+    "text": "Interactivity is an essential feature of modern data analysis and visualization tools. It allows users to explore data, ask questions, and gain insights through direct manipulation and feedback. Interactive tools enable users to interact with data visualizations, models, and dashboards, providing a more engaging and informative experience."
+  },
+  {
+    "objectID": "analysis/workflows.html",
+    "href": "analysis/workflows.html",
+    "title": "Workflows and Pipelines",
+    "section": "",
+    "text": "Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis.\nFor a list of possible tools and frameworks for building workflows and pipelines, see the  Awesome Pipelines list.\nBelow are some tool and frameworks utilized by NIEHS scientific developers."
+  },
+  {
+    "objectID": "analysis/workflows.html#introduction",
+    "href": "analysis/workflows.html#introduction",
+    "title": "Workflows and Pipelines",
+    "section": "",
+    "text": "Workflows and pipelines are essential tools for automating and streamlining data analysis and computational tasks. They help researchers and developers manage complex processes, track dependencies, and ensure reproducibility. By defining a series of steps and dependencies, workflows and pipelines can be executed sequentially or in parallel, enabling efficient data processing and analysis.\nFor a list of possible tools and frameworks for building workflows and pipelines, see the  Awesome Pipelines list.\nBelow are some tool and frameworks utilized by NIEHS scientific developers."
+  },
+  {
+    "objectID": "analysis/workflows.html#targets-r-package",
+    "href": "analysis/workflows.html#targets-r-package",
+    "title": "Workflows and Pipelines",
+    "section": "targets R Package",
+    "text": "targets R Package\n\n\nThe targets package is a Make-like pipeline tool for statistics and data science in R. The package skips costly runtime for tasks that are already up to date, orchestrates the necessary computation with implicit parallel computing, and abstracts files as R objects. If all the current output matches the current upstream code and data, then the whole pipeline is up to date, and the results are more trustworthy than otherwise.1\n\nFor documentation surrounding the targets R package, see the The {targets} R package user manual."
+  },
+  {
+    "objectID": "analysis/workflows.html#snakemake-workflow-management-system",
+    "href": "analysis/workflows.html#snakemake-workflow-management-system",
+    "title": "Workflows and Pipelines",
+    "section": "snakemake Workflow Management System",
+    "text": "snakemake Workflow Management System\n\n\nThe Snakemake workflow management system is a tool to create reproducible and scalable data analyses. Workflows are described via a human readable, Python based language. They can be seamlessly scaled to server, cluster, grid and cloud environments, without the need to modify the workflow definition. Finally, Snakemake workflows can entail a description of required software, which will be automatically deployed to any execution environment.2\n\nFor documentation surrounding the snakemake workflow management system, see the Snakemake Documentation."
+  },
+  {
+    "objectID": "analysis/workflows.html#nextflow-data-driven-computational-pipelines",
+    "href": "analysis/workflows.html#nextflow-data-driven-computational-pipelines",
+    "title": "Workflows and Pipelines",
+    "section": "Nextflow Data-driven Computational Pipelines",
+    "text": "Nextflow Data-driven Computational Pipelines\n\n\nNextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages. Its fluent DSL simplifies the implementation and the deployment of complex parallel and reactive workflows on clouds and clusters. .3\n\nFor documentation surrounding the Nextflow data-driven computational pipelines, see the Nextflow Documentation."
+  },
+  {
+    "objectID": "analysis/workflows.html#footnotes",
+    "href": "analysis/workflows.html#footnotes",
+    "title": "Workflows and Pipelines",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\ntargets Homepage↩︎\nsnakemake Homepage↩︎\nNextflow Homepage↩︎"
+  },
+  {
+    "objectID": "devops/index.html",
+    "href": "devops/index.html",
+    "title": " DevOps",
+    "section": "",
+    "text": "DevOps is a set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery of high-quality software. It aims to improve collaboration between development and operations teams, automate manual processes, and increase the speed and efficiency of software delivery.\n\n\n\n\n\n\n\n\nCI/CD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "NIEHS Scientific Developers Guide",
+    "section": "",
+    "text": "Copyright 2024 Trey Saddler/NIEHS\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "devops/ci-cd.html",
+    "href": "devops/ci-cd.html",
+    "title": "CI/CD",
+    "section": "",
+    "text": "Continuous Integration/Continuous Deployment (CI/CD) is a software development practice that enables developers to automate the process of building, testing, and deploying code changes. CI/CD helps teams deliver software faster, with higher quality, and more predictably. By automating the integration and deployment process, teams can reduce manual errors, improve code quality, and accelerate the delivery of new features and updates."
+  },
+  {
+    "objectID": "devops/ci-cd.html#introduction",
+    "href": "devops/ci-cd.html#introduction",
+    "title": "CI/CD",
+    "section": "",
+    "text": "Continuous Integration/Continuous Deployment (CI/CD) is a software development practice that enables developers to automate the process of building, testing, and deploying code changes. CI/CD helps teams deliver software faster, with higher quality, and more predictably. By automating the integration and deployment process, teams can reduce manual errors, improve code quality, and accelerate the delivery of new features and updates."
+  },
+  {
+    "objectID": "analysis/index.html",
+    "href": "analysis/index.html",
+    "title": " Analysis",
+    "section": "",
+    "text": "Data analysis is the process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making. It is a crucial step in the data science pipeline and is used across a wide range of industries and applications. Data analysis can involve a variety of techniques and tools, from simple data aggregation and visualization to complex statistical modeling and machine learning algorithms. By analyzing data, organizations can gain valuable insights, make data-driven decisions, and uncover hidden patterns and trends.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "analysis/index.html#introduction",
+    "href": "analysis/index.html#introduction",
+    "title": " Analysis",
+    "section": "",
+    "text": "Data analysis is the process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making. It is a crucial step in the data science pipeline and is used across a wide range of industries and applications. Data analysis can involve a variety of techniques and tools, from simple data aggregation and visualization to complex statistical modeling and machine learning algorithms. By analyzing data, organizations can gain valuable insights, make data-driven decisions, and uncover hidden patterns and trends.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "analysis/scientific-notebooks.html",
+    "href": "analysis/scientific-notebooks.html",
+    "title": "Scientific Notebooks",
+    "section": "",
+    "text": "Scientific notebooks are digital platforms that allow researchers to create, share, and collaborate on computational analyses, data visualizations, and research findings. Scientific notebooks offer several advantages over traditional paper notebooks, including reproducibility, interactivity, and the ability to combine code, text, and multimedia elements in a single document. In this guide, we will explore the benefits of using scientific notebooks and best practices for effectively using these tools in your research workflow."
+  },
+  {
+    "objectID": "analysis/scientific-notebooks.html#introduction",
+    "href": "analysis/scientific-notebooks.html#introduction",
+    "title": "Scientific Notebooks",
+    "section": "",
+    "text": "Scientific notebooks are digital platforms that allow researchers to create, share, and collaborate on computational analyses, data visualizations, and research findings. Scientific notebooks offer several advantages over traditional paper notebooks, including reproducibility, interactivity, and the ability to combine code, text, and multimedia elements in a single document. In this guide, we will explore the benefits of using scientific notebooks and best practices for effectively using these tools in your research workflow."
+  },
+  {
+    "objectID": "analysis/scientific-notebooks.html#types-of-scientific-notebooks",
+    "href": "analysis/scientific-notebooks.html#types-of-scientific-notebooks",
+    "title": "Scientific Notebooks",
+    "section": "Types of Scientific Notebooks",
+    "text": "Types of Scientific Notebooks\nThere are several popular scientific notebook platforms available to researchers, each with its own unique features and capabilities. Some of the most widely used scientific notebook platforms include:\n\nJupyter Notebooks: Jupyter Notebooks are a web-based interactive computing environment that allows users to create and share documents that contain live code, equations, visualizations, and narrative text. Jupyter Notebooks support multiple programming languages, including Python, R, and Julia, and are widely used in data science, machine learning, and scientific research.\nRStudio: RStudio is a powerful integrated development environment (IDE) for R that provides an interactive environment for analyzing and visualizing data. It includes a built-in notebook interface, which allows users to create and share documents that contain live code, equations, visualizations, and narrative text.\nQuarto: Quarto is a modern scientific computing platform that combines the best features of Jupyter Notebooks, R Markdown, and LaTeX. Quarto documents support multiple programming languages, including Python, R, and Julia, and provide a rich set of tools for creating reproducible and interactive research documents.\nGoogle Colab: Google Colab is a cloud-based Jupyter notebook environment that allows users to write and execute Python code in a web browser. It provides free access to GPU and TPU resources, making it ideal for running deep learning models and large-scale data analyses."
+  },
+  {
+    "objectID": "analysis/scientific-notebooks.html#best-practices-for-using-scientific-notebooks",
+    "href": "analysis/scientific-notebooks.html#best-practices-for-using-scientific-notebooks",
+    "title": "Scientific Notebooks",
+    "section": "Best Practices for Using Scientific Notebooks",
+    "text": "Best Practices for Using Scientific Notebooks\nWhen using scientific notebooks in your research workflow, it is important to follow best practices to ensure reproducibility, transparency, and collaboration. Some key best practices for using scientific notebooks include:\n\nVersion Control: Use a version control system like Git to track changes to your notebook documents and collaborate with colleagues.\nDocumentation: Include detailed comments, explanations, and references in your notebook documents to provide context and clarity to your analyses.\nData Management: Store your data in a structured and organized manner, and use relative file paths to reference data files in your notebook documents.\nEnvironment Management: Use virtual environments or containerization tools like Conda or Docker to manage dependencies and ensure reproducibility of your analyses."
+  },
+  {
+    "objectID": "development/posit-workbench.html",
+    "href": "development/posit-workbench.html",
+    "title": "Posit Workbench",
+    "section": "",
+    "text": "Posit Workbench enables the collaboration, centralized management, metrics, security, and commercial support that professional data science teams need to operate at scale."
+  },
+  {
+    "objectID": "development/posit-workbench.html#introduction",
+    "href": "development/posit-workbench.html#introduction",
+    "title": "Posit Workbench",
+    "section": "",
+    "text": "Posit Workbench enables the collaboration, centralized management, metrics, security, and commercial support that professional data science teams need to operate at scale."
+  },
+  {
+    "objectID": "development/python.html",
+    "href": "development/python.html",
+    "title": "Python",
+    "section": "",
+    "text": "Python is a versatile programming language that is widely used in scientific computing, data analysis, machine learning, and web development. Python’s simple and readable syntax, extensive standard library, and vibrant ecosystem of third-party libraries make it an ideal choice for a wide range of applications. In this guide, we will explore the key features of Python, best practices for writing Python code, and resources for learning more about Python programming."
+  },
+  {
+    "objectID": "development/python.html#introduction",
+    "href": "development/python.html#introduction",
+    "title": "Python",
+    "section": "",
+    "text": "Python is a versatile programming language that is widely used in scientific computing, data analysis, machine learning, and web development. Python’s simple and readable syntax, extensive standard library, and vibrant ecosystem of third-party libraries make it an ideal choice for a wide range of applications. In this guide, we will explore the key features of Python, best practices for writing Python code, and resources for learning more about Python programming."
+  },
+  {
+    "objectID": "development/coding.html",
+    "href": "development/coding.html",
+    "title": "Coding",
+    "section": "",
+    "text": "Welcome to the NIEHS Coding Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
+  },
+  {
+    "objectID": "development/coding.html#introduction",
+    "href": "development/coding.html#introduction",
+    "title": "Coding",
+    "section": "",
+    "text": "Welcome to the NIEHS Coding Guide. This guide is intended to provide a set of best practices and guidelines for developing scientific software at NIEHS. The guide is intended to be a living document and will be updated as new best practices emerge."
+  },
+  {
+    "objectID": "development/coding.html#languages",
+    "href": "development/coding.html#languages",
+    "title": "Coding",
+    "section": "Languages",
+    "text": "Languages\nThe NIEHS primarily uses Python and R for scientific software development. These languages are widely used in the scientific community and have a large number of libraries and tools available for data analysis, visualization, and machine learning.\n\nPython\nPython is a versatile language that is easy to learn and use. It has a large and active community that develops libraries for a wide range of scientific applications. Some popular libraries for scientific computing in Python include:\n\nNumPy: A library for numerical computing that provides support for large, multi-dimensional arrays and matrices.\nPandas: A library for data manipulation and analysis that provides data structures like DataFrames for working with structured data.\nMatplotlib: A library for creating static, animated, and interactive visualizations in Python.\nScikit-learn: A library for machine learning that provides simple and efficient tools for data mining and data analysis.\n\n\n\nR\nR is a language and environment for statistical computing and graphics. It is widely used in academia and industry for data analysis and visualization. Some popular libraries for scientific computing in R include:\n\nggplot2: A library for creating elegant and informative graphics in R.\ndplyr: A library for data manipulation that provides a grammar of data manipulation.\ntidyr: A library for tidying messy data that provides tools for reshaping and restructuring data.\ncaret: A library for machine learning that provides a consistent interface for training and tuning predictive models.\nshiny: A library for creating interactive web applications with R."
+  },
+  {
+    "objectID": "development/coding.html#version-control",
+    "href": "development/coding.html#version-control",
+    "title": "Coding",
+    "section": "Version Control",
+    "text": "Version Control\nVersion control is an essential tool for managing changes to code and collaborating with colleagues. The NIEHS uses Git, a distributed version control system, to track changes to code and documents. Git allows developers to work on projects simultaneously, track changes, and merge changes from different branches."
+  },
+  {
+    "objectID": "development/r.html",
+    "href": "development/r.html",
+    "title": "R Programming Language",
+    "section": "",
+    "text": "R is a programming language and environment for statistical computing and graphics. It is widely used in academia and industry for data analysis, visualization, and statistical modeling. R provides a wide variety of statistical and graphical techniques, making it a powerful tool for researchers and data scientists."
+  },
+  {
+    "objectID": "development/r.html#introduction",
+    "href": "development/r.html#introduction",
+    "title": "R Programming Language",
+    "section": "",
+    "text": "R is a programming language and environment for statistical computing and graphics. It is widely used in academia and industry for data analysis, visualization, and statistical modeling. R provides a wide variety of statistical and graphical techniques, making it a powerful tool for researchers and data scientists."
+  },
+  {
+    "objectID": "development/r.html#key-features-of-r",
+    "href": "development/r.html#key-features-of-r",
+    "title": "R Programming Language",
+    "section": "Key Features of R",
+    "text": "Key Features of R\nR offers several key features that make it a popular choice for statistical computing and data analysis:\n\nData Analysis: R provides a wide range of tools for data manipulation, exploration, and analysis. It supports data structures like vectors, matrices, data frames, and lists, making it easy to work with structured data."
+  },
+  {
+    "objectID": "resources/index.html",
+    "href": "resources/index.html",
+    "title": " Resources",
+    "section": "",
+    "text": "The following are a list of resources."
+  },
+  {
+    "objectID": "resources/index.html#tutorials",
+    "href": "resources/index.html#tutorials",
+    "title": " Resources",
+    "section": "Tutorials",
+    "text": "Tutorials\n\n\n\n\n\n\n\n\n\n\nOpenFold Installation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resources/lab-notebooks.html",
+    "href": "resources/lab-notebooks.html",
+    "title": "Electronic Lab Notebooks",
+    "section": "",
+    "text": "Electronic lab notebooks (ELNs) are digital platforms that allow researchers to record, manage, and share their experimental data and research notes. ELNs offer several advantages over traditional paper notebooks, including improved organization, searchability, and collaboration capabilities. In this guide, we will explore the benefits of using ELNs and best practices for effectively using electronic lab notebooks in your research workflow."
+  },
+  {
+    "objectID": "resources/lab-notebooks.html#introduction",
+    "href": "resources/lab-notebooks.html#introduction",
+    "title": "Electronic Lab Notebooks",
+    "section": "",
+    "text": "Electronic lab notebooks (ELNs) are digital platforms that allow researchers to record, manage, and share their experimental data and research notes. ELNs offer several advantages over traditional paper notebooks, including improved organization, searchability, and collaboration capabilities. In this guide, we will explore the benefits of using ELNs and best practices for effectively using electronic lab notebooks in your research workflow."
+  },
+  {
+    "objectID": "resources/lab-notebooks.html#nih-mandate",
+    "href": "resources/lab-notebooks.html#nih-mandate",
+    "title": "Electronic Lab Notebooks",
+    "section": "NIH Mandate",
+    "text": "NIH Mandate\nThe National Institutes of Health (NIH) has issued a mandate requiring all NIH-funded researchers to use electronic lab notebooks for recording and managing their research data.\n\nAs of June 30, 2024, NIH IRP Investigators are required to use only electronic resources to document new and ongoing research, consistent with the NARA/OMB Federal wide Transition to Electronic Records mandate."
+  },
+  {
+    "objectID": "resources/tutorials/openfold-installation.html",
+    "href": "resources/tutorials/openfold-installation.html",
+    "title": "OpenFold Installation",
+    "section": "",
+    "text": "Here are instructions from Wolfgang on how to install OpenFold on Biowulf using Conda/Mamba. Installing it centrally is not helpful if you are going to work with the code. But the inference seemed to work for me so setup seems ok.\nThanks again to Wolfgang for showing us how!"
+  },
+  {
+    "objectID": "resources/tutorials/openfold-installation.html#introduction",
+    "href": "resources/tutorials/openfold-installation.html#introduction",
+    "title": "OpenFold Installation",
+    "section": "Introduction",
+    "text": "Introduction\nIf you don’t have a conda/mamba install on Biowulf yet you can use our installer. It has to be run in an sinteractive session.\n\n\n\n\n\n\nRecommendations\n\n\n\n\nAlways install conda in your data dir, not your home dir\nDon’t install anything into the base environement of your conda\nCreate different environments for every project you work on\nDon’t allow conda to add init code to your ~/.bashrc. If you do make sure to configure your conda not to auto-activate the base environment"
+  },
+  {
+    "objectID": "resources/tutorials/openfold-installation.html#condamamba-setup",
+    "href": "resources/tutorials/openfold-installation.html#condamamba-setup",
+    "title": "OpenFold Installation",
+    "section": "Conda/Mamba Setup",
+    "text": "Conda/Mamba Setup\nLet’s grab a session with a p100 so we can do the whole install and test. If you already have conda/mamba setup, you can skip this next step and just initialize your shell to use the conda install you have.\n$ sinteractive --mem=60g --gres=gpu:p100:1 ...\n[cnxxxx]$ module load mamba_install\n[cnxxxx]$ mamba_install --init-file ~/bin/myconda /data/$USER/conda INFO  mamba-forge directory: '/gpfs/gsfs12/users/apptest3/conda'\nINFO  sanitizing dotfiles\nINFO  installing and configuring mamba-forge\nINFO     running installer\nINFO     configuring\nINFO     replacing hardcoded paths with canonical /data paths\nINFO     updating base environment\nINFO     cleaning up\nINFO     install done\nINFO  setting up /home/apptest3/bin/myconda as a bash init file for the convenient activation of the mambaforge install\nINFO     creating parent directory for init file '/home/apptest3/bin'\nINFO     if '/home/apptest3/bin' is on your $PATH\nINFO        use 'source  myconda ' to activate\nINFO     else\nINFO        use 'source /home/apptest3/bin/myconda'\n[cnxxxx]$ source myconda  ### initialize this shell"
+  },
+  {
+    "objectID": "resources/tutorials/openfold-installation.html#install-openfold",
+    "href": "resources/tutorials/openfold-installation.html#install-openfold",
+    "title": "OpenFold Installation",
+    "section": "Install OpenFold",
+    "text": "Install OpenFold\nInstall OpenFold into your data dir. This example uses /data/$USER/tools/openfold but you can change that to anything that makes sense to you.\n[cnxxxx]$ cd /data/$USER/temp\n[cnxxxx]$ git clone https://github.com/aqlaboratory/openfold\n[cnxxxx]$ cd openfold\nI’m using the HEAD (latest commit on the main branch) of the repo. If you want to use a tagged version you can see what tags are available.\n[cnxxxx]$ git tag\nv.2.1.0\nv0.1.0\nv1.0.0\nv1.0.1\nv2.0.0\nYou can switch to a different version with git checkout v.2.1.0."
+  },
+  {
+    "objectID": "resources/tutorials/openfold-installation.html#potential-issues",
+    "href": "resources/tutorials/openfold-installation.html#potential-issues",
+    "title": "OpenFold Installation",
+    "section": "Potential Issues",
+    "text": "Potential Issues\nThe basic installation instructions failed for a couple of reasons.\nFirst was a problem with channel priority settings. To deal with that I created a new empty environment and applied a configuration change specifically to that (namely flexible channel priority).\n[cnxxxx]$ mamba create -n openfold\n[cnxxxx]$ mamba activate openfold\n(openfold)[cnxxxx]$ conda config --env --set channel_priority flexible\nNext, some changes to the environment.yml file. Note that the patch commands use here docs so they span several lines until (and including) the line that contains the end marker for the here doc (EOF in this case). Basically I want to insert a line that excludes the default conda channels and one that includes the cudatoolkit-dev=11.* package:\n(openfold)[cnxxxx]$ patch &lt;&lt;__EOF__\n--- environment.yml\n+++ environment.yml\n@@ -3,6 +3,7 @@ channels:\n   - conda-forge\n   - bioconda\n   - pytorch\n+  - nodefaults\n dependencies:\n   - python=3.9\n   - libgcc=7.2\n@@ -31,6 +32,7 @@ dependencies:\n   - bioconda::kalign2==2.04\n   - bioconda::mmseqs2\n   - pytorch::pytorch=1.12.*\n+  - cudatoolkit-dev=11.*\n   - pip:\n       - deepspeed==0.12.4\n       - dm-tree==0.1.6\n__EOF__\nTo avoid confusion i attached the modified environment.yml file. Then install all the prerequisites:\n(openfold)[cnxxxx]$ mamba env update -n openfold -f environment.yml\nNext, install third party dependencies and parameters. That script needs some modifications as well.\n(openfold)[cnxxxx]$ patch -p0 &lt;&lt;'__EOF__'\n--- scripts/install_third_party_dependencies.sh\n+++ scripts/install_third_party_dependencies.sh\n@@ -19,6 +19,5 @@ conda env config vars set CUTLASS_PATH=$PWD/cutlass\n\n # This setting is used to fix a worker assignment issue during data loading  conda env config vars set KMP_AFFINITY=none\n-\n-export LIBRARY_PATH=$CONDA_PREFIX/lib:$LIBRARY_PATH\n-export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH\n+conda env config vars set LIBRARY_PATH=$CONDA_PREFIX/lib conda env\n+config vars set LD_LIBRARY_PATH=$CONDA_PREFIX/lib\n__EOF__\n\n(openfold)[cnxxxx]$ scripts/install_third_party_dependencies.sh\nAgain, I attached the modified script. If you want to modify this code, easily you might also want to modify the python setup.py install line to do an editable install which might make it easier for you.This just depends on your personal workflow preferences.\nDeactivate and reactivate to make sure the settings from the conda environment are applied.\n(openfold)[cnxxxx]$ conda deactivate\n(openfold)[cnxxxx]$ conda activate openfold\nDownload the parameters.\n(openfold)[cnxxxx]$ ./scripts/download_openfold_params.sh openfold/resources\n(openfold)[cnxxxx]$ ./scripts/download_alphafold_params.sh openfold/resources\nNow we’re done with the installation. All you need to do when you want to run is to activate the environment and, for ease of use, change into the OpenFold install directory.\nFor this example, we’re already in the install dir and the environment is already activated.\nRun an inference with alphafold parameters, model 1, without precomputed MSAs.\n(openfold)[cnxxxx]$ mkdir -p test_out\n(openfold)[cnxxxx]$ BASE_DATA_DIR=/gs12/users/alphafold2\n\n(openfold)[cnxxxx]$ python3 run_pretrained_openfold.py \\\n    examples/monomer/fasta_dir \\\n    $BASE_DATA_DIR/pdb_mmcif/mmcif_files \\\n    --output_dir test_out \\\n    --config_preset model_1_ptm \\\n    --uniref90_database_path $BASE_DATA_DIR/uniref90/uniref90.fasta \\\n    --mgnify_database_path $BASE_DATA_DIR/mgnify/mgy_clusters.fa \\\n    --pdb70_database_path $BASE_DATA_DIR/pdb70/pdb70 \\\n    --uniclust30_database_path $BASE_DATA_DIR/uniref30/UniRef30_2021_06 \\\n    --bfd_database_path $BASE_DATA_DIR/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \\\n    --model_device \"cuda:0\"\nRun inference with alphafold params with precomputed MSAs - run second model.\npython3 run_pretrained_openfold.py examples/monomer/fasta_dir \\\n  $BASE_DATA_DIR/pdb_mmcif/mmcif_files \\\n  --output_dir test_out \\\n  --use_precomputed_alignments test_out/alignments \\\n  --config_preset model_2_ptm \\\n  --model_device \"cuda:0\"\nNote that this will overwrite the timings.json files. And it doesn’t look like you can specify more than one preset per execution. It is a bit awkward.\nRun inference with openfold params.\nmkdir -p test_out2\npython3 run_pretrained_openfold.py examples/monomer/fasta_dir \\\n  $BASE_DATA_DIR/pdb_mmcif/mmcif_files \\\n  --output_dir test_out2 \\\n  --openfold_checkpoint_path=./openfold/resources/openfold_params/finetuning_ptm_1.pt \\\n  --use_precomputed_alignments test_out/alignments \\\n  --config_preset model_1_ptm \\\n  --model_device \"cuda:0\"\nOpenFold docs aren’t great as far as the existing scripts go, so I’m a little unclear how the config_presets interact with the params.\nGenerally I followed the example here: https://openfold.readthedocs.io/en/latest/Inference.html\nYou might want to separate alignment generation, which does not require GPU, and model inference. Alignment generation in the examples above took most the time."
   },
   {
     "objectID": "software/ssw.html",
@@ -581,32 +644,18 @@
     "text": "Optical character recognition (OCR) is the process of converting images of text into machine-encoded text. This enables the extraction of text from images or documents, which can be useful for a variety of applications, such as digitizing printed documents, extracting text from images for search engines, and more."
   },
   {
-    "objectID": "ai/llm-proxy.html",
-    "href": "ai/llm-proxy.html",
-    "title": "🚅 LiteLLM Proxy",
+    "objectID": "ai/models-python.html",
+    "href": "ai/models-python.html",
+    "title": "Import Chatbot Arena Data",
     "section": "",
-    "text": "The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy."
+    "text": "import pickle\nimport requests\n\n# Define the URL to download the file from\nurl = \"https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/resolve/main/elo_results_20240805.pkl\"\n\ntry:\n    # Download the file\n    response = requests.get(url, allow_redirects=True)\n\n    # Check if the download was successful\n    if response.status_code == 200:\n        print(\"File downloaded successfully.\")\n        \n        # Load the file into a Python object using pickle\n        with open('elo_results_20240805.pkl', 'wb') as file:\n            file.write(response.content)\n            \n        data = pickle.load(open('elo_results_20240805.pkl', 'rb'))\n        \n        # print(data)  # Print the loaded data\n        \n    else:\n        print(f\"Failed to download the file. Status code: {response.status_code}\")\nexcept Exception as e:\n    print(f\"An error occurred: {e}\")\n\nFile downloaded successfully.\n\n\n\nimport pandas as pd\n\nleaderboard_table_df = data['text']['full']['leaderboard_table_df']\n\nleaderboard_table_df.to_csv('elo_results_20240805.csv', index=True)\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "ai/llm-proxy.html#introduction",
-    "href": "ai/llm-proxy.html#introduction",
-    "title": "🚅 LiteLLM Proxy",
+    "objectID": "ai/index.html",
+    "href": "ai/index.html",
+    "title": " Artificial Intelligence",
     "section": "",
-    "text": "The LiteLLM Proxy is a service that allows you to access a variety of language models (LLMs) through a single endpoint. This makes it easy to switch between different models without having to change your code. The LiteLLM Proxy is compatible with a number of popular LLM libraries, including OpenAI, Langchain, and LlamaIndex.\nContact Trey Saddler for access to the LiteLLM Proxy. You will be given a key that will allow you to make requests to the proxy."
-  },
-  {
-    "objectID": "ai/llm-proxy.html#making-requests",
-    "href": "ai/llm-proxy.html#making-requests",
-    "title": "🚅 LiteLLM Proxy",
-    "section": "Making Requests",
-    "text": "Making Requests\nThere are a few different methods for making requests to the LiteLLM Proxy.\n\nOpenAI Python Library LlamaIndex Langchain.py\n\n\nimport openai\n\nclient = openai.OpenAI(\n    api_key=\"sk-1234\", # Format should be 'sk-&lt;your_key&gt;'\n    base_url=\"http://litellm.toxpipe.niehs.nih.gov\" # LiteLLM Proxy is OpenAI compatible, Read More: https://docs.litellm.ai/docs/proxy/user_keys\n)\n\nresponse = client.chat.completions.create(\n    model=\"azure-gpt-4o\", # model to send to the proxy\n    messages = [\n        {\n            \"role\": \"user\",\n            \"content\": \"this is a test request, write a short poem\"\n        }\n    ]\n)\n\nprint(response)\n\n\nimport os, dotenv\n\nfrom llama_index.llms import AzureOpenAI\nfrom llama_index.embeddings import AzureOpenAIEmbedding\nfrom llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext\n\nllm = AzureOpenAI(\n    engine=\"azure-gpt-4o\", # model_name on litellm proxy\n    temperature=0.0,\n    azure_endpoint=\"https://litellm.toxpipe.niehs.nih.gov\", # litellm proxy endpoint\n    api_key=\"sk-1234\", # litellm proxy API Key\n    api_version=\"2024-02-01\",\n)\n\nembed_model = AzureOpenAIEmbedding(\n    deployment_name=\"text-embedding-ada-002\",\n    azure_endpoint=\"http://litellm.toxpipe.niehs.nih.gov\",\n    api_key=\"sk-1234\",\n    api_version=\"2024-02-01\",\n)\n\ndocuments = SimpleDirectoryReader(\"llama_index_data\").load_data()\nservice_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)\nindex = VectorStoreIndex.from_documents(documents, service_context=service_context)\n\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What did the author do growing up?\")\nprint(response)\n\n\nLangchain expects you to set the API key in the environment variable OPENAI_API_KEY. You can find more information about using this library here: https://python.langchain.com/v0.2/docs/tutorials/llm_chain/\nimport getpass\nimport os\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.output_parsers import StrOutputParser\n\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nmodel = ChatOpenAI(model=\"gpt-4\", base_url=\"https://litellm.toxpipe.niehs.nih.gov\")\n\nmessages = [\n    SystemMessage(content=\"Translate the following from English into Italian\"),\n    HumanMessage(content=\"hi!\"),\n]\n\nparser = StrOutputParser()\nresult = model.invoke(messages)\nparser.invoke(result)"
-  },
-  {
-    "objectID": "ai/llm-proxy.html#models-available",
-    "href": "ai/llm-proxy.html#models-available",
-    "title": "🚅 LiteLLM Proxy",
-    "section": "Models Available",
-    "text": "Models Available\nThe following models are available on the LiteLLM Proxy:\n\nOpenAI Models\n\nazure-gpt-4o\nazure-gpt-4-turbo-20240409\nazure-gpt-4-turbo-preview\nazure-gpt-4\ntext-embedding-ada-002\n\n\n\nAnthropic Claude Models\n\nclaude-3-5-sonnet\nclaude-3-haiku\nclaude-3-sonnet\nclaude-3-opus"
+    "text": "🚅 LiteLLM Proxy\n\n\nAccess a variety of language models through a single endpoint using the LiteLLM Proxy.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLangfuse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLLM Models Available\n\n\nCheck currently available models and their stats.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCoding Assistants\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated LLM Evaluation\n\n\nRunning automated large language model (LLM) testing using Promptfoo.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "ai/coding-assistants.html",

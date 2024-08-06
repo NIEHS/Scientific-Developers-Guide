@@ -9,15 +9,6 @@
     ]
   },
   {
-    "listing": "/ai/index.html",
-    "items": [
-      "/ai/llm-proxy.html",
-      "/ai/langfuse.html",
-      "/ai/coding-assistants.html",
-      "/ai/automated-llm-evaluation.html"
-    ]
-  },
-  {
     "listing": "/software/index.html",
     "items": [
       "/software/ssw.html",
@@ -39,12 +30,20 @@
     ]
   },
   {
-    "listing": "/resources/index.html",
+    "listing": "/development/index.html",
     "items": [
-      "/resources/training.html",
-      "/resources/lab-notebooks.html",
-      "/resources/communities.html",
-      "/resources/awesome.html"
+      "/development/r.html",
+      "/development/python.html",
+      "/development/posit-workbench.html",
+      "/development/ides.html",
+      "/development/coding.html",
+      "/development/best-practices.html"
+    ]
+  },
+  {
+    "listing": "/devops/index.html",
+    "items": [
+      "/devops/ci-cd.html"
     ]
   },
   {
@@ -57,20 +56,23 @@
     ]
   },
   {
-    "listing": "/devops/index.html",
+    "listing": "/resources/index.html",
     "items": [
-      "/devops/ci-cd.html"
+      "/resources/training.html",
+      "/resources/tutorials/openfold-installation.html",
+      "/resources/lab-notebooks.html",
+      "/resources/communities.html",
+      "/resources/awesome.html"
     ]
   },
   {
-    "listing": "/development/index.html",
+    "listing": "/ai/index.html",
     "items": [
-      "/development/r.html",
-      "/development/python.html",
-      "/development/posit-workbench.html",
-      "/development/ides.html",
-      "/development/coding.html",
-      "/development/best-practices.html"
+      "/ai/llm-proxy.html",
+      "/ai/langfuse.html",
+      "/ai/models-available.html",
+      "/ai/coding-assistants.html",
+      "/ai/automated-llm-evaluation.html"
     ]
   },
   {

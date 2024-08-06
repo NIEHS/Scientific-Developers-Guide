@@ -2,186 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/data/storage.html</loc>
-    <lastmod>2024-08-01T14:42:04.339Z</lastmod>
+    <lastmod>2024-08-06T14:31:06.348Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/data/sharing.html</loc>
-    <lastmod>2024-08-01T14:42:04.339Z</lastmod>
+    <lastmod>2024-08-06T14:31:06.347Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/data/fair.html</loc>
-    <lastmod>2024-08-01T14:42:04.338Z</lastmod>
+    <lastmod>2024-08-06T14:31:06.346Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/computing/local.html</loc>
-    <lastmod>2024-08-01T14:42:04.338Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.938Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/computing/niehs-hpc.html</loc>
-    <lastmod>2024-08-01T14:42:04.338Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.938Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/deployment/index.html</loc>
-    <lastmod>2024-08-01T23:32:01.245Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.935Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/deployment/github-pages.html</loc>
-    <lastmod>2024-08-01T14:42:04.340Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.934Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/ai/langfuse.html</loc>
-    <lastmod>2024-08-02T00:00:02.721Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.933Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/ai/models-available.html</loc>
-    <lastmod>2024-08-06T13:45:23.686Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.928Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/ai/llm-proxy.html</loc>
-    <lastmod>2024-08-05T21:21:16.992Z</lastmod>
+    <lastmod>2024-08-06T14:31:38.505Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/ai/automated-llm-evaluation.html</loc>
-    <lastmod>2024-08-01T20:36:11.693Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.924Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/software/index.html</loc>
-    <lastmod>2024-08-01T23:34:12.174Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.749Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/index.html</loc>
-    <lastmod>2024-08-01T14:54:26.255Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.748Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/resources/training.html</loc>
-    <lastmod>2024-08-01T14:42:04.348Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.743Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/resources/communities.html</loc>
-    <lastmod>2024-08-01T14:54:26.269Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.743Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/resources/awesome.html</loc>
-    <lastmod>2024-08-01T14:42:04.347Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.741Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/development/ides.html</loc>
-    <lastmod>2024-08-01T14:54:26.253Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.740Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/development/index.html</loc>
-    <lastmod>2024-08-01T23:32:52.104Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.739Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/development/best-practices.html</loc>
-    <lastmod>2024-08-01T14:42:04.341Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.737Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/analysis/visualization.html</loc>
-    <lastmod>2024-08-01T14:42:04.337Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.735Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/analysis/interactivity.html</loc>
-    <lastmod>2024-08-01T14:42:04.337Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.733Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/analysis/workflows.html</loc>
-    <lastmod>2024-08-01T23:29:56.830Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.732Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/devops/index.html</loc>
-    <lastmod>2024-08-01T23:33:17.008Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.729Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/LICENSE.html</loc>
-    <lastmod>2024-08-06T13:38:58.276Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.727Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/devops/ci-cd.html</loc>
-    <lastmod>2024-08-01T14:42:04.343Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.729Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/analysis/index.html</loc>
-    <lastmod>2024-08-01T23:10:25.696Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.732Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/analysis/scientific-notebooks.html</loc>
-    <lastmod>2024-08-01T14:42:04.337Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.735Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/development/posit-workbench.html</loc>
-    <lastmod>2024-08-01T14:42:04.342Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.737Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/development/python.html</loc>
-    <lastmod>2024-08-01T14:42:04.343Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.738Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/development/coding.html</loc>
-    <lastmod>2024-08-01T14:42:04.341Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.739Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/development/r.html</loc>
-    <lastmod>2024-08-01T14:42:04.343Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.740Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/resources/index.html</loc>
-    <lastmod>2024-08-06T13:33:02.087Z</lastmod>
+    <lastmod>2024-08-06T14:38:24.460Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/resources/lab-notebooks.html</loc>
-    <lastmod>2024-08-01T14:42:04.348Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.743Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/resources/tutorials/openfold-installation.html</loc>
-    <lastmod>2024-08-06T14:24:29.236Z</lastmod>
+    <lastmod>2024-08-06T14:40:53.837Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/software/ssw.html</loc>
-    <lastmod>2024-08-01T14:42:04.349Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.749Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/software/ocr.html</loc>
-    <lastmod>2024-08-01T14:42:04.349Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.749Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/ai/models-python.html</loc>
-    <lastmod>2024-08-06T13:27:52.412Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.924Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/ai/index.html</loc>
-    <lastmod>2024-08-06T13:45:58.184Z</lastmod>
+    <lastmod>2024-08-06T14:31:38.504Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/ai/coding-assistants.html</loc>
-    <lastmod>2024-08-01T20:33:27.570Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.931Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/deployment/publishing.html</loc>
-    <lastmod>2024-08-01T14:42:04.340Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.934Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/deployment/posit-connect.html</loc>
-    <lastmod>2024-08-01T14:42:04.340Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.934Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/deployment/cloud.html</loc>
-    <lastmod>2024-08-01T14:42:04.339Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.935Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/computing/index.html</loc>
-    <lastmod>2024-08-01T23:31:03.754Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.938Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/computing/biowulf.html</loc>
-    <lastmod>2024-08-01T23:36:52.125Z</lastmod>
+    <lastmod>2024-08-06T14:31:05.939Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/data/index.html</loc>
-    <lastmod>2024-08-01T23:31:37.580Z</lastmod>
+    <lastmod>2024-08-06T14:31:06.346Z</lastmod>
   </url>
   <url>
     <loc>https://NIEHS.github.io/Scientific-Developers-Guide/data/databases.html</loc>
-    <lastmod>2024-08-01T14:42:04.338Z</lastmod>
+    <lastmod>2024-08-06T14:31:06.347Z</lastmod>
   </url>
 </urlset>

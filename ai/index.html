@@ -197,8 +197,14 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -227,9 +233,12 @@ window.Quarto = {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can simulate human cognitive processes. These machines are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. AI technologies have the potential to revolutionize industries, improve efficiency, and enhance human capabilities in various domains.</p>
 <div id="listing-ai-introduction" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1722892876992" data-listing-reading-time-sort="2" data-listing-word-count-sort="351">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1722954698505" data-listing-reading-time-sort="2" data-listing-word-count-sort="375">
 <a href="../ai/llm-proxy.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -251,7 +260,7 @@ Access a variety of language models through a single endpoint using the LiteLLM 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1722556802721" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1722954665933" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
 <a href="../ai/langfuse.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -273,7 +282,7 @@ ToxPipe Langfuse Dashboard
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1722951923686" data-listing-reading-time-sort="4" data-listing-word-count-sort="633">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1722954665928" data-listing-reading-time-sort="4" data-listing-word-count-sort="633">
 <a href="../ai/models-available.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -293,7 +302,32 @@ Check currently available models and their stats.
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1722544407570" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1722954665924" data-listing-reading-time-sort="1" data-listing-word-count-sort="185">
+<a href="../ai/models-python.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Import Chatbot Arena Data
+</h5>
+<div class="card-text listing-description">
+
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im">import</span> pickle</span>
+<span id="cb1-2"><span class="im">import</span> requests</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co"># Define the URL to download the file from</span></span>
+<span id="cb1-5">url <span class="op">=</span> <span class="st">"https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/resolve/main/elo_results_20240…</span></span><span id="cb1-6"></span><span id="cb1-7"><span class="cf"></span></span><span id="cb1-8"><span class="co"></span></span><span id="cb1-9"><span class="op"></span><span class="op"></span><span class="va"></span></span><span id="cb1-10"></span><span id="cb1-11"><span class="co"></span></span><span id="cb1-12"><span class="cf"></span><span class="op"></span><span class="dv"></span></span><span id="cb1-13"><span class="bu"></span><span class="st"></span></span><span id="cb1-14"></span><span id="cb1-15"><span class="co"></span></span><span id="cb1-16"><span class="cf"></span><span class="bu"></span><span class="st"></span><span class="st"></span><span class="im"></span><span class="bu"></span></span><span id="cb1-17"><span class="bu"></span></span><span id="cb1-18"></span><span id="cb1-19"><span class="op"></span><span class="bu"></span><span class="st"></span><span class="st"></span></span><span id="cb1-20"></span><span id="cb1-21"><span class="co"></span></span><span id="cb1-22"></span><span id="cb1-23"><span class="cf"></span></span><span id="cb1-24"><span class="bu"></span><span class="ss"></span><span class="sc"></span><span class="sc"></span><span class="sc"></span><span class="ss"></span></span><span id="cb1-25"><span class="cf"></span><span class="pp"></span><span class="im"></span></span><span id="cb1-26"><span class="bu"></span><span class="ss"></span><span class="sc"></span><span class="sc"></span><span class="ss"></span></span></code></pre></div><div class="cell-output cell-output-stdout"><pre><code></code></pre></div>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1722954665931" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
 <a href="../ai/coding-assistants.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="../media/continue-logo.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -313,7 +347,7 @@ Welcome to the NIEHS Coding Assistants Guide.
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1722544571693" data-listing-reading-time-sort="1" data-listing-word-count-sort="118">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1722954665924" data-listing-reading-time-sort="1" data-listing-word-count-sort="118">
 <a href="../ai/automated-llm-evaluation.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -343,6 +377,7 @@ No matching items
 
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

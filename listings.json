@@ -59,10 +59,10 @@
     "listing": "/resources/index.html",
     "items": [
       "/resources/training.html",
-      "/resources/tutorials/openfold-installation.html",
       "/resources/lab-notebooks.html",
       "/resources/communities.html",
-      "/resources/awesome.html"
+      "/resources/awesome.html",
+      "/resources/tutorials/openfold-installation.html"
     ]
   },
   {
@@ -71,6 +71,7 @@
       "/ai/llm-proxy.html",
       "/ai/langfuse.html",
       "/ai/models-available.html",
+      "/ai/models-python.html",
       "/ai/coding-assistants.html",
       "/ai/automated-llm-evaluation.html"
     ]

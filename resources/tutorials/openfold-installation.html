@@ -302,9 +302,9 @@ Recommendations
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="st">       - deepspeed==0.12.4</span></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="st">       - dm-tree==0.1.6</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="op">__EOF__</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To avoid confusion i attached the modified <code>environment.yml</code> file. Then install all the prerequisites:</p>
+<p>To avoid confusion I attached the modified <a href="openfold-installation/environment.yml"><code>environment.yml</code></a> file. Then install all the prerequisites:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">openfold</span><span class="kw">)</span><span class="ex">[cnxxxx]$</span> mamba env update <span class="at">-n</span> openfold <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Next, install third party dependencies and parameters. That script needs some modifications as well.</p>
+<p>Next, install third party dependencies and parameters. <a href="openfold-installation/install_third_party_dependencies.sh">That script needs some modifications as well</a>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">openfold</span><span class="kw">)</span><span class="ex">[cnxxxx]$</span> patch <span class="at">-p0</span> <span class="op">&lt;&lt;'__EOF__'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">--- scripts/install_third_party_dependencies.sh</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">+++ scripts/install_third_party_dependencies.sh</span></span>

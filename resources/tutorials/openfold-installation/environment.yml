@@ -1,0 +1,47 @@
+name: openfold-env 
+channels:
+  - conda-forge
+  - bioconda
+  - pytorch
+  - nodefaults   ## make sure the defaults channels don't sneak in here
+dependencies:
+  - python=3.9
+  - libgcc=7.2
+  - setuptools=59.5.0
+  - pip
+  - openmm=7.7
+  - pdbfixer
+  - pytorch-lightning
+  - biopython
+  - numpy
+  - pandas
+  - PyYAML==5.4.1
+  - requests
+  - scipy==1.7
+  - tqdm==4.62.2
+  - typing-extensions==4.0
+  - wandb
+  - modelcif==0.7
+  - awscli
+  - ml-collections
+  - aria2
+  - mkl=2024.0
+  - git
+  - bioconda::hmmer==3.3.2
+  - bioconda::hhsuite==3.3.0
+  - bioconda::kalign2==2.04
+  - bioconda::mmseqs2
+  - pytorch::pytorch=1.12.*
+  - cudatoolkit-dev=11.*  ## we want cudatoolkit-dev for the nvcc compiler wrapper
+  - pip:
+      - deepspeed==0.12.4
+      - dm-tree==0.1.6
+      - git+https://github.com/NVIDIA/dllogger.git
+      - git+https://github.com/Dao-AILab/flash-attention.git@5b838a8
+
+########################################################################
+
+To unsubscribe from the ARTIFICIAL-INTELLIGENCE list, click the following link:
+http://list.nih.gov/cgi-bin/wa.exe?SUBED1=ARTIFICIAL-INTELLIGENCE&A=1
+
+########################################################################

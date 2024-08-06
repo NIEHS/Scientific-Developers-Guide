@@ -1,0 +1,219 @@
+---
+title: "OpenFold Installation"
+date-modified: "2024-08-05"
+image: https://openfold.readthedocs.io/en/latest/_images/of_banner.png
+format: 
+  html:
+    code-links:
+      - text: install_dep.sh
+        icon: filetype-sh
+        href: openfold-installation/install_third_party_dependencies.sh
+    other-links: 
+      - text: environment.yml
+        icon: filetype-yml
+        href: openfold-installation/environment.yml
+resources:
+    - openfold-installation/environment.yml
+    - openfold-installation/install_third_party_dependencies.sh
+---
+
+Here are instructions from Wolfgang on how to install [OpenFold](https://github.com/aqlaboratory/openfold) on [Biowulf](https://hpc.nih.gov) using Conda/Mamba. Installing it centrally is not helpful if you are going to work with the code. But the inference seemed to work for me so setup seems ok.
+
+Thanks again to Wolfgang for showing us how!
+
+## Introduction
+
+If you don't have a conda/mamba install on Biowulf yet you can use our installer. It has to be run in an sinteractive session.
+
+::: {.callout-tip title="Recommendations"}
+
+- Always install conda in your `data` dir, not your `home` dir
+- Don't install anything into the base environement of your conda
+- Create different environments for every project you work on
+- Don't allow conda to add init code to your `~/.bashrc`.
+    - If you do make sure to configure your conda not to auto-activate the base environment
+
+:::
+
+## Conda/Mamba Setup
+
+Let's grab a session with a p100 so we can do the whole install and test. If you already have conda/mamba setup, you can skip this next step and just initialize your shell to use the conda install you have.
+
+```bash
+$ sinteractive --mem=60g --gres=gpu:p100:1 ...
+[cnxxxx]$ module load mamba_install
+[cnxxxx]$ mamba_install --init-file ~/bin/myconda /data/$USER/conda INFO  mamba-forge directory: '/gpfs/gsfs12/users/apptest3/conda'
+INFO  sanitizing dotfiles
+INFO  installing and configuring mamba-forge
+INFO     running installer
+INFO     configuring
+INFO     replacing hardcoded paths with canonical /data paths
+INFO     updating base environment
+INFO     cleaning up
+INFO     install done
+INFO  setting up /home/apptest3/bin/myconda as a bash init file for the convenient activation of the mambaforge install
+INFO     creating parent directory for init file '/home/apptest3/bin'
+INFO     if '/home/apptest3/bin' is on your $PATH
+INFO        use 'source  myconda ' to activate
+INFO     else
+INFO        use 'source /home/apptest3/bin/myconda'
+[cnxxxx]$ source myconda  ### initialize this shell
+```
+
+## Install OpenFold
+
+Install OpenFold into your `data` dir. This example uses `/data/$USER/tools/openfold` but you can change that to anything that makes sense to you. 
+
+```bash
+[cnxxxx]$ cd /data/$USER/temp
+[cnxxxx]$ git clone https://github.com/aqlaboratory/openfold
+[cnxxxx]$ cd openfold
+```
+
+I'm using the HEAD (latest commit on the main branch) of the repo. If you want to use a tagged version you can see what tags are available.
+
+```bash
+[cnxxxx]$ git tag
+v.2.1.0
+v0.1.0
+v1.0.0
+v1.0.1
+v2.0.0
+```
+
+You can switch to a different version with `git checkout v.2.1.0`.
+
+## Potential Issues
+
+The basic installation instructions failed for a couple of reasons.
+
+First was a problem with channel priority settings. To deal with that I created a new empty environment and applied a configuration change specifically to that (namely flexible channel priority).
+
+```bash
+[cnxxxx]$ mamba create -n openfold
+[cnxxxx]$ mamba activate openfold
+(openfold)[cnxxxx]$ conda config --env --set channel_priority flexible
+```
+
+Next, some changes to the `environment.yml` file. Note that the patch commands use here `docs` so they span several lines until (and including) the line that contains the end marker for the `here` doc (EOF in this case). Basically I want to insert a line that excludes the default conda channels and one that includes the `cudatoolkit-dev=11.*` package:
+
+
+```bash
+(openfold)[cnxxxx]$ patch <<__EOF__
+--- environment.yml
++++ environment.yml
+@@ -3,6 +3,7 @@ channels:
+   - conda-forge
+   - bioconda
+   - pytorch
++  - nodefaults
+ dependencies:
+   - python=3.9
+   - libgcc=7.2
+@@ -31,6 +32,7 @@ dependencies:
+   - bioconda::kalign2==2.04
+   - bioconda::mmseqs2
+   - pytorch::pytorch=1.12.*
++  - cudatoolkit-dev=11.*
+   - pip:
+       - deepspeed==0.12.4
+       - dm-tree==0.1.6
+__EOF__
+```
+
+To avoid confusion i attached the modified `environment.yml` file. Then install all the prerequisites:
+
+
+```bash
+(openfold)[cnxxxx]$ mamba env update -n openfold -f environment.yml
+```
+
+Next, install third party dependencies and parameters. That script needs some modifications as well.
+
+```bash
+(openfold)[cnxxxx]$ patch -p0 <<'__EOF__'
+--- scripts/install_third_party_dependencies.sh
++++ scripts/install_third_party_dependencies.sh
+@@ -19,6 +19,5 @@ conda env config vars set CUTLASS_PATH=$PWD/cutlass
+
+ # This setting is used to fix a worker assignment issue during data loading  conda env config vars set KMP_AFFINITY=none
+-
+-export LIBRARY_PATH=$CONDA_PREFIX/lib:$LIBRARY_PATH
+-export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
++conda env config vars set LIBRARY_PATH=$CONDA_PREFIX/lib conda env
++config vars set LD_LIBRARY_PATH=$CONDA_PREFIX/lib
+__EOF__
+
+(openfold)[cnxxxx]$ scripts/install_third_party_dependencies.sh
+```
+
+Again, I attached the modified script. If you want to modify this code, easily you might also want to modify the `python setup.py install` line to do an editable install which might make it easier for you.This just depends on your personal workflow preferences.
+
+Deactivate and reactivate to make sure the settings from the conda environment are applied.
+
+```bash
+(openfold)[cnxxxx]$ conda deactivate
+(openfold)[cnxxxx]$ conda activate openfold
+```
+
+Download the parameters.
+
+```bash
+(openfold)[cnxxxx]$ ./scripts/download_openfold_params.sh openfold/resources
+(openfold)[cnxxxx]$ ./scripts/download_alphafold_params.sh openfold/resources
+```
+
+Now we're done with the installation. All you need to do when you want to run is to activate the environment and, for ease of use, change into the OpenFold install directory.
+
+For this example, we're already in the `install` dir and the environment is already activated.
+
+Run an inference with alphafold parameters, model 1, without precomputed MSAs.
+
+```bash
+(openfold)[cnxxxx]$ mkdir -p test_out
+(openfold)[cnxxxx]$ BASE_DATA_DIR=/gs12/users/alphafold2
+
+(openfold)[cnxxxx]$ python3 run_pretrained_openfold.py \
+    examples/monomer/fasta_dir \
+    $BASE_DATA_DIR/pdb_mmcif/mmcif_files \
+    --output_dir test_out \
+    --config_preset model_1_ptm \
+    --uniref90_database_path $BASE_DATA_DIR/uniref90/uniref90.fasta \
+    --mgnify_database_path $BASE_DATA_DIR/mgnify/mgy_clusters.fa \
+    --pdb70_database_path $BASE_DATA_DIR/pdb70/pdb70 \
+    --uniclust30_database_path $BASE_DATA_DIR/uniref30/UniRef30_2021_06 \
+    --bfd_database_path $BASE_DATA_DIR/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
+    --model_device "cuda:0"
+```
+
+Run inference with alphafold params with precomputed MSAs - run second model.
+
+```bash
+python3 run_pretrained_openfold.py examples/monomer/fasta_dir \
+  $BASE_DATA_DIR/pdb_mmcif/mmcif_files \
+  --output_dir test_out \
+  --use_precomputed_alignments test_out/alignments \
+  --config_preset model_2_ptm \
+  --model_device "cuda:0"
+```
+
+Note that this will overwrite the `timings.json` files. And it doesn't look like you can specify more than one preset per execution. It is a bit awkward.
+
+Run inference with openfold params.
+
+```bash
+mkdir -p test_out2
+python3 run_pretrained_openfold.py examples/monomer/fasta_dir \
+  $BASE_DATA_DIR/pdb_mmcif/mmcif_files \
+  --output_dir test_out2 \
+  --openfold_checkpoint_path=./openfold/resources/openfold_params/finetuning_ptm_1.pt \
+  --use_precomputed_alignments test_out/alignments \
+  --config_preset model_1_ptm \
+  --model_device "cuda:0"
+```
+
+OpenFold docs aren't great as far as the existing scripts go, so I'm a little unclear how the `config_presets` interact with the params.
+
+Generally I followed the example here: [https://openfold.readthedocs.io/en/latest/Inference.html](https://openfold.readthedocs.io/en/latest/Inference.html)
+
+You might want to separate alignment generation, which does not require GPU, and model inference. Alignment generation in the examples above took most the time.

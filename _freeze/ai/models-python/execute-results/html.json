@@ -1,0 +1,12 @@
+{
+  "hash": "808d3da8df38dcf5b3a0dfcb359443f8",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Import Chatbot Arena Data\"\nexecute:\n    freeze: auto\n---\n\n::: {#b44a62fe .cell execution_count=1}\n``` {.python .cell-code}\nimport pickle\nimport requests\n\n# Define the URL to download the file from\nurl = \"https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/resolve/main/elo_results_20240805.pkl\"\n\ntry:\n    # Download the file\n    response = requests.get(url, allow_redirects=True)\n\n    # Check if the download was successful\n    if response.status_code == 200:\n        print(\"File downloaded successfully.\")\n        \n        # Load the file into a Python object using pickle\n        with open('elo_results_20240805.pkl', 'wb') as file:\n            file.write(response.content)\n            \n        data = pickle.load(open('elo_results_20240805.pkl', 'rb'))\n        \n        # print(data)  # Print the loaded data\n        \n    else:\n        print(f\"Failed to download the file. Status code: {response.status_code}\")\nexcept Exception as e:\n    print(f\"An error occurred: {e}\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nFile downloaded successfully.\n```\n:::\n:::\n\n\n::: {#8d55a2ab .cell execution_count=2}\n``` {.python .cell-code}\nimport pandas as pd\n\nleaderboard_table_df = data['text']['full']['leaderboard_table_df']\n\nleaderboard_table_df.to_csv('elo_results_20240805.csv', index=True)\n```\n:::\n\n\n",
+    "supporting": [
+      "models-python_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -1,0 +1,124 @@
+---
+title: "LLM Models Available"
+date-modified: "2024-08-05"
+description: "Check currently available models and their stats."
+# image: /media/litellm-logo.avif
+execute: 
+  echo: false
+  warning: false
+  message: false
+  freeze: auto
+---
+
+``` {r libraries}
+library(readr)
+library(dplyr)
+library(gt)
+library(here)
+library(httr2)
+library(dotenv)
+library(purrr)
+library(tibble)
+```
+
+```{r}
+load_dot_env(here(".env"))
+```
+
+``` {r import_models, execute = FALSE}
+model_table <- read_csv("../media/model_table.csv") |>
+    select(provider, model_pretty)
+```
+
+
+
+``` {r}
+model_info_request <- request("https://artificialanalysis.ai/api/data/v1/llm/models") |>
+  req_headers("X-API-Key" = Sys.getenv("ARTIFICIAL_ANALYSIS_API_KEY"))
+model_info <- req_perform(model_info_request)
+```
+
+```{r}
+model_meta <- model_info |>
+    resp_body_json()
+```
+
+```{r}
+model_unlist <- model_meta$data |>
+    map(function(model) {
+        tibble(id = model$id,
+               model_name = model$model_name,
+               model_slug = model$model_slug,
+               quality_index = as.numeric(model$quality_index))
+    }) |>
+    list_rbind()
+```
+
+```{r}
+model_unlist <- model_meta$data |>
+    map(function(model) {
+        tibble(id = coalesce(model$id, "N/A"),
+               model_name = coalesce(model$model_name, "N/A"),
+               model_slug = coalesce(model$model_slug, "N/A"),
+               quality_index = as.numeric(coalesce(model$quality_index, NA)))
+    }) |>
+    list_rbind()
+```
+
+``` {r}
+lmsys_elo <- read.csv(here("elo_results_20240805.csv")) |>
+    rename(model_slug = X)
+```
+
+``` {r}
+model_final <- model_unlist |>
+    left_join(lmsys_elo)
+```
+
+```{r}
+model_flatten <- model_meta$data |>
+    map(function(model) {
+        tibble(
+            id = model$id,
+            model_name = model$model_name,
+            model_slug = model$model_slug,
+            quality_index = as.numeric(model$quality_index),
+            mmlu = as.numeric(model$mmlu),
+            chatbot_arena_elo = as.numeric(model$chatbot_arena_elo),
+            price_1m_blended_3_to_1 = model$price_1m_blended_3_to_1,
+            price_1m_input_tokens = model$price_1m_input_tokens,
+            price_1m_output_tokens = model$price_1m_output_tokens,
+            model_creator_name = model$model_creators$name,
+            model_creator_slug = model$model_creators$slug,
+            median_output_tokens_per_second = model$median_output_tokens_per_second,
+            median_time_to_first_token_seconds = model$median_time_to_first_token_seconds,
+            median_estimated_total_seconds_for_100_output_tokens = model$median_estimated_total_seconds_for_100_output_tokens
+        )
+    }
+    )
+```
+
+```{r generate_table}
+gt(model_table) |>
+    cols_label(
+        model_pretty = "Model",
+        provider = "Provider"
+    ) |>
+    opt_interactive(
+        active = TRUE,
+        use_pagination = TRUE,
+        use_pagination_info = TRUE,
+        use_sorting = TRUE,
+        use_search = TRUE,
+        use_filters = TRUE,
+        use_resizers = FALSE,
+        use_highlight = TRUE,
+        use_compact_mode = FALSE,
+        use_text_wrapping = TRUE,
+        use_page_size_select = TRUE,
+        page_size_default = 10,
+        page_size_values = c(10, 25, 50, 100),
+        pagination_type = c("numbers", "jump", "simple"),
+        height = "auto"
+    )
+```

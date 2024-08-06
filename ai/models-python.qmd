@@ -1,0 +1,42 @@
+---
+title: "Import Chatbot Arena Data"
+execute:
+    freeze: auto
+---
+
+``` {python}
+import pickle
+import requests
+
+# Define the URL to download the file from
+url = "https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/resolve/main/elo_results_20240805.pkl"
+
+try:
+    # Download the file
+    response = requests.get(url, allow_redirects=True)
+
+    # Check if the download was successful
+    if response.status_code == 200:
+        print("File downloaded successfully.")
+        
+        # Load the file into a Python object using pickle
+        with open('elo_results_20240805.pkl', 'wb') as file:
+            file.write(response.content)
+            
+        data = pickle.load(open('elo_results_20240805.pkl', 'rb'))
+        
+        # print(data)  # Print the loaded data
+        
+    else:
+        print(f"Failed to download the file. Status code: {response.status_code}")
+except Exception as e:
+    print(f"An error occurred: {e}")
+```
+
+```{python}
+import pandas as pd
+
+leaderboard_table_df = data['text']['full']['leaderboard_table_df']
+
+leaderboard_table_df.to_csv('elo_results_20240805.csv', index=True)
+```

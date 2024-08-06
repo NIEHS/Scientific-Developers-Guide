@@ -121,14 +121,14 @@ Next, some changes to the `environment.yml` file. Note that the patch commands u
 __EOF__
 ```
 
-To avoid confusion i attached the modified `environment.yml` file. Then install all the prerequisites:
+To avoid confusion I attached the modified [`environment.yml`](openfold-installation/environment.yml) file. Then install all the prerequisites:
 
 
 ```bash
 (openfold)[cnxxxx]$ mamba env update -n openfold -f environment.yml
 ```
 
-Next, install third party dependencies and parameters. That script needs some modifications as well.
+Next, install third party dependencies and parameters. [That script needs some modifications as well](openfold-installation/install_third_party_dependencies.sh).
 
 ```bash
 (openfold)[cnxxxx]$ patch -p0 <<'__EOF__'

@@ -5,11 +5,22 @@ listing:
     contents:
       - "*.qmd"
       - "!index.qmd"
+      - "!tutorials/*.qmd"
     type: grid
     sort: "title desc"
+  - id: tutorials
+    contents:
+      - "tutorials/*.qmd"
+    type: grid
+    sort: "date desc"
 ---
 
 The following are a list of resources.
 
 ::: {#resources}
+:::
+
+## Tutorials
+
+::: {#tutorials}
 :::

@@ -592,7 +592,7 @@
     "href": "resources/tutorials/openfold-installation.html#introduction",
     "title": "OpenFold Installation",
     "section": "Introduction",
-    "text": "Introduction\nIf you don’t have a conda/mamba install on Biowulf yet you can use our installer. It has to be run in an sinteractive session.\n\n\n\n\n\n\nRecommendations\n\n\n\n\nAlways install conda in your data dir, not your home dir\nDon’t install anything into the base environement of your conda\nCreate different environments for every project you work on\nDon’t allow conda to add init code to your ~/.bashrc. If you do make sure to configure your conda not to auto-activate the base environment"
+    "text": "Introduction\nIf you don’t have a conda/mamba install on Biowulf yet you can use our installer. It has to be run in an sinteractive session.\n\n\n\n\n\n\nRecommendations\n\n\n\n\nAlways install conda in your data dir, not your home dir\nDon’t install anything into the base environement of your conda\nCreate different environments for every project you work on\nDon’t allow conda to add init code to your ~/.bashrc.\n\nIf you do make sure to configure your conda not to auto-activate the base environment"
   },
   {
     "objectID": "resources/tutorials/openfold-installation.html#condamamba-setup",

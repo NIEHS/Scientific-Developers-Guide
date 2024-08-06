@@ -180,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#install-openfold" id="toc-install-openfold" class="nav-link" data-scroll-target="#install-openfold">Install OpenFold</a></li>
   <li><a href="#potential-issues" id="toc-potential-issues" class="nav-link" data-scroll-target="#potential-issues">Potential Issues</a></li>
   </ul>
-</nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="openfold-installation/environment.yml"><i class="bi bi-filetype-yml"></i>environment.yml</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="openfold-installation/install_third_party_dependencies.sh"><i class="bi bi-filetype-sh"></i>install_dep.sh</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -229,7 +229,10 @@ Recommendations
 <li>Always install conda in your <code>data</code> dir, not your <code>home</code> dir</li>
 <li>Don’t install anything into the base environement of your conda</li>
 <li>Create different environments for every project you work on</li>
-<li>Don’t allow conda to add init code to your ~/.bashrc. If you do make sure to configure your conda not to auto-activate the base environment</li>
+<li>Don’t allow conda to add init code to your <code>~/.bashrc</code>.
+<ul>
+<li>If you do make sure to configure your conda not to auto-activate the base environment</li>
+</ul></li>
 </ul>
 </div>
 </div>

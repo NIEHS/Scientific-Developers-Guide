@@ -1,0 +1,3 @@
+[submodule ".github/workflows/quarto-actions"]
+	path = .github/workflows/quarto-actions
+	url = https://github.com/quarto-dev/quarto-actions

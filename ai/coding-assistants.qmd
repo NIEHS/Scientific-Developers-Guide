@@ -1,6 +1,6 @@
 ---
 title: "Coding Assistants"
-date-modified: "2024-07-27"
+date-modified: "2025-01-17"
 ---
 
 ## Introduction
@@ -29,14 +29,11 @@ You can add new models to the Continue extension by using the following format:
 {
   "models": [
     {
-      "title": "Llama 3.1",
-      "provider": "ollama",
-      "model": "llama3.1"
-    },
-    {
-      "title": "Ollama",
-      "provider": "ollama",
-      "model": "AUTODETECT"
+      "title": "OpenAI GPT-4o",
+      "provider": "openai",
+      "model": "azure-gpt-4o",
+      "apiKey": "sk_1234",
+      "apiBase": "https://litellm.toxpipe.niehs.nih.gov/"
     },
     {
       "title": "Claude 3.5 Sonnet",
@@ -44,7 +41,12 @@ You can add new models to the Continue extension by using the following format:
       "model": "claude-3-5-sonnet",
       "apiKey": "sk_1234",
       "apiBase": "https://litellm.toxpipe.niehs.nih.gov/"
-    }
+    },
+    {
+      "title": "Ollama",
+      "provider": "ollama",
+      "model": "AUTODETECT"
+    },
     ],
   "tabAutocompleteModel": [
     {
@@ -67,4 +69,14 @@ You can add new models to the Continue extension by using the following format:
 
 ### Tab Autocomplete Models
 
+Tab autocomplete models require locally-available LLMs. The easiest way is to install [`ollama`](https://ollama.com/download), then install the various local models that you will need. It is recommended to use the installer from ollama, as this installer will start up the ollama server in the background on startup. If you use the installer from a package manager like `apt`, `yum`, or `brew`, there will be additional steps required to get the ollama server to start on startup.
+
 You'll usually want to stick with a smaller model for the speed. StarCoder 2 is a great model, but there are many others.
+
+```{bash}
+ollama pull starcoder2:3b
+```
+
+### Vector embedding models
+
+Using a model like `nomic-embed-text` is a great way to have vector embeddings of your code and relevant documentation. This model is small and can be run locally on most computers. The easiest way to deploy it is to install `ollama` then run `ollama pull nomic-embed-text`.

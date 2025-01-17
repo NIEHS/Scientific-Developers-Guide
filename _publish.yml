@@ -1,6 +1,6 @@
 - source: project
   connect:
-    - id: f525dcd7-d4a0-4f8b-aa96-aad47152ef20
-      url: 'https://rstudio.niehs.nih.gov:443/content/f525dcd7-d4a0-4f8b-aa96-aad47152ef20/'
     - id: bb640a9c-b037-4f3a-9671-7486bc38df72
       url: 'https://dev.posit.niehs.nih.gov/content/bb640a9c-b037-4f3a-9671-7486bc38df72/'
+    - id: 5c339179-735a-4aab-a57d-81cfab0b0410
+      url: 'https://rstudio.niehs.nih.gov/content/5c339179-735a-4aab-a57d-81cfab0b0410/'

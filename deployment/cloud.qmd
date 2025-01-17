@@ -1,10 +1,13 @@
 ---
 title: "Cloud Computing"
+date-modified: "2024-08-09"
 ---
+
+![]()
 
 ## Introduction
 
-This page provides an overview of cloud computing services available at NIEHS. Cloud computing offers researchers a flexible and scalable platform for running computational analyses, storing data, and collaborating with colleagues.
+This page provides an overview of cloud computing services available at NIH. Cloud computing offers researchers a flexible and scalable platform for running computational analyses, storing data, and collaborating with colleagues.
 
 ## NIH Cloud Lab
 

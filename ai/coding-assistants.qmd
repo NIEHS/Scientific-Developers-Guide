@@ -13,6 +13,58 @@ This guide is intended to provide a set of best practices and guidelines for usi
 
 GitHub Copilot is an AI-powered code completion tool that helps you write code faster and with fewer errors. It is based on the OpenAI Codex model and is available as a plugin for Visual Studio Code and other popular code editors. GitHub Copilot can generate code snippets, complete function calls, and provide context-aware suggestions to improve your coding experience.
 
-## ![](/media/continue-logo.png){height=1em} Continue.dev VSCode Plugin
+## ![](/media/continue-logo.png){height=1em} Continue.dev VSCode Extension
 
 [Continue](https://docs.continue.dev/intro) is an open-source AI code assistant. You can connect any models and any context to build custom autocomplete and chat experiences inside [VS Code](/development/ides.qmd#visual-studio-code) and JetBrains.
+
+### Installation
+
+Install the extension from the Visual Studio Code Extension manager, or from the link on the [Continue](https://docs.continue.dev/) website.
+
+### Configuration
+
+You can add new models to the Continue extension by using the following format:
+
+```yaml
+{
+  "models": [
+    {
+      "title": "Llama 3.1",
+      "provider": "ollama",
+      "model": "llama3.1"
+    },
+    {
+      "title": "Ollama",
+      "provider": "ollama",
+      "model": "AUTODETECT"
+    },
+    {
+      "title": "Claude 3.5 Sonnet",
+      "provider": "openai",
+      "model": "claude-3-5-sonnet",
+      "apiKey": "sk_1234",
+      "apiBase": "https://litellm.toxpipe.niehs.nih.gov/"
+    }
+    ],
+  "tabAutocompleteModel": [
+    {
+      "title": "Starcoder 2",
+      "provider": "ollama",
+      "model": "starcoder2:3b"
+    },
+    {
+      "title": "qwen2-0.5b",
+      "provider": "ollama",
+      "model": "qwen2:0.5b"
+    }
+  ],
+"embeddingsProvider": {
+    "provider": "ollama",
+    "model": "nomic-embed-text"
+  }
+}
+```
+
+### Tab Autocomplete Models
+
+You'll usually want to stick with a smaller model for the speed. StarCoder 2 is a great model, but there are many others.

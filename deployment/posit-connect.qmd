@@ -1,7 +1,10 @@
 ---
 title: "Posit Connect"
+image: /media/logos/posit-connect-logo.svg
 ---
+
+![](/media/logos/posit-connect-logo.svg)
 
 ## Introduction
 
-Posit Connect is a publishing platform for the work your teams create in R and Python. It is designed to help you deploy and share scientific content, such as reports, articles, and presentations. With Posit Connect, you can easily create and publish interactive documents, dashboards, and websites that showcase your data, code, and results.
+[Posit Connect]() is a publishing platform for the work your teams create in R and Python. It is designed to help you deploy and share scientific content, such as reports, articles, and presentations. With Posit Connect, you can easily create and publish interactive documents, dashboards, and websites that showcase your data, code, and results.
